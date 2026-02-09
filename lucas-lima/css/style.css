@@ -415,7 +415,7 @@ button {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding: 70px 40px 40px 42px;
 }
 
 .hero-bg {
