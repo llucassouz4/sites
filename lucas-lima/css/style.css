@@ -201,6 +201,7 @@ button {
     background-color: var(--color-primary);
     color: white;
     box-shadow: var(--shadow-md);
+    width: 100%;
 }
 
 .btn-primary:hover {
@@ -415,7 +416,7 @@ button {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding: 70px 40px 40px 42px;
+    padding-top: 80px;
 }
 
 .hero-bg {
@@ -454,10 +455,12 @@ button {
     position: relative;
     z-index: 10;
     padding: var(--spacing-2xl) 0;
+    width: 90%;
 }
 
 .hero-text {
     max-width: 700px;
+    margin: 0 auto;
 }
 
 .hero-title {
