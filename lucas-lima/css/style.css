@@ -201,7 +201,6 @@ button {
     background-color: var(--color-primary);
     color: white;
     box-shadow: var(--shadow-md);
-    width: 100%;
 }
 
 .btn-primary:hover {
@@ -391,6 +390,7 @@ button {
     .mobile-menu-btn {
         display: none;
     }
+
 }
 
 /* Mobile menu */
@@ -416,7 +416,7 @@ button {
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 80px;   
 }
 
 .hero-bg {
@@ -517,6 +517,7 @@ button {
     display: flex;
     justify-content: center;
     padding-top: var(--spacing-sm);
+    margin: 20px;
 }
 
 .scroll-dot {
