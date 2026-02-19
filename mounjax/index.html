@@ -1,39 +1,288 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/f57423182f.js" crossorigin="anonymous"></script>
-    <title>Mounjax</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mounjax - Gotinhas que auxiliam na queima de gordura</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header id="hero-container">
-        <div class="hero">
-            <h1>Gotinhas que auxiliam<span> a queima de gordura</span></h1>
-            <p>Chega de evitar fotos ou se esconder em roupas largas. Com Mounjax, emagreça de forma saudável e recupere a alegria de viver!</p>
+
+  <!-- Hero -->
+  <section class="hero-bg">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="badge-discount">🔥 OFERTA LIMITADA</span>
+        <h1>Gotinhas que auxiliam na <span class="text-gold">queima de gordura</span></h1>
+        <p class="hero-desc">A fórmula termogênica 100% natural que acelera seu metabolismo e potencializa a perda de peso de forma saudável.</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-box"><div class="countdown-value" id="hours">02</div><div class="countdown-label">Horas</div></div>
+          <div class="countdown-box"><div class="countdown-value" id="minutes">47</div><div class="countdown-label">Min</div></div>
+          <div class="countdown-box"><div class="countdown-value" id="seconds">33</div><div class="countdown-label">Seg</div></div>
         </div>
-        <div class="button-hero">
-           <a href="#">
-            <button>
-                <i class="fa-solid fa-cart-plus"></i>
-                Comprar Agora
-            </button>
-           </a>
-           <ul>
-            <div id="icons">
-                <li><i class="fa-solid fa-lock"></i> SEUS DADOS ESTÃO PROTEGIDOS</li>
-                           </ul>
-                           <ul>
-                   <li><i class="fa-solid fa-credit-card"></i>ACEITAMOS TODOS CARTÕES DE CREDITO</li>
-                           </ul>
-                           <ul>
-                   <li><i class="fa-solid fa-user-shield"></i>COMPRA 100% SEGURA</li>
-                           </ul>
-            </div>
+        <a href="#ofertas" class="cta-btn pulse-animation">QUERO EMAGRECER AGORA →</a>
+        <p class="secure-text">🔒 Compra 100% segura</p>
+      </div>
+      <div class="hero-image">
+        <img src="img/2025-05-21 Mounjax-64.jpg" alt="Mounjax" class="float-animation product-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Bar -->
+  <section class="social-bar">
+    <div class="container social-bar-content">
+      <span>✅ +50.000 clientes satisfeitas</span>
+      <span>✅ Fórmula 100% natural</span>
+      <span>✅ Aprovado pela ANVISA</span>
+      <span>✅ Frete grátis</span>
+    </div>
+  </section>
+
+  <!-- Transformations -->
+  <section class="section-light">
+    <div class="container text-center">
+      <h2>Veja as mudanças que <span class="text-purple">você pode viver!</span></h2>
+      <p class="section-subtitle">Resultados reais de pessoas reais que transformaram suas vidas</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="avatar">J</div>
+          <p class="card-name">Juliana M.</p>
+          <p class="card-result">-12kg em 3 meses</p>
+          <p class="card-quote">"Me sinto uma pessoa nova!"</p>
+          <div class="stars">★★★★★</div>
         </div>
-        <div class="img-hero">
-            <img src="" alt="">
+        <div class="card">
+          <div class="avatar">F</div>
+          <p class="card-name">Fernanda L.</p>
+          <p class="card-result">-8kg em 2 meses</p>
+          <p class="card-quote">"Autoestima lá em cima!"</p>
+          <div class="stars">★★★★★</div>
         </div>
-    </header>
+        <div class="card">
+          <div class="avatar">P</div>
+          <p class="card-name">Patrícia R.</p>
+          <p class="card-result">-15kg em 4 meses</p>
+          <p class="card-quote">"Melhor decisão da minha vida!"</p>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Special Offer -->
+  <section class="hero-bg section-offer">
+    <div class="container offer-content">
+      <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80" alt="Kit Mounjax" class="offer-img">
+      <div class="offer-text">
+        <h2>Oferta especial <span class="text-gold">para você!</span></h2>
+        <p>Aproveite o desconto exclusivo e comece sua transformação hoje mesmo.</p>
+        <div class="price-line">
+          <span class="price-old">R$97,00</span>
+          <span class="price-new">R$19,78</span>
+        </div>
+        <a href="#ofertas" class="cta-btn pulse-animation">GARANTIR MINHA OFERTA →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Scale -->
+  <section class="section-white">
+    <div class="container text-center">
+      <h2>Por que a balança <span class="text-purple">não colabora?</span></h2>
+      <p class="section-subtitle">O metabolismo lento é o principal vilão. Mounjax age diretamente no metabolismo, acelerando a queima de gordura de forma natural.</p>
+      <div class="grid-3">
+        <div class="card-muted">
+          <div class="card-icon">🔥</div>
+          <h3>Metabolismo Lento</h3>
+          <p>Após os 25 anos, o metabolismo desacelera progressivamente.</p>
+        </div>
+        <div class="card-muted">
+          <div class="card-icon">😰</div>
+          <h3>Acúmulo de Gordura</h3>
+          <p>Gordura localizada se torna cada vez mais difícil de eliminar.</p>
+        </div>
+        <div class="card-muted">
+          <div class="card-icon">💊</div>
+          <h3>Solução Natural</h3>
+          <p>Mounjax reativa seu metabolismo com ingredientes termogênicos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ingredients -->
+  <section class="section-light">
+    <div class="container text-center">
+      <h2>3 chaves essenciais da <span class="text-purple">formulação Mounjax</span></h2>
+      <p class="section-subtitle">Ingredientes selecionados com alto poder termogênico</p>
+      <div class="grid-3">
+        <div class="card ingredient-card">
+          <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=200&q=80" alt="Laranja Moro" class="ingredient-img">
+          <h3>Laranja Moro</h3>
+          <p>Rica em antocianinas, acelera o metabolismo e reduz medidas abdominais.</p>
+        </div>
+        <div class="card ingredient-card">
+          <img src="https://images.unsplash.com/photo-1556881286-fc6915169721?w=200&q=80" alt="Chá Verde" class="ingredient-img">
+          <h3>Chá Verde</h3>
+          <p>Poderoso termogênico natural que potencializa a queima calórica.</p>
+        </div>
+        <div class="card ingredient-card">
+          <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=200&q=80" alt="Cúrcuma" class="ingredient-img">
+          <h3>Cúrcuma</h3>
+          <p>Anti-inflamatório natural que auxilia na redução de inchaço e retenção.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Use -->
+  <section class="hero-bg section-howto">
+    <div class="container offer-content">
+      <div class="howto-img-wrap">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Resultado" class="howto-img">
+      </div>
+      <div class="offer-text">
+        <h2>Transforme sua <span class="text-gold">rotina</span> em resultados</h2>
+        <div class="steps">
+          <div class="step"><div class="step-number">1</div><p>Aplique 12 gotas sob a língua pela manhã</p></div>
+          <div class="step"><div class="step-number">2</div><p>Mantenha uma alimentação equilibrada</p></div>
+          <div class="step"><div class="step-number">3</div><p>Veja os resultados em poucas semanas</p></div>
+        </div>
+        <a href="#ofertas" class="cta-btn">COMEÇAR AGORA →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section-light" id="ofertas">
+    <div class="container text-center">
+      <h2>Por tempo <span class="text-purple">limitadíssimo</span></h2>
+      <p class="section-subtitle">Escolha o melhor plano para sua transformação</p>
+      <div class="grid-4">
+        <div class="price-card">
+          <h3>1 frasco</h3>
+          <p class="price-duration">30 dias de tratamento</p>
+          <p class="price-from">De R$97,00</p>
+          <div class="price-value">R$<strong>37,85</strong></div>
+          <p class="price-each">cada frasco</p>
+          <ul class="price-features"><li>✓ Frete Grátis</li><li>✓ Garantia 30 dias</li><li>✓ Entrega discreta</li></ul>
+          <a href="#" class="cta-btn">COMPRAR</a>
+        </div>
+        <div class="price-card">
+          <h3>2 frascos</h3>
+          <p class="price-duration">60 dias de tratamento</p>
+          <p class="price-from">De R$194,00</p>
+          <div class="price-value">R$<strong>24,80</strong></div>
+          <p class="price-each">cada frasco</p>
+          <ul class="price-features"><li>✓ Frete Grátis</li><li>✓ Garantia 30 dias</li><li>✓ Entrega discreta</li></ul>
+          <a href="#" class="cta-btn">COMPRAR</a>
+        </div>
+        <div class="price-card featured">
+          <span class="badge-discount">MAIS VENDIDO</span>
+          <h3>3 frascos</h3>
+          <p class="price-duration">90 dias de tratamento</p>
+          <p class="price-from">De R$291,00</p>
+          <div class="price-value">R$<strong>19,78</strong></div>
+          <p class="price-each">cada frasco</p>
+          <ul class="price-features"><li>✓ Frete Grátis</li><li>✓ Garantia 30 dias</li><li>✓ Entrega discreta</li></ul>
+          <a href="#" class="cta-btn">COMPRAR</a>
+        </div>
+        <div class="price-card">
+          <span class="badge-discount">MELHOR CUSTO</span>
+          <h3>5 frascos</h3>
+          <p class="price-duration">150 dias de tratamento</p>
+          <p class="price-from">De R$485,00</p>
+          <div class="price-value">R$<strong>14,76</strong></div>
+          <p class="price-each">cada frasco</p>
+          <ul class="price-features"><li>✓ Frete Grátis</li><li>✓ Garantia 30 dias</li><li>✓ Entrega discreta</li></ul>
+          <a href="#" class="cta-btn">COMPRAR</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section-white">
+    <div class="container text-center">
+      <h2>Avaliações de <span class="text-purple">Clientes</span></h2>
+      <div class="rating-summary">
+        <span class="rating-number">4.8</span>
+        <span class="stars">★★★★★</span>
+        <span class="rating-count">(2.847 avaliações)</span>
+      </div>
+      <div class="grid-3">
+        <div class="card review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Perdi 8kg em 2 meses! Nunca pensei que algo tão simples pudesse funcionar."</p>
+          <p class="review-name">Maria S.</p>
+          <span class="verified">✓ Compra verificada</span>
+        </div>
+        <div class="card review-card">
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"Já testei vários produtos e esse foi o único que realmente fez diferença. Super recomendo!"</p>
+          <p class="review-name">Ana P.</p>
+          <span class="verified">✓ Compra verificada</span>
+        </div>
+        <div class="card review-card">
+          <div class="stars">★★★★☆</div>
+          <p class="review-text">"Comecei a usar há 3 semanas e já sinto a diferença nas roupas. Maravilhoso!"</p>
+          <p class="review-name">Carla R.</p>
+          <span class="verified">✓ Compra verificada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 gotas -->
+  <section class="hero-bg section-gotas text-center">
+    <div class="container">
+      <h2><span class="text-gold">12 gotas</span> por dia</h2>
+      <p>É tudo que você precisa para iniciar sua transformação. Simples, prático e eficaz.</p>
+      <a href="#ofertas" class="cta-btn pulse-animation cta-lg">QUERO COMEÇAR AGORA →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-light" id="faq">
+    <div class="container container-sm">
+      <h2 class="text-center">Tem alguma <span class="text-purple">dúvida?</span></h2>
+      <p class="section-subtitle text-center">Hora de esclarecer</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Como devo usar o Mounjax? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer">Basta aplicar 12 gotas por dia, diretamente sob a língua ou diluído em água. Use diariamente para melhores resultados.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Quanto tempo leva para ver resultados? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer">Os primeiros resultados podem ser notados em 2-4 semanas de uso contínuo. Resultados mais expressivos são observados após 60-90 dias.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Tem alguma contraindicação? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer">Mounjax é feito com ingredientes 100% naturais. Porém, gestantes, lactantes e pessoas com condições médicas devem consultar um médico.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">A entrega é discreta? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer">Sim! Todas as embalagens são enviadas de forma discreta, sem identificação do conteúdo no exterior.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Qual a garantia? <span class="faq-arrow">▼</span></button>
+          <div class="faq-answer">Oferecemos garantia de 30 dias. Se não ficar satisfeito, devolvemos 100% do seu dinheiro.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="hero-bg footer">
+    <div class="container text-center">
+      <p class="footer-brand">Mounjax</p>
+      <p>© 2026 Mounjax. Todos os direitos reservados.</p>
+      <p class="footer-disclaimer">Este produto não substitui orientação médica. Resultados podem variar de pessoa para pessoa. As informações contidas neste site têm caráter informativo e não substituem a consulta com profissional de saúde.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
