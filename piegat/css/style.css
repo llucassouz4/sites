@@ -463,7 +463,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__title {
-  font-size: 1.875rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -482,7 +482,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero__description {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--muted-fg);
   max-width: 42rem;
   margin: 0 auto 2rem;
