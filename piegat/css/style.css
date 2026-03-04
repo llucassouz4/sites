@@ -704,7 +704,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ===================== CASAMENTOS ===================== */
 .casamentos {
-  padding: 5rem var(--section-px);
+  padding: 3rem var(--section-px);
 }
 
 @media (min-width: 640px) {
@@ -844,7 +844,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 3rem;
 }
 
-@media (min-width: 640px) { .processo__header { margin-bottom: 5rem; } }
+@media (min-width: 640px) {
+    .processo__header { 
+        margin-bottom: 5rem; 
+    } 
+}
 
 .processo__grid {
   display: grid;
@@ -923,6 +927,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   inset: 0;
   background: var(--bg);
+  background: top black;
 }
 
 .transicao__gradient {
@@ -1090,7 +1095,7 @@ h1, h2, h3, h4, h5, h6 {
 .quinze__orb--purple {
   top: 5rem;
   left: 10%;
-  background: hsla(262, 60%, 53%, 0.08);
+  background: hsla(289, 53%, 6%, 0.08);
   animation: orb-float-1 10s ease-in-out infinite;
 }
 
