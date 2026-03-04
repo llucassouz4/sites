@@ -572,6 +572,22 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
+.img-tiago {
+  width: 100%;
+  height: 320px; /* metade da imagem */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-tiago img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;   
+}
+
+
 .manifesto__glow {
   position: absolute;
   top: 50%;
@@ -610,9 +626,17 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
 }
 
-@media (min-width: 640px) { .manifesto__title { font-size: 1.875rem; } }
-@media (min-width: 768px) { .manifesto__title { font-size: 3rem; } }
-@media (min-width: 1024px) { .manifesto__title { font-size: 3.75rem; } }
+@media (min-width: 640px) { 
+    .manifesto__title { font-size: 1.875rem; } 
+    
+}
+
+@media (min-width: 768px) {
+     .manifesto__title { font-size: 3rem; } 
+}
+@media (min-width: 1024px) {
+     .manifesto__title { font-size: 3.75rem; } 
+}
 
 .manifesto__divider {
   width: 4rem;
