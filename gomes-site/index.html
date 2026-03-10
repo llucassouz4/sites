@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gomes Incorporadora e Construtora — Empreendimentos modernos com qualidade e presença em Joinville, SC." />
+  <title>GOMES Incorporadora e Construtora | Joinville - SC</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <a href="#inicio" class="header__logo">
+        <img src="img/logo.png" alt="GOMES Incorporadora e Construtora" />
+      </a>
+
+      <nav class="header__nav" id="nav">
+        <ul class="header__nav-list">
+          <li><a href="#inicio"  class="header__nav-link">Início</a></li>
+          <li><a href="#sobre"   class="header__nav-link">Sobre</a></li>
+          <li><a href="#empreendimentos" class="header__nav-link">Empreendimentos</a></li>
+          <li><a href="#galeria" class="header__nav-link">Galeria</a></li>
+          <li><a href="#avaliacoes" class="header__nav-link">Avaliações</a></li>
+          <li><a href="#contato" class="header__nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <a href="https://wa.me/5547000000000" target="_blank" rel="noopener" class="btn btn--outline header__cta">
+        Fale Conosco
+      </a>
+
+      <!-- Hamburguer mobile -->
+      <button class="header__toggle" id="navToggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="inicio">
+    <!-- Imagem de fundo com parallax via JS -->
+    <div class="hero__bg" id="heroBg">
+      <img src="img/hero-bg.jpg" alt="Empreendimento Gomes" class="hero__bg-img" />
+      <div class="hero__overlay"></div>
+    </div>
+
+    <div class="hero__content container">
+      <!-- Logo animada -->
+      <div class="hero__logo animate-fade-up" style="--delay:.1s">
+        <img src="img/logo.png" alt="GOMES Incorporadora e Construtora" />
+      </div>
+
+      <!-- Divisor decorativo -->
+      <div class="hero__divider animate-fade-up" style="--delay:.3s"></div>
+
+      <h1 class="hero__headline animate-fade-up" style="--delay:.5s">
+        Construindo empreendimentos<br />com visão e presença<br />em Joinville.
+      </h1>
+
+      <p class="hero__subheadline animate-fade-up" style="--delay:.7s">
+        A Gomes Incorporadora e Construtora desenvolve projetos modernos com atenção<br class="br-desktop" />
+        aos detalhes, linguagem contemporânea e qualidade em cada etapa.
+      </p>
+
+      <div class="hero__actions animate-fade-up" style="--delay:.9s">
+        <a href="#sobre" class="btn btn--primary">Conhecer a empresa</a>
+        <a href="#empreendimentos" class="btn btn--ghost">Ver empreendimentos</a>
+        <a href="https://wa.me/5547000000000" target="_blank" rel="noopener" class="btn btn--whatsapp">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.858L.057 23.5l5.826-1.527A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.808 9.808 0 01-5.001-1.367l-.358-.213-3.458.907.922-3.368-.234-.374A9.817 9.817 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero__scroll animate-fade-up" style="--delay:1.2s">
+      <span class="hero__scroll-line"></span>
+      <span class="hero__scroll-text">Role para explorar</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NÚMEROS / DIFERENCIAIS
+  ============================================================ -->
+  <section class="numbers">
+    <div class="container numbers__grid">
+      <div class="numbers__item reveal">
+        <span class="numbers__value" data-target="15">0</span><span class="numbers__plus">+</span>
+        <p class="numbers__label">Anos de atuação</p>
+      </div>
+      <div class="numbers__item reveal">
+        <span class="numbers__value" data-target="40">0</span><span class="numbers__plus">+</span>
+        <p class="numbers__label">Empreendimentos entregues</p>
+      </div>
+      <div class="numbers__item reveal">
+        <span class="numbers__value" data-target="1200">0</span><span class="numbers__plus">+</span>
+        <p class="numbers__label">Famílias atendidas</p>
+      </div>
+      <div class="numbers__item reveal">
+        <span class="numbers__value" data-target="100">0</span><span class="numbers__plus">%</span>
+        <p class="numbers__label">Compromisso com a qualidade</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SOBRE
+  ============================================================ -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre__inner">
+
+      <div class="sobre__image-wrap reveal">
+        <img src="img/sobre.jpg" alt="Gomes Incorporadora — Qualidade e presença" class="sobre__image" />
+        <div class="sobre__image-deco"></div>
+      </div>
+
+      <div class="sobre__content reveal" style="--delay:.2s">
+        <span class="label-tag">Sobre nós</span>
+        <h2 class="section-title">
+          Mais do que construir.<br /><em>Criamos referências.</em>
+        </h2>
+        <div class="sobre__divider"></div>
+        <p class="sobre__text">
+          A Gomes Incorporadora e Construtora nasceu em Joinville com o propósito de elevar o padrão dos empreendimentos imobiliários na região. Ao longo dos anos, consolidamos nossa presença com projetos que combinam arquitetura contemporânea, acabamento de alto nível e localização estratégica.
+        </p>
+        <p class="sobre__text">
+          Cada empreendimento é tratado como uma obra singular — planejada com rigor técnico, executada com precisão e entregue com o cuidado que nossos clientes merecem. Nossa equipe reúne profissionais experientes que compartilham um compromisso genuíno com a qualidade.
+        </p>
+        <div class="sobre__pillars">
+          <div class="sobre__pillar">
+            <span class="sobre__pillar-icon">◆</span>
+            <span>Arquitetura contemporânea</span>
+          </div>
+          <div class="sobre__pillar">
+            <span class="sobre__pillar-icon">◆</span>
+            <span>Alto padrão de acabamento</span>
+          </div>
+          <div class="sobre__pillar">
+            <span class="sobre__pillar-icon">◆</span>
+            <span>Localização estratégica</span>
+          </div>
+          <div class="sobre__pillar">
+            <span class="sobre__pillar-icon">◆</span>
+            <span>Equipe especializada</span>
+          </div>
+        </div>
+        <a href="#empreendimentos" class="btn btn--primary" style="margin-top:2.5rem">Ver nossos projetos</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EMPREENDIMENTOS
+  ============================================================ -->
+  <section class="empreendimentos" id="empreendimentos">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-tag label-tag--light">Portfólio</span>
+        <h2 class="section-title section-title--light">Empreendimentos</h2>
+        <p class="section-subtitle section-subtitle--light">
+          Projetos desenvolvidos com identidade arquitetônica própria e padrão diferenciado.
+        </p>
+      </div>
+
+      <div class="emp__grid">
+
+        <article class="emp__card reveal">
+          <div class="emp__card-img-wrap">
+            <img src="img/emp-1.jpg" alt="Empreendimento 1" class="emp__card-img" />
+            <div class="emp__card-overlay"></div>
+          </div>
+          <div class="emp__card-body">
+            <span class="emp__card-status">Entregue</span>
+            <h3 class="emp__card-name">Residencial Horizon</h3>
+            <p class="emp__card-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Joinville — SC
+            </p>
+            <a href="#contato" class="emp__card-btn">Saiba mais</a>
+          </div>
+        </article>
+
+        <article class="emp__card reveal" style="--delay:.15s">
+          <div class="emp__card-img-wrap">
+            <img src="img/emp-2.jpg" alt="Empreendimento 2" class="emp__card-img" />
+            <div class="emp__card-overlay"></div>
+          </div>
+          <div class="emp__card-body">
+            <span class="emp__card-status emp__card-status--em-obras">Em obras</span>
+            <h3 class="emp__card-name">Residencial Gomes II</h3>
+            <p class="emp__card-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Joinville — SC
+            </p>
+            <a href="#contato" class="emp__card-btn">Saiba mais</a>
+          </div>
+        </article>
+
+        <article class="emp__card reveal" style="--delay:.3s">
+          <div class="emp__card-img-wrap">
+            <img src="img/emp-3.jpg" alt="Empreendimento 3" class="emp__card-img" />
+            <div class="emp__card-overlay"></div>
+          </div>
+          <div class="emp__card-body">
+            <span class="emp__card-status emp__card-status--lancamento">Lançamento</span>
+            <h3 class="emp__card-name">Residencial Gomes III</h3>
+            <p class="emp__card-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Joinville — SC
+            </p>
+            <a href="#contato" class="emp__card-btn">Saiba mais</a>
+          </div>
+        </article>
+
+      </div><!-- /emp__grid -->
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GALERIA
+  ============================================================ -->
+  <section class="galeria" id="galeria">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-tag">Galeria</span>
+        <h2 class="section-title">Nossos projetos<br /><em>em imagens</em></h2>
+      </div>
+
+      <div class="galeria__grid">
+        <div class="galeria__item galeria__item--large reveal">
+          <img src="img/gal-1.jpg" alt="Galeria 1" />
+          <div class="galeria__item-overlay"></div>
+        </div>
+        <div class="galeria__item reveal" style="--delay:.1s">
+          <img src="img/gal-2.jpg" alt="Galeria 2" />
+          <div class="galeria__item-overlay"></div>
+        </div>
+        <div class="galeria__item reveal" style="--delay:.2s">
+          <img src="img/gal-3.jpg" alt="Galeria 3" />
+          <div class="galeria__item-overlay"></div>
+        </div>
+        <div class="galeria__item reveal" style="--delay:.3s">
+          <img src="img/gal-4.jpg" alt="Galeria 4" />
+          <div class="galeria__item-overlay"></div>
+        </div>
+        <div class="galeria__item galeria__item--wide reveal" style="--delay:.4s">
+          <img src="img/gal-5.jpg" alt="Galeria 5" />
+          <div class="galeria__item-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AVALIAÇÕES
+  ============================================================ -->
+  <section class="avaliacoes" id="avaliacoes">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="label-tag label-tag--light">Depoimentos</span>
+        <h2 class="section-title section-title--light">O que nossos<br /><em>clientes dizem</em></h2>
+      </div>
+
+      <div class="aval__carousel" id="avalCarousel">
+        <div class="aval__track" id="avalTrack">
+
+          <div class="aval__card">
+            <div class="aval__stars">★★★★★</div>
+            <p class="aval__text">
+              "Comprei meu apartamento na planta e fiquei impressionado com o padrão de entrega. Cada detalhe foi tratado com muito cuidado. Recomendo a Gomes para quem busca qualidade de verdade."
+            </p>
+            <div class="aval__author">
+              <img src="img/av-1.jpg" alt="Cliente" class="aval__avatar" />
+              <div>
+                <strong class="aval__name">Carlos Eduardo S.</strong>
+                <span class="aval__role">Cliente — Res. Gomes I</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="aval__card">
+            <div class="aval__stars">★★★★★</div>
+            <p class="aval__text">
+              "A transparência durante todo o processo foi o que me conquistou. Equipe atenciosa, prazo cumprido e acabamento de alto nível. Minha família está muito feliz com a escolha."
+            </p>
+            <div class="aval__author">
+              <img src="img/av-2.jpg" alt="Cliente" class="aval__avatar" />
+              <div>
+                <strong class="aval__name">Mariana T.</strong>
+                <span class="aval__role">Cliente — Res. Gomes II</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="aval__card">
+            <div class="aval__stars">★★★★★</div>
+            <p class="aval__text">
+              "Empreendimento com localização privilegiada e arquitetura diferenciada. Senti que a Gomes Incorporadora realmente pensa em cada detalhe. Projeto impecável."
+            </p>
+            <div class="aval__author">
+              <img src="img/av-3.jpg" alt="Cliente" class="aval__avatar" />
+              <div>
+                <strong class="aval__name">Roberto A.</strong>
+                <span class="aval__role">Cliente — Res. Gomes I</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /aval__track -->
+      </div><!-- /aval__carousel -->
+
+      <!-- Controles -->
+      <div class="aval__controls">
+        <button class="aval__btn" id="avalPrev" aria-label="Anterior">&#8592;</button>
+        <div class="aval__dots" id="avalDots"></div>
+        <button class="aval__btn" id="avalNext" aria-label="Próximo">&#8594;</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LOCALIZAÇÃO
+  ============================================================ -->
+  <section class="localizacao" id="localizacao">
+    <div class="container localizacao__inner">
+
+      <div class="localizacao__content reveal">
+        <span class="label-tag">Localização</span>
+        <h2 class="section-title">Presença em<br /><em>Joinville — SC</em></h2>
+        <p class="localizacao__text">
+          Com raízes sólidas em Joinville, a Gomes Incorporadora atua nos melhores bairros da cidade, desenvolvendo empreendimentos em regiões com infraestrutura completa, mobilidade urbana e valorização garantida.
+        </p>
+        <ul class="localizacao__list">
+          <li>
+            <span class="loc-icon">◆</span>
+            Bairros nobres e em expansão
+          </li>
+          <li>
+            <span class="loc-icon">◆</span>
+            Proximidade a serviços e comércio
+          </li>
+          <li>
+            <span class="loc-icon">◆</span>
+            Valorização consistente das áreas de atuação
+          </li>
+        </ul>
+      </div>
+
+      <div class="localizacao__map reveal" style="--delay:.2s">
+        <iframe
+          title="Joinville - SC"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116232.34437984027!2d-48.9298!3d-26.3044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94de8a58a43a6547%3A0x5eb3bbeef60c2c23!2sJoinville%2C%20SC!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
+          width="100%" height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINAL
+  ============================================================ -->
+  <section class="cta-final" id="contato">
+    <div class="cta-final__bg">
+      <img src="img/cta-bg.jpg" alt="" class="cta-final__bg-img" />
+      <div class="cta-final__overlay"></div>
+    </div>
+
+    <div class="container cta-final__content reveal">
+      <span class="label-tag label-tag--light">Entre em contato</span>
+      <h2 class="cta-final__title">
+        Conheça os empreendimentos<br />da Gomes Incorporadora<br />e Construtora.
+      </h2>
+      <p class="cta-final__sub">
+        Nossa equipe está pronta para apresentar nossos projetos e tirar todas as suas dúvidas.
+      </p>
+      <div class="cta-final__actions">
+        <a href="https://wa.me/5547000000000" target="_blank" rel="noopener" class="btn btn--primary">Falar com a equipe</a>
+        <a href="mailto:contato@gomesincorporadora.com.br" class="btn btn--ghost">Solicitar informações</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RODAPÉ
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="#inicio">
+          <img src="img/logo.png" alt="GOMES Incorporadora e Construtora" class="footer__logo" />
+        </a>
+        <p class="footer__tagline">Construindo referências em Joinville.</p>
+      </div>
+
+      <nav class="footer__nav">
+        <h4 class="footer__nav-title">Navegação</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#empreendimentos">Empreendimentos</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <h4 class="footer__nav-title">Contato</h4>
+        <ul>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Joinville — SC
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127 1.005.36 1.99.7 2.94a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.14-1.14a2 2 0 012.11-.45c.95.34 1.935.573 2.94.7A2 2 0 0122 14.92v2z"/></svg>
+            (47) 0000-0000
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contato@gomesincorporadora.com.br
+          </li>
+          <li>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="footer__instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @gomesincorporadora
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p>&copy; <span id="anoAtual"></span> GOMES Incorporadora e Construtora. Todos os direitos reservados.</p>
+        <p>Joinville — SC · CRECI ...</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

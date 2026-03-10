@@ -1,0 +1,41 @@
+IMAGENS NECESSÁRIAS — GOMES Incorporadora
+==========================================
+
+Adicione as seguintes imagens nesta pasta /img:
+
+OBRIGATÓRIAS
+------------
+logo.png        → Logo da empresa (já disponível)
+hero-bg.jpg     → Imagem de fundo do hero (fachada, skyline, obra premium)
+sobre.jpg       → Foto institucional (equipe, obra, detalhe de construção)
+cta-bg.jpg      → Imagem de fundo da seção CTA final
+
+EMPREENDIMENTOS (cards do portfólio)
+-------------------------------------
+emp-1.jpg       → Foto do Empreendimento 1
+emp-2.jpg       → Foto do Empreendimento 2
+emp-3.jpg       → Foto do Empreendimento 3
+
+GALERIA
+-------
+gal-1.jpg       → Imagem de galeria (item grande — 2 colunas)
+gal-2.jpg       → Imagem de galeria
+gal-3.jpg       → Imagem de galeria
+gal-4.jpg       → Imagem de galeria
+gal-5.jpg       → Imagem de galeria (item largo — 2 colunas)
+
+AVALIAÇÕES (fotos dos clientes)
+---------------------------------
+av-1.jpg        → Foto cliente 1 (circular, ~200x200px)
+av-2.jpg        → Foto cliente 2 (circular, ~200x200px)
+av-3.jpg        → Foto cliente 3 (circular, ~200x200px)
+
+DICA DE TAMANHOS RECOMENDADOS
+------------------------------
+hero-bg.jpg     → 1920x1080px ou maior
+emp-*.jpg       → 800x600px ou 1200x800px (proporção paisagem)
+gal-*.jpg       → 900x600px mínimo
+sobre.jpg       → 900x700px
+cta-bg.jpg      → 1920x800px
+av-*.jpg        → 300x300px (quadrada, será exibida como círculo)
+logo.png        → PNG com fundo transparente recomendado
