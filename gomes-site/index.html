@@ -8,13 +8,17 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- ============================================================
        HEADER
   ============================================================ -->
+
+  <!-- Backdrop do menu mobile — clique para fechar -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
   <header class="header" id="header">
     <div class="header__inner container">
 
@@ -22,7 +26,13 @@
         <img src="img/logo.png" alt="GOMES Incorporadora e Construtora" />
       </a>
 
-      <nav class="header__nav" id="nav">
+      <nav class="header__nav" id="nav" aria-label="Navegação principal">
+
+        <!-- Botão fechar (visível apenas no mobile) -->
+        <button class="header__nav-close" id="navClose" aria-label="Fechar menu">
+          <span></span><span></span>
+        </button>
+
         <ul class="header__nav-list">
           <li><a href="#inicio"  class="header__nav-link">Início</a></li>
           <li><a href="#sobre"   class="header__nav-link">Sobre</a></li>
@@ -31,15 +41,25 @@
           <li><a href="#avaliacoes" class="header__nav-link">Avaliações</a></li>
           <li><a href="#contato" class="header__nav-link">Contato</a></li>
         </ul>
+
+        <!-- Rodapé do painel mobile -->
+        <div class="header__nav-footer">
+          <a href="https://wa.me/5547000000000" target="_blank" rel="noopener" class="header__nav-wa">
+            Falar no WhatsApp
+          </a>
+        </div>
+
       </nav>
 
       <a href="https://wa.me/5547000000000" target="_blank" rel="noopener" class="btn btn--outline header__cta">
         Fale Conosco
       </a>
 
-      <!-- Hamburguer mobile -->
-      <button class="header__toggle" id="navToggle" aria-label="Abrir menu">
-        <span></span><span></span><span></span>
+      <!-- Botão hamburguer (mobile) -->
+      <button class="header__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
       </button>
 
     </div>
@@ -83,11 +103,7 @@
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="hero__scroll animate-fade-up" style="--delay:1.2s">
-      <span class="hero__scroll-line"></span>
-      <span class="hero__scroll-text">Role para explorar</span>
-    </div>
+
   </section>
 
   <!-- ============================================================
@@ -199,7 +215,7 @@
           </div>
           <div class="emp__card-body">
             <span class="emp__card-status emp__card-status--em-obras">Em obras</span>
-            <h3 class="emp__card-name">Residencial Gomes II</h3>
+            <h3 class="emp__card-name">Residencial Mirante</h3>
             <p class="emp__card-location">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Joinville — SC
@@ -215,7 +231,7 @@
           </div>
           <div class="emp__card-body">
             <span class="emp__card-status emp__card-status--lancamento">Lançamento</span>
-            <h3 class="emp__card-name">Residencial Gomes III</h3>
+            <h3 class="emp__card-name">Residencial Verona</h3>
             <p class="emp__card-location">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Joinville — SC

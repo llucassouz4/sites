@@ -25,25 +25,94 @@
 
 /* ── 2. MENU MOBILE ───────────────────────────────────────── */
 (function initMobileMenu() {
-  const toggle = document.getElementById('navToggle');
-  const nav    = document.getElementById('nav');
+  const toggle   = document.getElementById('navToggle');
+  const nav      = document.getElementById('nav');
+  const closeBtn = document.getElementById('navClose');
+  const overlay  = document.getElementById('navOverlay');
   if (!toggle || !nav) return;
 
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.classList.toggle('open', isOpen);
-    toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-    // Impede scroll quando menu aberto
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+  let isOpen     = false;
+  let savedScrollY = 0;
+
+  /*
+   * Congela o scroll de forma compatível com iOS/Safari.
+   * A técnica de position:fixed + top negativo evita o "salto" da página
+   * que acontece com overflow:hidden sozinho no Safari mobile.
+   */
+  function lockScroll() {
+    savedScrollY = window.scrollY;
+    document.body.style.top      = `-${savedScrollY}px`;
+    document.body.style.position = 'fixed';
+    document.body.style.width    = '100%';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function unlockScroll() {
+    document.body.style.position = '';
+    document.body.style.top      = '';
+    document.body.style.width    = '';
+    document.body.style.overflow = '';
+    // Restaura a posição exata sem animação (behavior: 'instant')
+    window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+  }
+
+  function openMenu() {
+    if (isOpen) return;
+    isOpen = true;
+
+    lockScroll();
+    nav.classList.add('open');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fechar menu');
+
+    if (overlay) {
+      overlay.style.display = 'block';
+      // Dois rAF garantem que display:block seja pintado antes da transição
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => overlay.classList.add('visible'));
+      });
+    }
+  }
+
+  function closeMenu() {
+    if (!isOpen) return;
+    isOpen = false;
+
+    nav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Abrir menu');
+
+    unlockScroll();
+
+    if (overlay) {
+      overlay.classList.remove('visible');
+      overlay.addEventListener('transitionend', () => {
+        overlay.style.display = 'none';
+      }, { once: true });
+    }
+  }
+
+  /* ── Eventos ── */
+
+  // Hamburguer: alterna
+  toggle.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
+
+  // Botão X dentro do painel
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+  // Clicar no backdrop fecha
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  // Qualquer link de navegação fecha
+  nav.querySelectorAll('.header__nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 
-  // Fechar ao clicar em um link
-  nav.querySelectorAll('.header__nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('open');
-      toggle.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+  // Tecla Escape fecha
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && isOpen) closeMenu();
   });
 })();
 
