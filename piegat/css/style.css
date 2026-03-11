@@ -227,7 +227,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar__logo img {
-  height: 5.5rem;
+  height: 3rem;
   width: auto;
   object-fit: contain;
 }
@@ -1096,6 +1096,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: var(--section-py) var(--section-px);
   position: relative;
   overflow: hidden;
+  padding-bottom: 0; /*zerado*/
 }
 
 .quinze__orb {
