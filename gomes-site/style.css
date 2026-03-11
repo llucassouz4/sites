@@ -1382,8 +1382,8 @@ ul {
   .section-header       { margin-bottom: 2rem; }
 
   /* ── Header ── */
-  .header__logo img     { height: 40px; }
-  .header.scrolled .header__logo img { height: 34px; }
+  .header__logo img     { height: 55px; }
+  .header.scrolled .header__logo img { height: 50px; }
 
   /* ── Hero ── */
   .hero__content        { padding: 5rem 0 2rem; }
