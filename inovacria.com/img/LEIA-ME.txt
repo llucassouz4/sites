@@ -1,0 +1,15 @@
+PASTA DE IMAGENS — INOVACRIA
+=============================
+
+Adicione as imagens dos projetos nesta pasta com os nomes exatos abaixo:
+
+  projeto-1.jpg   → Clínica Estética Premium (Landing Page)
+  projeto-2.jpg   → Campanha de Lançamento (Criativos para Ads)
+  projeto-3.jpg   → E-commerce de Moda (Tráfego Pago)
+  projeto-4.jpg   → Série de Conteúdo Digital (Vídeo com IA)
+
+Formato recomendado: JPG ou WebP
+Proporção ideal: 16:10 (ex: 1600 x 1000 px)
+Tamanho máximo sugerido: 400 KB por imagem (otimize antes de usar)
+
+Se quiser trocar uma imagem, basta substituir o arquivo pelo mesmo nome.
