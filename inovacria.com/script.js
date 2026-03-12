@@ -24,26 +24,6 @@
   if (!burger || !menu) return;
 
   let isOpen = false;
-  let savedScrollY = 0;
-
-  /* iOS-safe scroll lock: position:fixed prevents momentum scroll bleed */
-  const lockScroll = () => {
-    savedScrollY = window.scrollY;
-    document.body.style.position  = 'fixed';
-    document.body.style.top       = `-${savedScrollY}px`;
-    document.body.style.left      = '0';
-    document.body.style.right     = '0';
-    document.body.style.overflowY = 'hidden';
-  };
-
-  const unlockScroll = () => {
-    document.body.style.position  = '';
-    document.body.style.top       = '';
-    document.body.style.left      = '';
-    document.body.style.right     = '';
-    document.body.style.overflowY = '';
-    window.scrollTo(0, savedScrollY);
-  };
 
   const open = () => {
     isOpen = true;
@@ -52,7 +32,7 @@
     menu.classList.add('is-open');
     menu.setAttribute('aria-hidden', 'false');
     if (overlay) { overlay.classList.add('is-open'); overlay.setAttribute('aria-hidden', 'false'); }
-    lockScroll();
+    document.body.style.overflow = 'hidden';
   };
 
   const close = () => {
@@ -62,7 +42,7 @@
     menu.classList.remove('is-open');
     menu.setAttribute('aria-hidden', 'true');
     if (overlay) { overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden', 'true'); }
-    unlockScroll();
+    document.body.style.overflow = '';
   };
 
   burger.addEventListener('click', () => isOpen ? close() : open());
