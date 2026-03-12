@@ -17,18 +17,20 @@
     <div class="nav-wrap">
 
       <a href="#" class="logo" aria-label="Inovacria — Início">
-        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+        <img src="img/logo_vector.svg" alt="Inovacria" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none" style="display:none">
           <defs>
-            <linearGradient id="g-logo" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#28C7FF"/>
-              <stop offset="1" stop-color="#5B3FFF"/>
+            <linearGradient id="g-logo" x1="3" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#28C7FF"/>
+              <stop offset="100%" stop-color="#5B3FFF"/>
             </linearGradient>
           </defs>
-          <path d="M28 6A15 15 0 1 0 28 30" stroke="url(#g-logo)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
-          <circle cx="20" cy="11" r="1.8" fill="url(#g-logo)"/>
-          <line x1="20" y1="15" x2="20" y2="24" stroke="url(#g-logo)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M27.5 6.2A14.5 14.5 0 1 0 27.5 30.8" stroke="url(#g-logo)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <line x1="27" y1="7.5" x2="30.5" y2="4.5" stroke="url(#g-logo)" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="19" cy="12" r="2" fill="url(#g-logo)"/>
+          <line x1="19" y1="16" x2="19" y2="25" stroke="url(#g-logo)" stroke-width="3" stroke-linecap="round"/>
         </svg>
-        <span>inovacria</span>
+        <span>INOVACRIA</span>
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Menu principal">
@@ -45,22 +47,33 @@
     </div>
   </header>
 
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
   <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <a href="#servicos">Serviços</a>
     <a href="#portfolio">Portfólio</a>
     <a href="#processo">Processo</a>
-    <a href="#contato">Começar projeto</a>
+    <a href="#contato" class="mobile-nav-cta">Começar projeto</a>
   </div>
 
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="inicio">
+
+    <!-- Cinematic background layers -->
+    <div class="hero-bg" aria-hidden="true">
+      <canvas id="heroCanvas" class="hero-canvas"></canvas>
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+
     <div class="hero-wrap">
 
       <!-- Left: copy -->
       <div class="hero-copy">
+
         <div class="hero-eyebrow reveal-up">
-          <span class="eyebrow-dot"></span>
+          <span class="eyebrow-pip"></span>
           Agência de Performance Digital
         </div>
 
@@ -76,45 +89,74 @@
         </p>
 
         <div class="hero-btns reveal-up" style="--d:240ms">
-          <a href="#contato" class="btn btn-primary">
+          <a href="#contato" class="btn btn-primary btn-hero-primary">
             Criar meu projeto
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-outline">
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-hero-outline">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar no WhatsApp
           </a>
         </div>
+
+        <!-- Trust micro-line -->
+        <div class="hero-trust reveal-up" style="--d:320ms">
+          <div class="hero-trust-avatars" aria-hidden="true">
+            <span class="ht-av" style="--n:1"></span>
+            <span class="ht-av" style="--n:2"></span>
+            <span class="ht-av" style="--n:3"></span>
+          </div>
+          <div class="hero-trust-text">
+            <span class="hero-trust-stars" aria-label="5 estrelas">★★★★★</span>
+            <span>+50 projetos entregues com resultados reais</span>
+          </div>
+        </div>
+
       </div>
 
       <!-- Right: visual composition -->
-      <div class="hero-visual reveal-up" style="--d:120ms" aria-hidden="true">
+      <div class="hero-visual reveal-up" style="--d:100ms" aria-hidden="true" id="heroVisual">
 
         <!-- Main: browser / LP mockup -->
         <div class="hv-browser">
           <div class="hv-chrome">
             <div class="hv-dots"><i></i><i></i><i></i></div>
-            <div class="hv-url">inovacria.com/campanha</div>
-            <div class="hv-share"></div>
+            <div class="hv-url">
+              <span class="hv-ssl"></span>
+              inovacria.com/campanha
+            </div>
+            <div class="hv-actions">
+              <div class="hv-action-btn"></div>
+              <div class="hv-action-btn"></div>
+            </div>
           </div>
           <div class="hv-screen">
-            <!-- Hero band of LP -->
             <div class="hv-lp-hero">
-              <div class="hv-lp-pre"></div>
+              <div class="hv-lp-nav">
+                <div class="hv-lp-logo-bar"></div>
+                <div class="hv-lp-navlinks">
+                  <div class="hv-lp-navlink"></div>
+                  <div class="hv-lp-navlink"></div>
+                  <div class="hv-lp-navlink short"></div>
+                </div>
+              </div>
+              <div class="hv-lp-badge"></div>
               <div class="hv-lp-h1"></div>
-              <div class="hv-lp-h1 w70"></div>
-              <div class="hv-lp-btn"></div>
+              <div class="hv-lp-h1 narrow"></div>
+              <div class="hv-lp-ctas">
+                <div class="hv-lp-btn-solid"></div>
+                <div class="hv-lp-btn-ghost"></div>
+              </div>
             </div>
-            <!-- Body rows -->
             <div class="hv-lp-body">
               <div class="hv-lp-row three">
                 <div class="hv-lp-col"></div>
-                <div class="hv-lp-col"></div>
+                <div class="hv-lp-col accent"></div>
                 <div class="hv-lp-col"></div>
               </div>
               <div class="hv-lp-row">
                 <div class="hv-lp-bar"></div>
-                <div class="hv-lp-bar w60"></div>
+                <div class="hv-lp-bar short"></div>
               </div>
               <div class="hv-lp-row two">
                 <div class="hv-lp-block"></div>
@@ -124,23 +166,61 @@
           </div>
         </div>
 
-        <!-- Floating: new lead notification -->
-        <div class="hv-float hv-notif">
-          <div class="hv-notif-pulse"></div>
-          <div class="hv-notif-text">
-            <strong>Novo lead captado</strong>
-            <span>Agora mesmo · via landing page</span>
+        <!-- Float 1: Performance analytics — top right -->
+        <div class="hv-float hv-analytics">
+          <div class="hv-an-head">
+            <span class="hv-an-title">Performance</span>
+            <span class="hv-an-live">
+              <span class="hv-an-dot"></span>
+              Ao vivo
+            </span>
+          </div>
+          <div class="hv-an-chart">
+            <div class="hv-an-bar" style="--h:38%"></div>
+            <div class="hv-an-bar" style="--h:56%"></div>
+            <div class="hv-an-bar" style="--h:49%"></div>
+            <div class="hv-an-bar" style="--h:72%"></div>
+            <div class="hv-an-bar" style="--h:63%"></div>
+            <div class="hv-an-bar" style="--h:85%"></div>
+            <div class="hv-an-bar peak" style="--h:100%"></div>
+          </div>
+          <div class="hv-an-row">
+            <div class="hv-an-stat">
+              <span class="hv-an-val g-text">+342</span>
+              <span class="hv-an-key">Leads</span>
+            </div>
+            <div class="hv-an-stat">
+              <span class="hv-an-val" style="color:#22D3A5">4.8x</span>
+              <span class="hv-an-key">ROAS</span>
+            </div>
+            <div class="hv-an-stat">
+              <span class="hv-an-val" style="color:#F59E0B">↑28%</span>
+              <span class="hv-an-key">vs. ant.</span>
+            </div>
           </div>
         </div>
 
-        <!-- Floating: performance metric -->
-        <div class="hv-float hv-metric">
-          <div class="hv-metric-label">Conversões hoje</div>
-          <div class="hv-metric-value">+342</div>
-          <div class="hv-metric-bar">
-            <div class="hv-metric-fill"></div>
+        <!-- Float 2: Conversion notification — bottom left -->
+        <div class="hv-float hv-notif">
+          <div class="hv-notif-ring">
+            <div class="hv-notif-dot"></div>
           </div>
-          <div class="hv-metric-sub">↑ 28% vs. ontem</div>
+          <div class="hv-notif-body">
+            <strong>Nova venda confirmada</strong>
+            <span>R$ 1.890 · agora mesmo</span>
+          </div>
+        </div>
+
+        <!-- Float 3: Ad creative preview — mid right -->
+        <div class="hv-float hv-adcard">
+          <div class="hv-adcard-thumb">
+            <span class="hv-adcard-tag">Meta Ads</span>
+          </div>
+          <div class="hv-adcard-copy">
+            <div class="hv-adcard-line"></div>
+            <div class="hv-adcard-line slim"></div>
+            <div class="hv-adcard-cta"></div>
+          </div>
         </div>
 
       </div>
@@ -511,18 +591,20 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="#" class="logo footer-logo" aria-label="Inovacria">
-            <svg class="logo-icon" width="32" height="32" viewBox="0 0 36 36" fill="none">
+            <img src="img/logo_vector.svg" alt="Inovacria" class="logo-img logo-img--footer" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+            <svg class="logo-icon" width="32" height="32" viewBox="0 0 36 36" fill="none" style="display:none">
               <defs>
-                <linearGradient id="g-footer-logo" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#28C7FF"/>
-                  <stop offset="1" stop-color="#5B3FFF"/>
+                <linearGradient id="g-footer-logo" x1="3" y1="3" x2="33" y2="33" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#28C7FF"/>
+                  <stop offset="100%" stop-color="#5B3FFF"/>
                 </linearGradient>
               </defs>
-              <path d="M28 6A15 15 0 1 0 28 30" stroke="url(#g-footer-logo)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
-              <circle cx="20" cy="11" r="1.8" fill="url(#g-footer-logo)"/>
-              <line x1="20" y1="15" x2="20" y2="24" stroke="url(#g-footer-logo)" stroke-width="3" stroke-linecap="round"/>
+              <path d="M27.5 6.2A14.5 14.5 0 1 0 27.5 30.8" stroke="url(#g-footer-logo)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+              <line x1="27" y1="7.5" x2="30.5" y2="4.5" stroke="url(#g-footer-logo)" stroke-width="2.4" stroke-linecap="round"/>
+              <circle cx="19" cy="12" r="2" fill="url(#g-footer-logo)"/>
+              <line x1="19" y1="16" x2="19" y2="25" stroke="url(#g-footer-logo)" stroke-width="3" stroke-linecap="round"/>
             </svg>
-            <span>inovacria</span>
+            <span>INOVACRIA</span>
           </a>
           <p class="footer-tagline">Agência de performance digital.<br/>Projetos que atraem, convencem e vendem.</p>
           <div class="footer-socials">
