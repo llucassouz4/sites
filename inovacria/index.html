@@ -3,55 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Inovacria — Landing pages, criativos e campanhas que geram clientes. Projetos digitais para empresas que querem crescer." />
+  <meta name="description" content="Inovacria — Landing pages, criativos e campanhas que geram clientes reais. Performance digital de alto nível." />
   <title>Inovacria — Agência de Performance Digital</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400;1,14..32,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ================================
-       NAVBAR
-  ================================= -->
+  <!-- ===================== NAVBAR ===================== -->
   <header class="navbar" id="navbar">
-    <div class="nav-inner">
+    <div class="nav-wrap">
 
-      <a href="#" class="logo" aria-label="Inovacria">
-        <svg class="logo-mark" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <a href="#" class="logo" aria-label="Inovacria — Início">
+        <svg class="logo-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
           <defs>
-            <linearGradient id="lg-nav" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+            <linearGradient id="g-logo" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
               <stop stop-color="#28C7FF"/>
               <stop offset="1" stop-color="#5B3FFF"/>
             </linearGradient>
           </defs>
-          <path d="M26 5.5A14.5 14.5 0 1 0 26 28.5" stroke="url(#lg-nav)" stroke-width="3" stroke-linecap="round" fill="none"/>
-          <circle cx="18.5" cy="10.5" r="1.6" fill="url(#lg-nav)"/>
-          <line x1="18.5" y1="14" x2="18.5" y2="22" stroke="url(#lg-nav)" stroke-width="2.8" stroke-linecap="round"/>
+          <path d="M28 6A15 15 0 1 0 28 30" stroke="url(#g-logo)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+          <circle cx="20" cy="11" r="1.8" fill="url(#g-logo)"/>
+          <line x1="20" y1="15" x2="20" y2="24" stroke="url(#g-logo)" stroke-width="3" stroke-linecap="round"/>
         </svg>
-        <span class="logo-name">inovacria</span>
+        <span>inovacria</span>
       </a>
 
-      <nav class="nav-links" id="navLinks">
+      <nav class="nav-links" id="navLinks" aria-label="Menu principal">
         <a href="#servicos">Serviços</a>
         <a href="#portfolio">Portfólio</a>
         <a href="#processo">Processo</a>
-        <a href="#contato" class="nav-btn">Começar projeto</a>
+        <a href="#contato" class="nav-cta">Começar projeto</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
-        <span></span>
-        <span></span>
+        <span></span><span></span>
       </button>
 
     </div>
   </header>
 
-  <!-- Mobile drawer -->
-  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
     <a href="#servicos">Serviços</a>
     <a href="#portfolio">Portfólio</a>
     <a href="#processo">Processo</a>
@@ -59,387 +53,490 @@
   </div>
 
 
-  <!-- ================================
-       HERO
-  ================================= -->
+  <!-- ===================== HERO ===================== -->
   <section class="hero" id="inicio">
-    <div class="hero-inner">
+    <div class="hero-wrap">
 
-      <div class="hero-body">
-        <span class="eyebrow reveal">Agência de Performance Digital</span>
+      <!-- Left: copy -->
+      <div class="hero-copy">
+        <div class="hero-eyebrow reveal-up">
+          <span class="eyebrow-dot"></span>
+          Agência de Performance Digital
+        </div>
 
-        <h1 class="hero-title reveal">
-          Criamos landing pages,<br/>
-          criativos e campanhas<br/>
+        <h1 class="hero-title reveal-up" style="--d:80ms">
+          Criamos landing pages,
+          criativos e campanhas
           <em>que geram clientes.</em>
         </h1>
 
-        <p class="hero-sub reveal">
-          Projetos digitais pensados para atrair,<br class="d-only"/>
+        <p class="hero-sub reveal-up" style="--d:160ms">
+          Projetos digitais pensados para atrair,<br/>
           convencer e vender mais.
         </p>
 
-        <div class="hero-actions reveal">
-          <a href="#contato" class="btn btn-primary">Criar meu projeto</a>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-ghost">
+        <div class="hero-btns reveal-up" style="--d:240ms">
+          <a href="#contato" class="btn btn-primary">
+            Criar meu projeto
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-outline">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar no WhatsApp
           </a>
         </div>
       </div>
 
-      <!-- Decorative brand mark -->
-      <div class="hero-mark" aria-hidden="true">
-        <svg class="hero-mark-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="lg-hero" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#28C7FF" stop-opacity="0.18"/>
-              <stop offset="1" stop-color="#5B3FFF" stop-opacity="0.14"/>
-            </linearGradient>
-          </defs>
-          <path d="M155 28A88 88 0 1 0 155 172" stroke="url(#lg-hero)" stroke-width="18" stroke-linecap="round" fill="none"/>
-          <circle cx="108" cy="58" r="10" fill="#5B3FFF" fill-opacity="0.15"/>
-          <line x1="108" y1="74" x2="108" y2="130" stroke="#5B3FFF" stroke-opacity="0.15" stroke-width="17" stroke-linecap="round"/>
-        </svg>
-      </div>
+      <!-- Right: visual composition -->
+      <div class="hero-visual reveal-up" style="--d:120ms" aria-hidden="true">
 
+        <!-- Main: browser / LP mockup -->
+        <div class="hv-browser">
+          <div class="hv-chrome">
+            <div class="hv-dots"><i></i><i></i><i></i></div>
+            <div class="hv-url">inovacria.com/campanha</div>
+            <div class="hv-share"></div>
+          </div>
+          <div class="hv-screen">
+            <!-- Hero band of LP -->
+            <div class="hv-lp-hero">
+              <div class="hv-lp-pre"></div>
+              <div class="hv-lp-h1"></div>
+              <div class="hv-lp-h1 w70"></div>
+              <div class="hv-lp-btn"></div>
+            </div>
+            <!-- Body rows -->
+            <div class="hv-lp-body">
+              <div class="hv-lp-row three">
+                <div class="hv-lp-col"></div>
+                <div class="hv-lp-col"></div>
+                <div class="hv-lp-col"></div>
+              </div>
+              <div class="hv-lp-row">
+                <div class="hv-lp-bar"></div>
+                <div class="hv-lp-bar w60"></div>
+              </div>
+              <div class="hv-lp-row two">
+                <div class="hv-lp-block"></div>
+                <div class="hv-lp-block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating: new lead notification -->
+        <div class="hv-float hv-notif">
+          <div class="hv-notif-pulse"></div>
+          <div class="hv-notif-text">
+            <strong>Novo lead captado</strong>
+            <span>Agora mesmo · via landing page</span>
+          </div>
+        </div>
+
+        <!-- Floating: performance metric -->
+        <div class="hv-float hv-metric">
+          <div class="hv-metric-label">Conversões hoje</div>
+          <div class="hv-metric-value">+342</div>
+          <div class="hv-metric-bar">
+            <div class="hv-metric-fill"></div>
+          </div>
+          <div class="hv-metric-sub">↑ 28% vs. ontem</div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- Clients strip -->
-    <div class="trust-strip">
-      <p class="trust-label">Empresas que confiam na Inovacria</p>
-      <div class="trust-logos">
-        <span>TechCorp</span>
-        <span>Nexus AI</span>
-        <span>Alphabit</span>
-        <span>Growthly</span>
-        <span>Stackwise</span>
-        <span>Orbitum</span>
+    <!-- Trust strip -->
+    <div class="trust-row">
+      <div class="trust-wrap">
+        <span class="trust-label">Empresas que confiam na Inovacria</span>
+        <div class="trust-logos">
+          <span>TechCorp</span>
+          <span>Nexus AI</span>
+          <span>Alphabit</span>
+          <span>Growthly</span>
+          <span>Stackwise</span>
+          <span>Orbitum</span>
+        </div>
       </div>
     </div>
   </section>
 
 
-  <!-- ================================
-       SERVICES
-  ================================= -->
+  <!-- ===================== SERVICES ===================== -->
   <section class="services" id="servicos">
     <div class="container">
 
-      <div class="section-header reveal">
-        <span class="tag">Serviços</span>
-        <h2 class="section-title">O que entregamos</h2>
+      <div class="sec-header reveal-up">
+        <div class="sec-tag">Serviços</div>
+        <h2 class="sec-title">Tudo que sua empresa<br/>precisa para crescer online</h2>
+        <p class="sec-sub">Soluções criativas e estratégicas para empresas que querem resultados concretos.</p>
       </div>
 
-      <ul class="services-list">
+      <div class="svc-grid">
 
-        <li class="service-item reveal" data-num="01">
-          <div class="service-left">
-            <span class="service-num">01</span>
-            <h3 class="service-name">Landing Pages de Alta Conversão</h3>
+        <div class="svc-card reveal-up" style="--d:0ms">
+          <div class="svc-num">01</div>
+          <div class="svc-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="3" width="20" height="16" rx="2.5" stroke="url(#g-s1)" stroke-width="1.8"/>
+              <path d="M2 8h20" stroke="url(#g-s1)" stroke-width="1.8"/>
+              <circle cx="5.5" cy="5.5" r="1" fill="url(#g-s1)"/>
+              <circle cx="8.5" cy="5.5" r="1" fill="url(#g-s1)"/>
+              <path d="M8 13h5M8 16h3" stroke="url(#g-s1)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M17 12l2 2-2 2" stroke="url(#g-s1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs><linearGradient id="g-s1" x1="2" y1="3" x2="22" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#28C7FF"/><stop offset="1" stop-color="#5B3FFF"/></linearGradient></defs>
+            </svg>
           </div>
-          <div class="service-right">
-            <p class="service-desc">Páginas desenhadas para transformar visitantes em clientes. Cada elemento pensado para guiar a decisão de compra.</p>
-            <a href="#contato" class="service-link">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </li>
+          <h3 class="svc-name">Landing Pages de<br/>Alta Conversão</h3>
+          <p class="svc-desc">Páginas desenhadas para transformar visitantes em clientes. Copy, design e UX otimizados para performance.</p>
+          <a href="#contato" class="svc-link">
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
 
-        <li class="service-item reveal" data-num="02">
-          <div class="service-left">
-            <span class="service-num">02</span>
-            <h3 class="service-name">Criativos para Anúncios</h3>
+        <div class="svc-card reveal-up" style="--d:80ms">
+          <div class="svc-num">02</div>
+          <div class="svc-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="3" stroke="url(#g-s2)" stroke-width="1.8"/>
+              <path d="M8 16l3-4 2.5 3L16 10l3 6" stroke="url(#g-s2)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7.5" cy="8.5" r="1.2" fill="url(#g-s2)"/>
+              <defs><linearGradient id="g-s2" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#28C7FF"/><stop offset="1" stop-color="#5B3FFF"/></linearGradient></defs>
+            </svg>
           </div>
-          <div class="service-right">
-            <p class="service-desc">Imagens e peças gráficas que param o scroll. Criados para Meta Ads, Google Ads e campanhas de performance.</p>
-            <a href="#contato" class="service-link">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </li>
+          <h3 class="svc-name">Criativos para<br/>Anúncios</h3>
+          <p class="svc-desc">Imagens e peças gráficas que param o scroll. Desenvolvidos para Meta Ads e Google com foco em taxa de clique.</p>
+          <a href="#contato" class="svc-link">
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
 
-        <li class="service-item reveal" data-num="03">
-          <div class="service-left">
-            <span class="service-num">03</span>
-            <h3 class="service-name">Vídeos com Inteligência Artificial</h3>
+        <div class="svc-card reveal-up" style="--d:160ms">
+          <div class="svc-num">03</div>
+          <div class="svc-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="9" stroke="url(#g-s3)" stroke-width="1.8"/>
+              <path d="M10 8.5l6 3.5-6 3.5V8.5z" fill="url(#g-s3)"/>
+              <defs><linearGradient id="g-s3" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#28C7FF"/><stop offset="1" stop-color="#5B3FFF"/></linearGradient></defs>
+            </svg>
           </div>
-          <div class="service-right">
-            <p class="service-desc">Vídeos de alta qualidade para anúncios, redes sociais e apresentações. Produção acelerada com IA sem abrir mão da qualidade.</p>
-            <a href="#contato" class="service-link">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </li>
+          <h3 class="svc-name">Vídeos com<br/>Inteligência Artificial</h3>
+          <p class="svc-desc">Produção ágil de vídeos de alta qualidade com IA para anúncios, redes sociais e apresentações de produto.</p>
+          <a href="#contato" class="svc-link">
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
 
-        <li class="service-item reveal" data-num="04">
-          <div class="service-left">
-            <span class="service-num">04</span>
-            <h3 class="service-name">Gestão de Tráfego Pago</h3>
+        <div class="svc-card reveal-up" style="--d:240ms">
+          <div class="svc-num">04</div>
+          <div class="svc-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M3 17l4-8 4 5 3-4 4 7" stroke="url(#g-s4)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="19" cy="6" r="3" stroke="url(#g-s4)" stroke-width="1.8"/>
+              <line x1="19" y1="3" x2="19" y2="3.5" stroke="url(#g-s4)" stroke-width="1.8" stroke-linecap="round"/>
+              <defs><linearGradient id="g-s4" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse"><stop stop-color="#28C7FF"/><stop offset="1" stop-color="#5B3FFF"/></linearGradient></defs>
+            </svg>
           </div>
-          <div class="service-right">
-            <p class="service-desc">Campanhas no Meta e Google com foco em ROAS e redução de CPL. Gestão estratégica orientada por dados e resultado real.</p>
-            <a href="#contato" class="service-link">
-              Saiba mais
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </li>
+          <h3 class="svc-name">Gestão de<br/>Tráfego Pago</h3>
+          <p class="svc-desc">Campanhas no Meta e Google geridas com foco em ROAS. Dados, estratégia e otimização contínua para crescer com eficiência.</p>
+          <a href="#contato" class="svc-link">
+            Saiba mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
 
-      </ul>
-
+      </div>
     </div>
   </section>
 
 
-  <!-- ================================
-       RESULTS
-  ================================= -->
+  <!-- ===================== RESULTS ===================== -->
   <section class="results" id="resultados">
     <div class="container">
+      <div class="results-layout">
 
-      <div class="results-header reveal">
-        <span class="tag tag-light">Resultados</span>
-        <h2 class="results-title">Feito para<br/><span class="gradient-text">performance.</span></h2>
+        <div class="results-left reveal-up">
+          <div class="sec-tag sec-tag--light">Resultados</div>
+          <h2 class="results-title">Feito para<br/><span class="g-text">performance.</span></h2>
+          <p class="results-desc">Combinamos estratégia, design e dados para entregar resultados mensuráveis. Cada projeto é orientado por métricas reais e metas claras.</p>
+          <a href="#contato" class="results-cta">
+            Falar com especialista
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="results-right">
+
+          <div class="stat-block reveal-up" style="--d:0ms">
+            <div class="stat-num g-text">3x</div>
+            <div class="stat-label">Mais leads</div>
+            <p class="stat-desc">Atraímos mais contatos qualificados com páginas e criativos otimizados para conversão.</p>
+            <div class="stat-bar"><div class="stat-fill" style="--w:80%"></div></div>
+          </div>
+
+          <div class="stat-block reveal-up" style="--d:100ms">
+            <div class="stat-num g-text">98%</div>
+            <div class="stat-label">Mais autoridade</div>
+            <p class="stat-desc">Clientes que relatam melhora significativa na percepção de marca digital após o projeto.</p>
+            <div class="stat-bar"><div class="stat-fill" style="--w:98%"></div></div>
+          </div>
+
+          <div class="stat-block reveal-up" style="--d:200ms">
+            <div class="stat-num g-text">+2x</div>
+            <div class="stat-label">Mais vendas</div>
+            <p class="stat-desc">Aumento médio de conversão nos primeiros 60 dias de campanha ativa com nossas estratégias.</p>
+            <div class="stat-bar"><div class="stat-fill" style="--w:70%"></div></div>
+          </div>
+
+        </div>
       </div>
-
-      <div class="results-grid">
-
-        <div class="result-card reveal" data-delay="0">
-          <div class="result-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 16l5-6 4 4 4-7 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="result-title">Mais leads</h3>
-          <p class="result-desc">Atraímos as pessoas certas com copy, design e segmentação que funcionam juntos. Mais contatos qualificados, menos desperdício de verba.</p>
-        </div>
-
-        <div class="result-card reveal" data-delay="100">
-          <div class="result-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="2"/><path d="M7.5 11l2.5 2.5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="result-title">Mais autoridade</h3>
-          <p class="result-desc">Presença digital coerente e profissional que constrói confiança antes mesmo do primeiro contato. Design que convence.</p>
-        </div>
-
-        <div class="result-card reveal" data-delay="200">
-          <div class="result-icon">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 11h4l3-7 4 14 3-7h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3 class="result-title">Mais vendas</h3>
-          <p class="result-desc">Jornadas de compra otimizadas que removem fricção e aceleram a decisão. Do clique no anúncio até a conversão final.</p>
-        </div>
-
-      </div>
-
     </div>
   </section>
 
 
-  <!-- ================================
-       PORTFOLIO
-  ================================= -->
+  <!-- ===================== PORTFOLIO ===================== -->
   <section class="portfolio" id="portfolio">
     <div class="container">
 
-      <div class="section-header reveal">
-        <span class="tag">Portfólio</span>
-        <h2 class="section-title">Projetos em destaque</h2>
-        <p class="section-sub">Uma seleção de trabalhos feitos com intenção, estratégia e atenção a cada detalhe.</p>
+      <div class="sec-header reveal-up">
+        <div class="sec-tag">Portfólio</div>
+        <h2 class="sec-title">Projetos em destaque</h2>
+        <p class="sec-sub">Trabalhos feitos com estratégia, criatividade e atenção a cada detalhe que importa.</p>
       </div>
 
-      <div class="portfolio-grid">
+      <div class="proj-grid">
 
-        <article class="project-card reveal" data-delay="0">
-          <div class="project-img" style="background-image: url('img/projeto-1.jpg');">
-            <div class="project-img-overlay"></div>
+        <article class="proj-card reveal-up" style="--d:0ms">
+          <div class="proj-thumb">
+            <img src="img/projeto-1.jpg" alt="Clínica Estética Premium — Landing Page" class="proj-img" loading="lazy"/>
+            <div class="proj-fallback pf-1" aria-hidden="true">
+              <div class="pf-band"></div>
+              <div class="pf-body">
+                <div class="pf-row"></div>
+                <div class="pf-row short"></div>
+                <div class="pf-cols">
+                  <div class="pf-col"></div><div class="pf-col"></div><div class="pf-col"></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-overlay"></div>
           </div>
-          <div class="project-body">
-            <span class="project-tag">Landing Page</span>
-            <h3 class="project-title">Clínica Estética Premium</h3>
-            <p class="project-desc">Página de conversão para captação de leads com formulário inteligente e prova social integrada.</p>
-            <a href="#" class="project-link">Ver projeto
+          <div class="proj-body">
+            <span class="proj-tag">Landing Page</span>
+            <h3 class="proj-title">Clínica Estética Premium</h3>
+            <p class="proj-desc">Página de conversão para captação de leads com formulário inteligente e prova social integrada.</p>
+            <a href="#" class="proj-link">
+              Ver projeto
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
 
-        <article class="project-card reveal" data-delay="80">
-          <div class="project-img" style="background-image: url('img/projeto-2.jpg');">
-            <div class="project-img-overlay"></div>
+        <article class="proj-card reveal-up" style="--d:80ms">
+          <div class="proj-thumb">
+            <img src="img/projeto-2.jpg" alt="Campanha de Lançamento — Criativos para Ads" class="proj-img" loading="lazy"/>
+            <div class="proj-fallback pf-2" aria-hidden="true">
+              <div class="pf-ad-wrap">
+                <div class="pf-ad-img"></div>
+                <div class="pf-ad-copy">
+                  <div class="pf-ad-row"></div>
+                  <div class="pf-ad-row short"></div>
+                  <div class="pf-ad-cta"></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-overlay"></div>
           </div>
-          <div class="project-body">
-            <span class="project-tag">Criativos para Ads</span>
-            <h3 class="project-title">Campanha de Lançamento</h3>
-            <p class="project-desc">Série de criativos para Meta Ads com foco em ROI. +340% de conversão em 30 dias de campanha ativa.</p>
-            <a href="#" class="project-link">Ver projeto
+          <div class="proj-body">
+            <span class="proj-tag">Criativos para Ads</span>
+            <h3 class="proj-title">Campanha de Lançamento</h3>
+            <p class="proj-desc">Série de criativos para Meta Ads com foco em CTR. +340% de conversão nos primeiros 30 dias de veiculação.</p>
+            <a href="#" class="proj-link">
+              Ver projeto
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
 
-        <article class="project-card reveal" data-delay="160">
-          <div class="project-img" style="background-image: url('img/projeto-3.jpg');">
-            <div class="project-img-overlay"></div>
+        <article class="proj-card reveal-up" style="--d:160ms">
+          <div class="proj-thumb">
+            <img src="img/projeto-3.jpg" alt="E-commerce de Moda — Tráfego Pago" class="proj-img" loading="lazy"/>
+            <div class="proj-fallback pf-3" aria-hidden="true">
+              <div class="pf-ecom-grid">
+                <div class="pf-ecom-item"></div>
+                <div class="pf-ecom-item"></div>
+                <div class="pf-ecom-item"></div>
+                <div class="pf-ecom-item"></div>
+              </div>
+            </div>
+            <div class="proj-overlay"></div>
           </div>
-          <div class="project-body">
-            <span class="project-tag">Tráfego Pago</span>
-            <h3 class="project-title">E-commerce de Moda</h3>
-            <p class="project-desc">Gestão de campanhas Google e Meta com redução de 58% no CPL e aumento de 2,4x no ROAS.</p>
-            <a href="#" class="project-link">Ver projeto
+          <div class="proj-body">
+            <span class="proj-tag">Tráfego Pago</span>
+            <h3 class="proj-title">E-commerce de Moda</h3>
+            <p class="proj-desc">Gestão de campanhas Google e Meta com redução de 58% no CPL e aumento de 2,4x no ROAS mensal.</p>
+            <a href="#" class="proj-link">
+              Ver projeto
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
 
-        <article class="project-card reveal" data-delay="240">
-          <div class="project-img" style="background-image: url('img/projeto-4.jpg');">
-            <div class="project-img-overlay"></div>
+        <article class="proj-card reveal-up" style="--d:240ms">
+          <div class="proj-thumb">
+            <img src="img/projeto-4.jpg" alt="Série de Conteúdo — Vídeo com IA" class="proj-img" loading="lazy"/>
+            <div class="proj-fallback pf-4" aria-hidden="true">
+              <div class="pf-video-bg">
+                <div class="pf-play">
+                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/><path d="M11 9.5l9 4.5-9 4.5V9.5z" fill="white" fill-opacity="0.8"/></svg>
+                </div>
+                <div class="pf-video-rows">
+                  <div class="pf-video-row"></div>
+                  <div class="pf-video-row short"></div>
+                </div>
+              </div>
+            </div>
+            <div class="proj-overlay"></div>
           </div>
-          <div class="project-body">
-            <span class="project-tag">Vídeo com IA</span>
-            <h3 class="project-title">Série de Conteúdo Digital</h3>
-            <p class="project-desc">12 vídeos para redes sociais produzidos com IA em 5 dias. Alta qualidade visual com custo otimizado.</p>
-            <a href="#" class="project-link">Ver projeto
+          <div class="proj-body">
+            <span class="proj-tag">Vídeo com IA</span>
+            <h3 class="proj-title">Série de Conteúdo Digital</h3>
+            <p class="proj-desc">12 vídeos para redes sociais produzidos com IA em 5 dias. Alta qualidade visual com custo e tempo otimizados.</p>
+            <a href="#" class="proj-link">
+              Ver projeto
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </article>
 
       </div>
-
     </div>
   </section>
 
 
-  <!-- ================================
-       PROCESS
-  ================================= -->
+  <!-- ===================== PROCESS ===================== -->
   <section class="process" id="processo">
     <div class="container">
 
-      <div class="section-header reveal">
-        <span class="tag">Como trabalhamos</span>
-        <h2 class="section-title">Do briefing ao resultado</h2>
-        <p class="section-sub">Um processo claro em quatro etapas. Você acompanha cada fase e aprova antes de avançar.</p>
+      <div class="sec-header reveal-up">
+        <div class="sec-tag">Como trabalhamos</div>
+        <h2 class="sec-title">Do briefing ao resultado</h2>
+        <p class="sec-sub">Processo claro, comunicação direta e entregas que fazem sentido em cada etapa.</p>
       </div>
 
-      <div class="process-steps">
+      <div class="proc-steps">
 
-        <div class="step reveal" data-delay="0">
-          <div class="step-top">
-            <span class="step-index">01</span>
-            <div class="step-bar"></div>
+        <div class="proc-step reveal-up" style="--d:0ms">
+          <div class="proc-head">
+            <div class="proc-circle">01</div>
+            <div class="proc-connector"></div>
           </div>
-          <h3 class="step-name">Estratégia</h3>
-          <p class="step-desc">Imersão no seu negócio, público e concorrência. Definimos o posicionamento, a mensagem e o plano de ação antes de criar qualquer coisa.</p>
+          <h3 class="proc-name">Estratégia</h3>
+          <p class="proc-desc">Imersão no seu negócio, público e concorrência. Definimos posicionamento, mensagem e plano de ação antes de criar qualquer coisa.</p>
         </div>
 
-        <div class="step reveal" data-delay="100">
-          <div class="step-top">
-            <span class="step-index">02</span>
-            <div class="step-bar"></div>
+        <div class="proc-step reveal-up" style="--d:100ms">
+          <div class="proc-head">
+            <div class="proc-circle">02</div>
+            <div class="proc-connector"></div>
           </div>
-          <h3 class="step-name">Criação</h3>
-          <p class="step-desc">Design, copy e produção dos materiais. Tudo desenvolvido com base na estratégia definida, com foco em resultado e aprovação rápida.</p>
+          <h3 class="proc-name">Criação</h3>
+          <p class="proc-desc">Design, copy e produção de todos os materiais. Tudo desenvolvido com base na estratégia definida, com aprovação rápida a cada entrega.</p>
         </div>
 
-        <div class="step reveal" data-delay="200">
-          <div class="step-top">
-            <span class="step-index">03</span>
-            <div class="step-bar"></div>
+        <div class="proc-step reveal-up" style="--d:200ms">
+          <div class="proc-head">
+            <div class="proc-circle">03</div>
+            <div class="proc-connector"></div>
           </div>
-          <h3 class="step-name">Lançamento</h3>
-          <p class="step-desc">Publicação das páginas, ativação das campanhas e monitoramento em tempo real. Lançamos rápido e com segurança.</p>
+          <h3 class="proc-name">Lançamento</h3>
+          <p class="proc-desc">Publicação das páginas, ativação das campanhas e monitoramento em tempo real. Lançamos rápido e com total segurança técnica.</p>
         </div>
 
-        <div class="step reveal" data-delay="300">
-          <div class="step-top">
-            <span class="step-index">04</span>
-            <div class="step-bar last"></div>
+        <div class="proc-step reveal-up" style="--d:300ms">
+          <div class="proc-head">
+            <div class="proc-circle">04</div>
           </div>
-          <h3 class="step-name">Otimização</h3>
-          <p class="step-desc">Análise dos dados e ajustes contínuos para melhorar o desempenho. O trabalho não termina no lançamento — começa de verdade.</p>
+          <h3 class="proc-name">Otimização</h3>
+          <p class="proc-desc">Análise contínua dos dados e ajustes para melhorar o desempenho. O trabalho não termina no lançamento — começa de verdade.</p>
         </div>
 
       </div>
-
     </div>
   </section>
 
 
-  <!-- ================================
-       CTA
-  ================================= -->
-  <section class="cta-section" id="contato">
+  <!-- ===================== CTA ===================== -->
+  <section class="cta-sec" id="contato">
+    <div class="cta-bg-art" aria-hidden="true">
+      <div class="cta-orb cta-orb-a"></div>
+      <div class="cta-orb cta-orb-b"></div>
+    </div>
     <div class="container">
-      <div class="cta-inner reveal">
-
+      <div class="cta-inner reveal-up">
         <div class="cta-badge">
           <span class="badge-dot"></span>
           Aceitando novos projetos
         </div>
-
         <h2 class="cta-title">
           Pronto para transformar sua<br/>
           presença digital em resultado?
         </h2>
-
         <p class="cta-sub">
           Fale com a gente e receba uma proposta personalizada em até 24h.
         </p>
-
-        <div class="cta-actions">
-          <a href="mailto:contato@inovacria.com" class="btn btn-primary btn-lg">Começar projeto</a>
-          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-white btn-lg">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div class="cta-btns">
+          <a href="mailto:contato@inovacria.com" class="btn btn-primary btn-lg">
+            Começar projeto
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="btn btn-ghost-white btn-lg">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Falar no WhatsApp
           </a>
         </div>
-
       </div>
     </div>
   </section>
 
 
-  <!-- ================================
-       FOOTER
-  ================================= -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="container">
 
       <div class="footer-top">
-
         <div class="footer-brand">
-          <a href="#" class="logo" aria-label="Inovacria">
-            <svg class="logo-mark" width="30" height="30" viewBox="0 0 34 34" fill="none">
+          <a href="#" class="logo footer-logo" aria-label="Inovacria">
+            <svg class="logo-icon" width="32" height="32" viewBox="0 0 36 36" fill="none">
               <defs>
-                <linearGradient id="lg-footer" x1="0" y1="0" x2="34" y2="34" gradientUnits="userSpaceOnUse">
+                <linearGradient id="g-footer-logo" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
                   <stop stop-color="#28C7FF"/>
                   <stop offset="1" stop-color="#5B3FFF"/>
                 </linearGradient>
               </defs>
-              <path d="M26 5.5A14.5 14.5 0 1 0 26 28.5" stroke="url(#lg-footer)" stroke-width="3" stroke-linecap="round" fill="none"/>
-              <circle cx="18.5" cy="10.5" r="1.6" fill="url(#lg-footer)"/>
-              <line x1="18.5" y1="14" x2="18.5" y2="22" stroke="url(#lg-footer)" stroke-width="2.8" stroke-linecap="round"/>
+              <path d="M28 6A15 15 0 1 0 28 30" stroke="url(#g-footer-logo)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+              <circle cx="20" cy="11" r="1.8" fill="url(#g-footer-logo)"/>
+              <line x1="20" y1="15" x2="20" y2="24" stroke="url(#g-footer-logo)" stroke-width="3" stroke-linecap="round"/>
             </svg>
-            <span class="logo-name">inovacria</span>
+            <span>inovacria</span>
           </a>
           <p class="footer-tagline">Agência de performance digital.<br/>Projetos que atraem, convencem e vendem.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram" class="social-icon">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <div class="footer-socials">
+            <a href="#" class="f-social" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-icon">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <a href="https://wa.me/5500000000000" target="_blank" rel="noopener" class="f-social" aria-label="WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Serviços</h4>
+          <h4>Serviços</h4>
           <ul>
             <li><a href="#servicos">Landing Pages</a></li>
             <li><a href="#servicos">Criativos para Ads</a></li>
@@ -449,7 +546,7 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Empresa</h4>
+          <h4>Empresa</h4>
           <ul>
             <li><a href="#portfolio">Portfólio</a></li>
             <li><a href="#processo">Processo</a></li>
@@ -458,24 +555,21 @@
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-heading">Contato</h4>
+          <h4>Contato</h4>
           <ul>
             <li><a href="mailto:contato@inovacria.com">contato@inovacria.com</a></li>
             <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
             <li><a href="#" target="_blank" rel="noopener">@inovacria</a></li>
           </ul>
         </div>
-
       </div>
 
       <div class="footer-bottom">
         <p>&copy; 2025 Inovacria. Todos os direitos reservados.</p>
-        <p>Feito com precisão e propósito.</p>
+        <p>Feito com estratégia e propósito.</p>
       </div>
-
     </div>
   </footer>
-
 
   <script src="script.js"></script>
 </body>
