@@ -59,6 +59,7 @@ console.log('🌿 Chácara Vó Mozart — v1.0');
 (function initMobileMenu() {
   const toggle  = $('#nav-toggle');
   const menu    = $('#nav-menu');
+  const close   = $('#nav-close');
   const overlay = $('#nav-overlay');
   const links   = $$('.nav-link');
 
@@ -69,10 +70,14 @@ console.log('🌿 Chácara Vó Mozart — v1.0');
     toggle.classList.add('open');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Fechar menu');
-    document.body.style.overflow = 'hidden';
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
     if (overlay) {
       overlay.classList.add('active');
       overlay.removeAttribute('aria-hidden');
+    }
+    if (window.innerWidth <= 768 && close) {
+      close.focus();
     }
   }
 
@@ -81,7 +86,8 @@ console.log('🌿 Chácara Vó Mozart — v1.0');
     toggle.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Abrir menu');
-    document.body.style.overflow = '';
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
     if (overlay) {
       overlay.classList.remove('active');
       overlay.setAttribute('aria-hidden', 'true');
@@ -98,6 +104,12 @@ console.log('🌿 Chácara Vó Mozart — v1.0');
 
   if (overlay) {
     overlay.addEventListener('click', closeMenu);
+  }
+  if (close) {
+    close.addEventListener('click', () => {
+      closeMenu();
+      toggle.focus();
+    });
   }
 
   links.forEach(link => {
