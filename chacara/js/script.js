@@ -22,7 +22,7 @@
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 
-console.log('🌿 Chácara Vó Mozart — v1.0');
+console.log('🌿 Chácara Vô Mozart — v1.0');
 
 
 /* ============================================================
