@@ -1,620 +1,540 @@
 <!DOCTYPE html>
 <html lang="pt-BR" x-data="lucaobet()" x-init="init()">
 <head>
-  <!-- ============================================================
-       LucãoBet — Cassino Premium Global | Versão 2.0.0 — 2026
-       Remodel: World's Largest Casino Level + Brazilian Market
-       Stack: Tailwind CSS v3 · Alpine.js v3 · Lucide · Vanilla JS
-  ============================================================ -->
+  <!-- ================================================================
+       LucãoBet — World-Class Casino | v3.0.0 | 2026
+       Inspired by: Betano · Stake · LeoVegas · 888Casino · Bet365
+       Stack: Tailwind v3 · Alpine.js v3 · Lucide Icons · Vanilla JS
+  ================================================================ -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#d4af37" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#080808" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <!-- SEO Meta — foco Brasil -->
-  <title>LucãoBet 🇧🇷 — O Cassino dos Milionários | Bônus 300% + R$25.000</title>
-  <meta name="description" content="LucãoBet: O maior cassino premium do Brasil. Bônus de Boas-Vindas 300% até R$ 25.000 + 500 Giros Grátis. PIX em 5 minutos. Gates of Olympus, Aviator, Crazy Time, Lightning Roulette e 3.000+ jogos." />
-  <meta name="keywords" content="cassino online brasil, melhor cassino pix, lucaobet, slots brasil, aviator brasil, bonus cassino, pix casino, saque rapido, fortune tiger, bônus boas-vindas" />
+  <title>LucãoBet 🦅 — Apostas Esportivas & Jogos Online | Bônus R$25.000</title>
+  <meta name="description" content="LucãoBet: Apostas esportivas, cassino ao vivo, slots e crash. Bônus 300% até R$25.000 + 500 Giros. PIX em 5 minutos. O cassino mundial com sede no Brasil." />
+  <meta name="keywords" content="lucaobet, apostas esportivas, cassino online brasil, pix casino, slots, aviator, fortune tiger, crash, bônus cassino 2026" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="LucãoBet 🇧🇷 — Bônus 300% até R$ 25.000 + 500 Giros Grátis" />
-  <meta property="og:description" content="O cassino premium que o Brasil estava esperando. PIX Instantâneo em 5 minutos. Bônus real. Pagamentos reais. Milionários reais." />
+  <meta property="og:title" content="LucãoBet — World-Class Entertainment Since 1998 🦅" />
+  <meta property="og:description" content="Apostas Esportivas & Jogos Online. Bônus 300% até R$25.000. PIX em 5 min." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lucaobet.com" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=1200" />
+  <meta property="og:image" content="assets/img/logo.png" />
   <meta property="og:locale" content="pt_BR" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="LucãoBet — Cassino Premium Brasil | PIX Instantâneo" />
+  <!-- Favicon dinâmico -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦅</text></svg>" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>" />
-
-  <!-- Google Fonts — Luxury Stack 2026 -->
+  <!-- Google Fonts — World-Class Stack 2026 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind CSS v3 CDN -->
+  <!-- Tailwind CSS v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Alpine.js v3 CDN (defer = non-blocking) -->
+  <!-- Alpine.js v3 -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <!-- Lucide Icons CDN -->
+  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
-  <!-- Tailwind Config — Paleta Bilionária 2026 -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            gold:       '#d4af37',
-            'gold-l':   '#f5d76e',
-            'gold-d':   '#a88820',
-            crimson:    '#c8102e',
-            'crimson-d':'#9a0c23',
-            cyan:       '#00d4ff',
-            warm:       '#1a120b',
-            'warm-2':   '#251810',
-            velvet:     '#0a0a0a',
+            gold:    '#d4af37',
+            'gold-l':'#f5c842',
+            'gold-d':'#a88820',
+            red:     '#e8181e',
+            'red-d': '#b80f15',
+            cyan:    '#00d4ff',
+            ink:     '#080808',
+            'ink-2': '#120e08',
+            'ink-3': '#1c1408',
           },
           fontFamily: {
-            playfair: ['"Playfair Display"', 'Georgia', 'serif'],
-            cinzel:   ['Cinzel', 'serif'],
+            bebas:    ['"Bebas Neue"', 'sans-serif'],
+            playfair: ['"Playfair Display"', 'serif'],
             inter:    ['Inter', 'sans-serif'],
-            grotesk:  ['"Space Grotesk"', 'sans-serif'],
+            rajdhani: ['Rajdhani', 'sans-serif'],
           },
           maxWidth: { '8xl': '88rem' },
         },
       },
     }
   </script>
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body class="bg-velvet text-white font-inter overflow-x-hidden" x-cloak>
+<body class="bg-ink text-white font-inter overflow-x-hidden" x-cloak>
 
-  <!-- ================================================================
-       CURSOR PERSONALIZADO
-  ================================================================ -->
+  <!-- CURSOR (desktop only) -->
   <div id="cursor" class="custom-cursor"></div>
   <div id="cursor-trail" class="cursor-trail"></div>
 
-  <!-- ================================================================
-       CANVAS DE PARTÍCULAS — Fundo do hero
-  ================================================================ -->
-  <canvas id="particleCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+  <!-- CANVAS PARTÍCULAS -->
+  <canvas id="particleCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
 
-  <!-- ================================================================
-       TICKER — Vencedores ao vivo (barra do topo)
-  ================================================================ -->
-  <div class="ticker-bar fixed top-0 left-0 w-full z-50 h-9 flex items-center overflow-hidden">
-    <div class="ticker-label shrink-0">🏆 AO VIVO</div>
-    <div class="ticker-inner" id="tickerInner">
-      <!-- Populado pelo JS -->
-    </div>
+  <!-- ============================================================
+       TICKER — Vencedores ao vivo (topo)
+  ============================================================ -->
+  <div class="ticker-bar fixed top-0 left-0 w-full z-50">
+    <div class="ticker-label">🏆 AO VIVO</div>
+    <div class="ticker-inner" id="tickerInner"><!-- JS --></div>
   </div>
 
-  <!-- ================================================================
-       HEADER — Glassmorphism fixo premium
-  ================================================================ -->
-  <header id="mainHeader" class="header-glass fixed w-full z-40 transition-all duration-500" style="top:36px;">
-    <div class="max-w-8xl mx-auto px-6 lg:px-10 h-18 flex items-center justify-between gap-4" style="height:72px;">
+  <!-- ============================================================
+       HEADER — Glassmorphism Premium
+  ============================================================ -->
+  <header id="mainHeader" class="lb-header fixed w-full z-40" style="top:32px;">
+    <div class="header-inner max-w-8xl mx-auto px-4 md:px-6 lg:px-10">
 
       <!-- Logo -->
-      <a href="#" class="logo-wrap flex items-center gap-3 shrink-0">
-        <div class="logo-gem">💎</div>
-        <div class="logo-text-wrap">
-          <span class="font-playfair font-black text-2xl logo-text">Lucão<span class="text-gold">Bet</span></span>
-          <span class="logo-tagline">🇧🇷 Casino Premium</span>
+      <a href="#hero" class="logo-anchor shrink-0">
+        <img src="assets/img/logo.png" alt="LucãoBet" class="header-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <!-- Fallback se logo não existir -->
+        <div class="logo-fallback" style="display:none;">
+          <div class="logo-gem-fb">🦅</div>
+          <span class="font-bebas text-2xl text-white">Lucão<span class="text-red">Bet</span></span>
         </div>
       </a>
 
-      <!-- Navegação Desktop -->
-      <nav class="hidden lg:flex items-center gap-1">
-        <a href="#games"      class="nav-link">🎰 Cassino</a>
-        <a href="#live"       class="nav-link">📺 Ao Vivo</a>
-        <a href="#games"      class="nav-link">🚀 Crash</a>
-        <a href="#promos"     class="nav-link">🎁 Promoções</a>
-        <a href="#vip"        class="nav-link vip-link">👑 VIP</a>
-        <a href="#tournament" class="nav-link crimson-link">🏆 Torneio</a>
+      <!-- Nav Desktop -->
+      <nav class="header-nav hidden lg:flex">
+        <a href="#hero"       class="nav-item">🏠 Início</a>
+        <a href="#sports"     class="nav-item">⚽ Esportes</a>
+        <a href="#games"      class="nav-item">🎰 Cassino</a>
+        <a href="#live"       class="nav-item live-item">
+          <span class="live-dot-sm"></span>Ao Vivo
+        </a>
+        <a href="#games"      class="nav-item">🚀 Crash</a>
+        <a href="#promos"     class="nav-item">🎁 Promoções</a>
+        <a href="#vip"        class="nav-item vip-nav">👑 VIP</a>
       </nav>
 
-      <!-- Header CTAs -->
-      <div class="flex items-center gap-2">
-        <!-- PIX badge destacado -->
-        <div class="pix-badge hidden md:flex items-center gap-1">
-          <span class="pix-dot"></span>
-          <span>PIX 5 min</span>
-        </div>
-        <button @click="openWallet = true" class="btn-ghost hidden md:flex items-center gap-2 text-sm">
-          💳 Depositar
-        </button>
-        <button @click="openLogin = true"    class="btn-outline-gold text-sm px-4 py-2 font-grotesk">Entrar</button>
-        <button @click="openRegister = true" class="btn-crimson-gold text-sm px-5 py-2 font-grotesk font-bold">🎁 Bônus</button>
-
-        <!-- Mobile hamburger -->
-        <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 text-gold">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-            <rect x="0" y="3"  width="22" height="2" rx="1" fill="currentColor"/>
-            <rect x="0" y="10" width="22" height="2" rx="1" fill="currentColor"/>
-            <rect x="0" y="17" width="22" height="2" rx="1" fill="currentColor"/>
-          </svg>
+      <!-- Header Right -->
+      <div class="header-right flex items-center gap-2">
+        <div class="pix-pill hidden md:flex">⚡ PIX 5min</div>
+        <button @click="openWallet=true"    class="btn-ghost-sm hidden md:flex">💳 Depósito</button>
+        <button @click="openLogin=true"     class="btn-outline-sm">Entrar</button>
+        <button @click="openRegister=true"  class="btn-red-gold">🎁 Bônus</button>
+        <button @click="mobileMenu=!mobileMenu" class="hamburger lg:hidden" aria-label="Menu">
+          <span></span><span></span><span></span>
         </button>
       </div>
     </div>
 
-    <!-- Menu Mobile -->
-    <div x-show="mobileMenu" x-transition class="lg:hidden mobile-menu px-6 pb-6">
-      <a href="#games"      class="mobile-nav-link">🎰 Cassino</a>
-      <a href="#live"       class="mobile-nav-link">📺 Ao Vivo</a>
-      <a href="#games"      class="mobile-nav-link">🚀 Crash</a>
-      <a href="#promos"     class="mobile-nav-link">🎁 Promoções</a>
-      <a href="#vip"        class="mobile-nav-link">👑 VIP</a>
-      <a href="#tournament" class="mobile-nav-link">🏆 Torneio R$500K</a>
+    <!-- Mobile Drawer Menu -->
+    <div x-show="mobileMenu" x-transition:enter="slide-down-enter" x-transition:enter-start="slide-down-start" x-transition:enter-end="slide-down-end" class="mobile-drawer">
+      <div class="mobile-drawer-inner">
+        <a href="#hero"       class="drawer-link" @click="mobileMenu=false">🏠 Início</a>
+        <a href="#sports"     class="drawer-link" @click="mobileMenu=false">⚽ Apostas Esportivas</a>
+        <a href="#games"      class="drawer-link" @click="mobileMenu=false">🎰 Cassino</a>
+        <a href="#live"       class="drawer-link" @click="mobileMenu=false">📺 Cassino Ao Vivo</a>
+        <a href="#games"      class="drawer-link" @click="mobileMenu=false">🚀 Crash Games</a>
+        <a href="#promos"     class="drawer-link" @click="mobileMenu=false">🎁 Promoções</a>
+        <a href="#vip"        class="drawer-link gold-drawer" @click="mobileMenu=false">👑 VIP Diamond</a>
+        <a href="#tournament" class="drawer-link red-drawer"  @click="mobileMenu=false">🏆 Torneio R$500K</a>
+        <div class="drawer-divider"></div>
+        <button @click="openWallet=true; mobileMenu=false" class="drawer-pix-btn">⚡ Depositar via PIX</button>
+      </div>
     </div>
   </header>
 
-  <!-- ================================================================
+  <!-- ============================================================
        MAIN
-  ================================================================ -->
-  <main style="padding-top:108px;">
+  ============================================================ -->
+  <main class="main-wrap">
 
-    <!-- ============================================================
-         SEÇÃO 1 — HERO Cinematográfico Grand Vegas
-    ============================================================ -->
-    <section id="hero" class="hero-section relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+    <!-- ===========================================================
+         SEÇÃO 1 — HERO World-Class
+    =========================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-layers">
+        <div class="hero-layer-1"></div>
+        <div class="hero-layer-2"></div>
+        <div class="hero-layer-3"></div>
+      </div>
 
-      <!-- Camadas de sobreposição cinemática -->
-      <div class="hero-overlay absolute inset-0 z-1"></div>
-      <div class="hero-vignette absolute inset-0 z-2"></div>
-      <div class="hero-warm-tint absolute inset-0 z-1"></div>
+      <!-- Orbes ambiente -->
+      <div class="orb o-gold"    aria-hidden="true"></div>
+      <div class="orb o-red"     aria-hidden="true"></div>
+      <div class="orb o-cyan"    aria-hidden="true"></div>
 
-      <!-- Orbes flutuantes — ouro + carmesim -->
-      <div class="orb orb-gold"    style="top:8%;left:3%;width:500px;height:500px;"></div>
-      <div class="orb orb-crimson" style="top:15%;right:5%;width:380px;height:380px;"></div>
-      <div class="orb orb-cyan"    style="bottom:10%;left:8%;width:320px;height:320px;"></div>
-      <div class="orb orb-warm"    style="bottom:20%;right:3%;width:420px;height:420px;"></div>
+      <div class="hero-container">
 
-      <div class="hero-content relative z-10 max-w-6xl mx-auto">
-
-        <!-- Badge de autoridade -->
-        <div class="hero-badge inline-flex items-center gap-3 mb-8">
-          <span class="badge-dot"></span>
-          <span class="badge-text">
-            🇧🇷 Nº 1 no Brasil &nbsp;•&nbsp; Las Vegas &nbsp;•&nbsp; Dubai &nbsp;•&nbsp; Crypto Elite
-          </span>
-          <span class="badge-dot"></span>
+        <!-- Logo central (grande) -->
+        <div class="hero-logo-wrap" data-reveal="fade-up">
+          <img src="assets/img/logo.png" alt="LucãoBet — Apostas Esportivas & Jogos Online"
+               class="hero-logo-img"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+          <!-- Fallback texto -->
+          <div class="hero-logo-fallback" style="display:none;">
+            <div class="hero-logo-icon">🦅</div>
+            <h1 class="font-bebas hero-title-fallback">
+              Lucão<span class="text-red">Bet</span>
+            </h1>
+            <p class="font-rajdhani hero-subtitle-fb">APOSTAS ESPORTIVAS &amp; JOGOS ONLINE</p>
+          </div>
         </div>
 
-        <!-- Título principal — Playfair Display -->
-        <h1 class="hero-title font-playfair mb-6 leading-none">
-          <span class="hero-typing" id="heroTyping"></span><span class="typing-cursor">|</span>
-        </h1>
-
-        <!-- Linha de destaque PIX -->
-        <div class="pix-highlight mb-6">
-          <span class="pix-icon">⚡</span>
-          <span>PIX Instantâneo — Saque em <strong>5 minutos</strong> garantidos</span>
+        <!-- Slogan com typing effect -->
+        <div class="hero-slogan" data-reveal="fade-up" data-delay="100">
+          <span class="hero-typing font-bebas" id="heroTyping"></span><span class="typing-cur">|</span>
         </div>
 
-        <!-- Subtítulo do bônus -->
-        <p class="hero-subtitle mb-4">
-          Bônus de Boas-Vindas
-          <span class="text-gold font-bold">300%</span> até
-          <span class="hero-amount">R$ 25.000</span>
-          <span class="text-white/40 text-sm">(≈ US$ 5.000)</span>
-          <br class="hidden md:block" />
-          <span class="text-white/70">+</span>
-          <span class="text-gold font-bold">500 Giros Grátis</span>
-          &nbsp;·&nbsp; Cashback
-          <span class="text-cyan font-bold">20%</span>
-          &nbsp;·&nbsp; High Roller
-          <span class="text-crimson font-bold">R$ 50.000</span>
-        </p>
+        <!-- Jackpot ao vivo -->
+        <div class="jackpot-strip" data-reveal="fade-up" data-delay="150">
+          <span class="jackpot-label">🎰 JACKPOT ACUMULADO</span>
+          <span class="jackpot-value font-rajdhani" id="jackpotAmt">R$ 12.847.320</span>
+          <span class="jackpot-pulse"></span>
+        </div>
 
-        <!-- Contadores ao vivo -->
-        <div class="live-counters flex flex-wrap justify-center gap-5 mb-12">
-          <div class="counter-card">
-            <div class="counter-dot bg-emerald-400"></div>
-            <div>
-              <div class="counter-value font-grotesk text-gold" id="cntPlayers">78.942</div>
-              <div class="counter-label">Jogadores Online</div>
-            </div>
+        <!-- Destaque bônus -->
+        <div class="bonus-strip" data-reveal="fade-up" data-delay="200">
+          <div class="bonus-strip-item gold-item">
+            <span class="bs-value">300%</span>
+            <span class="bs-label">Bônus Boas-Vindas</span>
           </div>
-          <div class="counter-card featured">
-            <div class="counter-dot bg-gold"></div>
-            <div>
-              <div class="counter-value font-grotesk text-gold" id="cntPaid">R$ 264 M</div>
-              <div class="counter-label">Pagos Hoje no Brasil</div>
-            </div>
+          <div class="bonus-strip-sep">+</div>
+          <div class="bonus-strip-item">
+            <span class="bs-value gold">R$25.000</span>
+            <span class="bs-label">Valor Máximo</span>
           </div>
-          <div class="counter-card">
-            <div class="counter-dot bg-cyan"></div>
-            <div>
-              <div class="counter-value font-grotesk text-cyan" id="cntSpins">+312.000</div>
-              <div class="counter-label">Giros Premiados</div>
-            </div>
+          <div class="bonus-strip-sep">+</div>
+          <div class="bonus-strip-item">
+            <span class="bs-value cyan">500</span>
+            <span class="bs-label">Giros Grátis</span>
           </div>
         </div>
 
         <!-- CTAs principais -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <button id="mainCta" @click="fireConfetti(); openRegister = true"
-            class="cta-main font-grotesk font-bold text-xl px-12 py-5 rounded-2xl relative overflow-hidden">
+        <div class="hero-ctas" data-reveal="fade-up" data-delay="250">
+          <button id="mainCta" @click="fireConfetti(); openRegister=true" class="cta-gold">
             <span class="cta-shine"></span>
             <span class="relative z-10">🎁 Resgatar Bônus Agora</span>
           </button>
-          <button @click="openWallet = true"
-            class="cta-pix font-grotesk font-semibold text-lg px-10 py-5 rounded-2xl">
+          <button @click="openWallet=true" class="cta-pix">
             ⚡ Depositar via PIX
           </button>
         </div>
 
-        <!-- Selos de confiança -->
-        <div class="trust-row flex flex-wrap justify-center gap-3">
-          <span class="trust-badge pix">⚡ PIX — Saque em 5 min</span>
-          <span class="trust-badge">🇧🇷 +2 Milhões de Brasileiros</span>
-          <span class="trust-badge">🔒 SSL 256-bit</span>
-          <span class="trust-badge">₿ Crypto Elite</span>
-          <span class="trust-badge">🎯 Provably Fair</span>
-          <span class="trust-badge">🌍 +150 Países</span>
-        </div>
-      </div>
-
-      <!-- Scroll hint -->
-      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <div class="scroll-hint"></div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         SEÇÃO 2 — BÔNUS & PROMOÇÕES
-    ============================================================ -->
-    <section id="promos" class="promos-section relative">
-      <div class="section-divider-glow"></div>
-
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-header text-center mb-20">
-          <div class="section-badge crimson-badge">🎁 PROMOÇÕES EXCLUSIVAS</div>
-          <h2 class="section-title font-playfair">
-            Bônus que <span class="gold-text">Transformam</span> Vidas
-          </h2>
-          <p class="section-sub">Criados para quem joga no mais alto nível — no Brasil e no mundo</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          <!-- Bônus 1 — Boas-Vindas -->
-          <div class="bonus-card group" data-tilt>
-            <div class="bonus-card-glow gold-glow"></div>
-            <div class="bonus-icon-wrap">🚀</div>
-            <div class="bonus-tag">BOAS-VINDAS</div>
-            <h3 class="bonus-title font-playfair">Bônus 300%</h3>
-            <div class="bonus-amount">R$ 25.000</div>
-            <div class="bonus-also">≈ US$ 5.000</div>
-            <p class="bonus-desc">+ 500 Giros Grátis nos maiores slots. Exclusivo para novos membros. Ative via PIX.</p>
-            <button @click="openRegister = true" class="bonus-btn">⚡ Resgatar via PIX</button>
-          </div>
-
-          <!-- Bônus 2 — Cashback -->
-          <div class="bonus-card group" data-tilt>
-            <div class="bonus-card-glow cyan-glow"></div>
-            <div class="bonus-icon-wrap">💰</div>
-            <div class="bonus-tag cashback-tag">CASHBACK</div>
-            <h3 class="bonus-title font-playfair">Cashback 20%</h3>
-            <div class="bonus-amount">Todo Domingo</div>
-            <div class="bonus-also">Sem limite de valor</div>
-            <p class="bonus-desc">Recupere 20% de tudo que perdeu na semana. Creditado direto no seu saldo.</p>
-            <button @click="openRegister = true" class="bonus-btn">Ativar Agora</button>
-          </div>
-
-          <!-- Bônus 3 — High Roller -->
-          <div class="bonus-card group" data-tilt>
-            <div class="bonus-card-glow crimson-glow"></div>
-            <div class="bonus-icon-wrap">👑</div>
-            <div class="bonus-tag high-roller-tag">HIGH ROLLER</div>
-            <h3 class="bonus-title font-playfair">Bônus VIP</h3>
-            <div class="bonus-amount">R$ 50.000</div>
-            <div class="bonus-also">Depósito mín. R$ 5.000</div>
-            <p class="bonus-desc">Limites sem teto. Manager exclusivo. Para quem joga de verdade.</p>
-            <button @click="openRegister = true" class="bonus-btn">Aplicar Agora</button>
-          </div>
-
-          <!-- Bônus 4 — Reload -->
-          <div class="bonus-card group" data-tilt>
-            <div class="bonus-card-glow warm-glow"></div>
-            <div class="bonus-icon-wrap">🔄</div>
-            <div class="bonus-tag reload-tag">RELOAD</div>
-            <h3 class="bonus-title font-playfair">Reload 150%</h3>
-            <div class="bonus-amount">Toda Sexta</div>
-            <div class="bonus-also">Crypto recebe 2x mais</div>
-            <p class="bonus-desc">Recarregue sua conta toda sexta e ganhe 150% de bônus extra garantido.</p>
-            <button @click="openRegister = true" class="bonus-btn">Ver Detalhes</button>
-          </div>
-
-        </div>
-
-        <!-- PIX banner inline -->
-        <div class="pix-banner mt-16">
-          <div class="pix-banner-inner flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-4">
-              <div class="pix-banner-icon">⚡</div>
-              <div>
-                <div class="pix-banner-title font-playfair">PIX Instantâneo — Saque em 5 Minutos</div>
-                <div class="pix-banner-sub">O cassino com o PIX mais rápido do Brasil. Garantido ou devolvemos o dobro.</div>
-              </div>
+        <!-- Contadores live -->
+        <div class="counters-row" data-reveal="fade-up" data-delay="300">
+          <div class="cnt-item">
+            <div class="cnt-dot green"></div>
+            <div>
+              <div class="cnt-val font-rajdhani" id="cntPlayers">78.942</div>
+              <div class="cnt-lbl">Online Agora</div>
             </div>
-            <button @click="openWallet = true" class="cta-main font-grotesk font-bold px-8 py-4 rounded-xl relative overflow-hidden shrink-0">
-              <span class="cta-shine"></span>
-              <span class="relative z-10">⚡ Depositar via PIX</span>
-            </button>
           </div>
+          <div class="cnt-sep"></div>
+          <div class="cnt-item">
+            <div class="cnt-dot gold"></div>
+            <div>
+              <div class="cnt-val font-rajdhani text-gold" id="cntPaid">R$ 264 M</div>
+              <div class="cnt-lbl">Pagos Hoje</div>
+            </div>
+          </div>
+          <div class="cnt-sep"></div>
+          <div class="cnt-item">
+            <div class="cnt-dot cyan"></div>
+            <div>
+              <div class="cnt-val font-rajdhani text-cyan" id="cntSpins">+312.000</div>
+              <div class="cnt-lbl">Giros Premiados</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Selos -->
+        <div class="trust-strip" data-reveal="fade-up" data-delay="350">
+          <span class="trust-chip pix-chip">⚡ PIX 5 min</span>
+          <span class="trust-chip">🇧🇷 +2M Brasileiros</span>
+          <span class="trust-chip">🔒 SSL 256-bit</span>
+          <span class="trust-chip">🎯 Provably Fair</span>
+          <span class="trust-chip">₿ Crypto</span>
+          <span class="trust-chip">🌍 +150 países</span>
+        </div>
+      </div>
+
+      <div class="scroll-hint-wrap">
+        <div class="scroll-hint-dot"></div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         PROMOS STRIP — Logo scrollable de bônus
+    =========================================================== -->
+    <section class="promos-strip-section">
+      <div class="promos-strip-scroll" id="promosStrip">
+        <div class="ps-card ps-welcome">
+          <div class="ps-icon">🚀</div>
+          <div class="ps-tag">BOAS-VINDAS</div>
+          <div class="ps-val">300% + R$25.000</div>
+          <div class="ps-sub">+ 500 Giros Grátis</div>
+          <button @click="openRegister=true" class="ps-btn">Resgatar</button>
+        </div>
+        <div class="ps-card ps-cashback">
+          <div class="ps-icon">💰</div>
+          <div class="ps-tag">CASHBACK</div>
+          <div class="ps-val">20% Todo Domingo</div>
+          <div class="ps-sub">Sem limite de valor</div>
+          <button @click="openRegister=true" class="ps-btn">Ativar</button>
+        </div>
+        <div class="ps-card ps-pix">
+          <div class="ps-icon">⚡</div>
+          <div class="ps-tag">PIX EXPRESS</div>
+          <div class="ps-val">Saque em 5 Minutos</div>
+          <div class="ps-sub">Garantido ou devolvemos</div>
+          <button @click="openWallet=true" class="ps-btn">Depositar</button>
+        </div>
+        <div class="ps-card ps-vip">
+          <div class="ps-icon">👑</div>
+          <div class="ps-tag">HIGH ROLLER</div>
+          <div class="ps-val">R$50.000 Bônus VIP</div>
+          <div class="ps-sub">Depósito mín. R$5.000</div>
+          <button @click="openVip=true" class="ps-btn">Aplicar</button>
+        </div>
+        <div class="ps-card ps-reload">
+          <div class="ps-icon">🔄</div>
+          <div class="ps-tag">RELOAD SEXTA</div>
+          <div class="ps-val">150% Toda Sexta</div>
+          <div class="ps-sub">Crypto recebe 2x</div>
+          <button @click="openRegister=true" class="ps-btn">Ver Mais</button>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO 3 — JOGOS com Filtros Alpine
-    ============================================================ -->
-    <section id="games" class="games-section" x-data="gamesFilter()">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-header text-center mb-16">
-          <div class="section-badge">🎰 TOP JOGOS 2026</div>
-          <h2 class="section-title font-playfair">
-            Os Jogos que <span class="gold-text">Criam Milionários</span>
-          </h2>
-          <p class="section-sub">3.000+ títulos premium. Os mais pagantes do planeta, disponíveis agora.</p>
+    <!-- ===========================================================
+         SEÇÃO APOSTAS ESPORTIVAS
+    =========================================================== -->
+    <section id="sports" class="section-sports">
+      <div class="section-wrap">
+        <div class="section-hd">
+          <div class="section-badge red-badge">⚽ AO VIVO AGORA</div>
+          <h2 class="section-title font-bebas">Apostas <span class="text-red">Esportivas</span></h2>
+          <a href="#" class="see-all-link">Ver todos →</a>
         </div>
 
-        <!-- Tabs de filtro -->
-        <div class="filter-tabs flex flex-wrap justify-center gap-3 mb-12">
-          <template x-for="f in filters" :key="f.key">
-            <button
-              @click="activeFilter = f.key"
-              :class="activeFilter === f.key ? 'filter-tab active' : 'filter-tab'"
-              x-text="f.label">
-            </button>
-          </template>
+        <div class="sports-grid" id="sportsGrid">
+          <!-- Populado pelo JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================================================
+         SEÇÃO JOGOS — com filtros e grid world-class
+    =========================================================== -->
+    <section id="games" class="section-games" x-data="gamesFilter()">
+      <div class="section-wrap">
+        <div class="section-hd">
+          <div class="section-badge">🎰 JOGOS EM DESTAQUE</div>
+          <h2 class="section-title font-bebas">Os Jogos que <span class="text-gold">Criam Milionários</span></h2>
+        </div>
+
+        <!-- Filtros em scroll horizontal -->
+        <div class="filter-scroll-wrap">
+          <div class="filter-scroll">
+            <template x-for="f in filters" :key="f.key">
+              <button @click="activeFilter=f.key"
+                :class="activeFilter===f.key ? 'filter-chip active' : 'filter-chip'"
+                x-text="f.label">
+              </button>
+            </template>
+          </div>
         </div>
 
         <!-- Grid de jogos -->
-        <div class="games-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+        <div class="games-grid" :class="'cols-' + gridCols">
           <template x-for="game in filteredGames" :key="game.id">
-            <div class="game-card group" @click="openGameModal(game)">
-              <div class="game-card-inner">
-                <img :src="game.img" :alt="game.name" class="game-img" loading="lazy" />
-                <div class="game-overlay">
-                  <div class="game-rtp font-grotesk">RTP <span x-text="game.rtp"></span>%</div>
-                  <button class="game-play-btn">▶ Jogar</button>
-                  <div class="game-demo-btn">Demonstração</div>
+            <div class="game-card" @click="openGameModal(game)">
+              <div class="gc-media">
+                <img :src="game.img" :alt="game.name" loading="lazy" class="gc-img" />
+                <div class="gc-hover">
+                  <button class="gc-play-btn">▶ Jogar</button>
+                  <div class="gc-rtp font-rajdhani">RTP <span x-text="game.rtp"></span>%</div>
+                  <div class="gc-demo">Demonstração</div>
                 </div>
-                <div class="game-badge hot-badge" x-show="game.hot">🔥 HOT</div>
-                <div class="game-badge new-badge" x-show="game.new && !game.hot">✨ NOVO</div>
+                <span class="gc-badge hot" x-show="game.hot">🔥</span>
+                <span class="gc-badge new" x-show="game.new && !game.hot">NOVO</span>
+                <span class="gc-badge live" x-show="game.live">● AO VIVO</span>
               </div>
-              <div class="game-info px-3 py-2">
-                <div class="game-name font-grotesk font-semibold text-sm truncate" x-text="game.name"></div>
-                <div class="game-provider text-xs" x-text="game.provider"></div>
+              <div class="gc-info">
+                <div class="gc-name font-inter" x-text="game.name"></div>
+                <div class="gc-prov" x-text="game.provider"></div>
               </div>
             </div>
           </template>
         </div>
 
-        <div class="text-center mt-14">
-          <button class="btn-outline-gold px-12 py-4 font-grotesk font-semibold text-base rounded-xl">
-            Ver Todos os 3.000+ Jogos
-          </button>
+        <div class="text-center mt-10">
+          <button class="btn-see-all">Ver Todos os 3.000+ Jogos 🎰</button>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO 4 — PROVEDORES GLOBAIS
-    ============================================================ -->
-    <section id="providers" class="providers-section">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-header text-center mb-14">
+    <!-- ===========================================================
+         PROVEDORES GLOBAIS
+    =========================================================== -->
+    <section id="providers" class="section-providers">
+      <div class="section-wrap">
+        <div class="section-hd centered">
           <div class="section-badge">🌍 PARCEIROS PREMIUM</div>
-          <h2 class="section-title font-playfair">
-            Os Melhores <span class="gold-text">Provedores do Mundo</span>
-          </h2>
+          <h2 class="section-title font-bebas">Melhores <span class="text-gold">Provedores do Mundo</span></h2>
         </div>
-
-        <div class="providers-marquee-wrap overflow-hidden">
-          <div class="providers-marquee flex gap-6">
+        <div class="providers-mask">
+          <div class="providers-track" id="providersTrack">
+            <!-- Populado pelo JS (Alpine para providers) -->
             <template x-for="p in [...providers, ...providers]" :key="p.id + '_' + Math.random()">
-              <div class="provider-card shrink-0" x-text="p.name"></div>
+              <div class="prov-chip" x-text="p.name"></div>
             </template>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO 5 — HALL OF FAME
-    ============================================================ -->
-    <section id="halloffame" class="hall-section relative">
-      <div class="hall-bg absolute inset-0 z-0"></div>
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="section-header text-center mb-20">
-          <div class="section-badge crimson-badge">🏆 HALL DA FAMA</div>
-          <h2 class="section-title font-playfair">
-            Vencedores que <span class="gold-text">Mudaram de Vida</span>
-          </h2>
-          <p class="section-sub">Histórias reais. Pagamentos reais. Vidas transformadas pela LucãoBet.</p>
+    <!-- ===========================================================
+         HALL OF FAME
+    =========================================================== -->
+    <section id="halloffame" class="section-hall">
+      <div class="hall-ambient"></div>
+      <div class="section-wrap relative z-10">
+        <div class="section-hd centered">
+          <div class="section-badge gold-badge">🏆 HALL DA FAMA</div>
+          <h2 class="section-title font-bebas">Vidas <span class="text-gold">Transformadas</span></h2>
+          <p class="section-sub">Vencedores reais. Pagamentos reais. Histórias que inspiram o Brasil.</p>
         </div>
-
-        <div class="winners-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="winnersGrid">
-          <!-- Populado pelo JS -->
-        </div>
+        <div class="winners-grid" id="winnersGrid"><!-- JS --></div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO 6 — TORNEIO NACIONAL R$ 500.000
-    ============================================================ -->
-    <section id="tournament" class="tournament-section relative overflow-hidden">
-      <div class="tournament-bg absolute inset-0 z-0"></div>
-
-      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <div class="section-badge crimson-badge mb-8">⚡ TORNEIO AO VIVO • 2026</div>
-
-        <h2 class="font-playfair font-black text-6xl md:text-8xl mb-4 leading-none">
-          <span class="gold-gradient-text">R$ 500.000</span>
+    <!-- ===========================================================
+         TORNEIO NACIONAL
+    =========================================================== -->
+    <section id="tournament" class="section-tournament">
+      <div class="tournament-bg"></div>
+      <div class="section-wrap relative z-10 text-center">
+        <div class="section-badge red-badge mb-6">⚡ TORNEIO AO VIVO</div>
+        <h2 class="font-bebas tournament-prize-title">
+          <span class="gold-grad">R$ 500.000</span>
         </h2>
-        <h3 class="font-playfair font-bold text-2xl md:text-4xl mb-4 text-white/90">
-          Prize Pool — Campeonato Nacional LucãoBet
-        </h3>
-        <p class="text-white/60 mb-12 text-lg max-w-2xl mx-auto leading-relaxed">
-          Compita contra os melhores jogadores do Brasil e do mundo.
-          Ranking atualizado ao vivo. Top 100 recebem prêmios em PIX, crypto e bônus.
-          Inscrição gratuita para membros VIP.
+        <h3 class="font-playfair tournament-sub">Campeonato Nacional LucãoBet 2026</h3>
+        <p class="tournament-desc">
+          Compita contra os melhores do Brasil. Top 100 recebem prêmios em PIX + crypto.
+          Ranking ao vivo. Inscrição gratuita para membros VIP.
         </p>
 
-        <!-- Timer -->
-        <div class="tournament-timer flex justify-center gap-5 mb-12">
-          <div class="timer-block">
-            <div class="timer-value font-grotesk" id="tDays">04</div>
-            <div class="timer-label">Dias</div>
-          </div>
-          <div class="timer-sep">:</div>
-          <div class="timer-block">
-            <div class="timer-value font-grotesk" id="tHours">17</div>
-            <div class="timer-label">Horas</div>
-          </div>
-          <div class="timer-sep">:</div>
-          <div class="timer-block">
-            <div class="timer-value font-grotesk" id="tMins">33</div>
-            <div class="timer-label">Min</div>
-          </div>
-          <div class="timer-sep">:</div>
-          <div class="timer-block">
-            <div class="timer-value font-grotesk" id="tSecs">59</div>
-            <div class="timer-label">Seg</div>
-          </div>
+        <div class="timer-row">
+          <div class="tb"><div class="tv font-rajdhani" id="tDays">04</div><div class="tl">Dias</div></div>
+          <div class="ts">:</div>
+          <div class="tb"><div class="tv font-rajdhani" id="tHours">17</div><div class="tl">Horas</div></div>
+          <div class="ts">:</div>
+          <div class="tb"><div class="tv font-rajdhani" id="tMins">33</div><div class="tl">Min</div></div>
+          <div class="ts">:</div>
+          <div class="tb"><div class="tv font-rajdhani" id="tSecs">59</div><div class="tl">Seg</div></div>
         </div>
 
-        <!-- Leaderboard -->
-        <div class="tournament-leaderboard max-w-lg mx-auto mb-12" id="leaderboard">
-          <!-- Populado pelo JS -->
-        </div>
+        <div class="lb-box" id="leaderboard"><!-- JS --></div>
 
-        <button @click="openRegister = true" class="cta-main font-grotesk font-bold text-xl px-14 py-5 rounded-2xl relative overflow-hidden">
+        <button @click="openRegister=true" class="cta-gold mt-8">
           <span class="cta-shine"></span>
           <span class="relative z-10">🏆 Quero Competir Agora</span>
         </button>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO 7 — PRIVATE JET LOUNGE VIP
-    ============================================================ -->
-    <section id="vip" class="vip-section relative overflow-hidden">
-      <div class="vip-bg absolute inset-0 z-0"></div>
+    <!-- ===========================================================
+         VIP LOUNGE
+    =========================================================== -->
+    <section id="vip" class="section-vip">
+      <div class="vip-ambient"></div>
+      <div class="section-wrap relative z-10">
+        <div class="vip-layout">
 
-      <div class="max-w-7xl mx-auto px-6 relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-          <!-- Texto VIP -->
-          <div>
-            <div class="section-badge mb-8">✈️ PRIVATE JET LOUNGE</div>
-            <h2 class="font-playfair font-black text-5xl md:text-6xl lg:text-7xl mb-8 leading-none">
+          <div class="vip-text">
+            <div class="section-badge mb-6">✈️ PRIVATE JET LOUNGE</div>
+            <h2 class="font-bebas vip-title">
               O Clube dos<br>
-              <span class="gold-gradient-text">Verdadeiros</span><br>
+              <span class="gold-grad">Verdadeiros</span><br>
               Milionários
             </h2>
-            <p class="text-white/65 text-lg mb-10 leading-relaxed max-w-lg">
-              Mesas privadas com dealers exclusivos. Limites sem teto.
-              Manager VIP 24/7 em português. Prize pools de 7 dígitos.
-              Convites para Dubai, Mônaco e Las Vegas — tudo incluso.
+            <p class="vip-desc">
+              Mesas privadas, dealers exclusivos, manager 24/7 em português.
+              Limites sem teto. PIX prioritário. Convites para Dubai, Mônaco e Las Vegas.
             </p>
-
-            <div class="vip-perks grid grid-cols-2 gap-4 mb-12">
-              <div class="vip-perk"><span>✈️</span> Jatos Privados</div>
-              <div class="vip-perk"><span>🏨</span> Hotéis 7 Estrelas</div>
-              <div class="vip-perk"><span>💎</span> Mesas Privadas</div>
-              <div class="vip-perk"><span>🎰</span> Limites Sem Teto</div>
-              <div class="vip-perk"><span>👤</span> Manager em PT</div>
-              <div class="vip-perk"><span>⚡</span> PIX Prioritário</div>
+            <div class="vip-perks">
+              <div class="vp">✈️ Jatos Privados</div>
+              <div class="vp">🏨 Hotéis 7 Estrelas</div>
+              <div class="vp">💎 Mesas Privadas</div>
+              <div class="vp">🎰 Sem Limites</div>
+              <div class="vp">👤 Manager PT-BR</div>
+              <div class="vp">⚡ PIX Prioritário</div>
             </div>
-
-            <button @click="openVip = true" class="cta-main font-grotesk font-bold text-xl px-12 py-5 rounded-2xl relative overflow-hidden">
+            <button @click="openVip=true" class="cta-gold mt-8">
               <span class="cta-shine"></span>
               <span class="relative z-10">👑 Candidatar-me ao VIP</span>
             </button>
           </div>
 
-          <!-- Cards VIP -->
-          <div class="vip-card-showcase">
-            <div class="vip-tier-card diamond-tier">
-              <div class="vip-tier-icon">💎</div>
+          <div class="vip-cards">
+            <div class="vc-card vc-diamond">
+              <span class="vc-icon">💎</span>
               <div>
-                <div class="vip-tier-name font-playfair">Diamond</div>
-                <div class="vip-tier-sub">Acesso Total Exclusivo</div>
+                <div class="vc-name font-bebas">Diamond</div>
+                <div class="vc-sub">Acesso Total</div>
               </div>
-              <div class="vip-tier-limit">Sem Limite</div>
+              <div class="vc-limit">Sem Limite</div>
             </div>
-            <div class="vip-tier-card black-tier">
-              <div class="vip-tier-icon">🖤</div>
+            <div class="vc-card vc-black">
+              <span class="vc-icon">🖤</span>
               <div>
-                <div class="vip-tier-name font-playfair">Black Elite</div>
-                <div class="vip-tier-sub">Mesas Privadas — Brasil</div>
+                <div class="vc-name font-bebas">Black Elite</div>
+                <div class="vc-sub">Mesas Privadas BR</div>
               </div>
-              <div class="vip-tier-limit">R$ 2,5M / rodada</div>
+              <div class="vc-limit">R$2,5M/rod.</div>
             </div>
-            <div class="vip-tier-card platinum-tier">
-              <div class="vip-tier-icon">⚡</div>
+            <div class="vc-card vc-platinum">
+              <span class="vc-icon">⚡</span>
               <div>
-                <div class="vip-tier-name font-playfair">Platinum</div>
-                <div class="vip-tier-sub">Manager Dedicado PT</div>
+                <div class="vc-name font-bebas">Platinum</div>
+                <div class="vc-sub">Manager Dedicado</div>
               </div>
-              <div class="vip-tier-limit">R$ 250K / rodada</div>
+              <div class="vc-limit">R$250K/rod.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         SEÇÃO 8 — FEED DE VITÓRIAS AO VIVO
-    ============================================================ -->
-    <section id="live" class="live-section">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="section-header text-center mb-16">
+    <!-- ===========================================================
+         FEED AO VIVO
+    =========================================================== -->
+    <section id="live" class="section-live">
+      <div class="section-wrap">
+        <div class="section-hd">
           <div class="section-badge">⚡ AO VIVO AGORA</div>
-          <h2 class="section-title font-playfair">
-            Vitórias em <span class="gold-text">Tempo Real</span>
-          </h2>
+          <h2 class="section-title font-bebas">Vitórias em <span class="text-gold">Tempo Real</span></h2>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Feed principal -->
-          <div class="live-card col-span-1 lg:col-span-2">
-            <div class="live-card-header">
-              <div class="live-dot"></div>
-              <span class="font-grotesk text-sm font-semibold text-gold tracking-wide">VITÓRIAS AO VIVO — BRASIL</span>
-              <span class="ml-auto text-xs text-white/40" id="liveCount">↑ atualizando</span>
+        <div class="live-layout">
+          <div class="live-feed-card">
+            <div class="lfc-hd">
+              <span class="live-dot-lg"></span>
+              <span class="font-rajdhani font-bold text-gold tracking-wider text-sm">VITÓRIAS AO VIVO — BRASIL</span>
+              <span class="ml-auto text-xs text-white/40" id="liveCount">atualizando...</span>
             </div>
-            <div class="live-feed-list" id="liveFeed">
-              <!-- Populado pelo JS -->
-            </div>
+            <div class="live-feed" id="liveFeed"><!-- JS --></div>
           </div>
 
-          <!-- Big Win do Dia -->
-          <div class="live-card bigwin-card">
-            <div class="live-card-header">
-              <span class="font-grotesk text-sm font-bold text-crimson tracking-wide">💥 MAIOR WIN DO DIA</span>
+          <div class="bigwin-card">
+            <div class="bw-hd">
+              <span class="font-rajdhani font-bold text-sm text-red tracking-wider">💥 MAIOR WIN DO DIA</span>
             </div>
-            <div class="bigwin-content text-center py-8">
-              <div class="bigwin-game font-playfair text-2xl text-gold mb-3" id="bigWinGame">Gates of Olympus</div>
-              <div class="bigwin-amount font-grotesk font-black text-5xl gold-gradient-text mb-3" id="bigWinAmt">R$9,4M</div>
-              <div class="bigwin-player text-white/55 text-sm mb-5" id="bigWinPlayer">🇧🇷 João S. — São Paulo • há 2h</div>
-              <div class="bigwin-multiplier font-grotesk text-cyan text-3xl font-bold" id="bigWinMult">x15.200</div>
-              <div class="bigwin-rays"></div>
+            <div class="bw-body">
+              <div class="bw-game font-bebas" id="bigWinGame">Gates of Olympus</div>
+              <div class="bw-amount font-rajdhani" id="bigWinAmt">R$9,4M</div>
+              <div class="bw-player" id="bigWinPlayer">🇧🇷 João S. — São Paulo • 2h</div>
+              <div class="bw-mult font-rajdhani" id="bigWinMult">x15.200</div>
             </div>
           </div>
         </div>
@@ -623,42 +543,38 @@
 
   </main>
 
-  <!-- ================================================================
+  <!-- ============================================================
        FOOTER
-  ================================================================ -->
-  <footer class="footer-section relative">
-    <div class="footer-top-line"></div>
-    <div class="max-w-7xl mx-auto px-6">
-
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-20">
+  ============================================================ -->
+  <footer class="site-footer">
+    <div class="footer-gold-line"></div>
+    <div class="section-wrap">
+      <div class="footer-grid">
 
         <!-- Brand -->
-        <div class="col-span-2 md:col-span-4 lg:col-span-1">
-          <div class="flex items-center gap-3 mb-5">
-            <div class="logo-gem">💎</div>
-            <span class="font-playfair font-black text-2xl">Lucão<span class="text-gold">Bet</span></span>
+        <div class="footer-brand">
+          <img src="assets/img/logo.png" alt="LucãoBet" class="footer-logo"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="footer-logo-fb" style="display:none;">
+            <span class="font-bebas text-xl text-white">Lucão<span class="text-red">Bet</span></span>
           </div>
-          <p class="text-white/45 text-sm leading-relaxed mb-6">
-            🇧🇷 O cassino premium que o Brasil merecia.
-            Pagamentos via PIX em 5 minutos.
-            Jogos dos maiores provedores mundiais.
-          </p>
-          <div class="flex gap-3">
-            <a href="#" class="social-btn">𝕏</a>
-            <a href="#" class="social-btn">in</a>
-            <a href="#" class="social-btn">▶</a>
-            <a href="#" class="social-btn">📸</a>
-            <a href="#" class="social-btn">💬</a>
+          <p class="footer-tagline">🇧🇷 LucãoBet Global Partners<br>World-Class Entertainment Since 1998</p>
+          <div class="footer-socials">
+            <a href="#" class="soc-btn">𝕏</a>
+            <a href="#" class="soc-btn">▶</a>
+            <a href="#" class="soc-btn">📸</a>
+            <a href="#" class="soc-btn">💬</a>
+            <a href="#" class="soc-btn">in</a>
           </div>
         </div>
 
         <div>
-          <h4 class="footer-col-title">Cassino</h4>
+          <h4 class="footer-col-title">Jogar</h4>
           <ul class="footer-links">
+            <li><a href="#sports">Apostas Esportivas</a></li>
             <li><a href="#games">Slots</a></li>
-            <li><a href="#live">Ao Vivo</a></li>
+            <li><a href="#live">Cassino Ao Vivo</a></li>
             <li><a href="#games">Crash Games</a></li>
-            <li><a href="#">Apostas Esportivas</a></li>
             <li><a href="#">Jackpot</a></li>
           </ul>
         </div>
@@ -666,11 +582,11 @@
         <div>
           <h4 class="footer-col-title">Promoções</h4>
           <ul class="footer-links">
-            <li><a href="#promos">Bônus R$ 25.000</a></li>
+            <li><a href="#promos">Bônus R$25.000</a></li>
             <li><a href="#promos">Cashback 20%</a></li>
-            <li><a href="#vip">Programa VIP</a></li>
-            <li><a href="#tournament">Torneio R$ 500K</a></li>
-            <li><a href="#">Indique Amigos 25%</a></li>
+            <li><a href="#vip">Clube VIP</a></li>
+            <li><a href="#tournament">Torneio R$500K</a></li>
+            <li><a href="#">Indique e Ganhe</a></li>
           </ul>
         </div>
 
@@ -679,7 +595,7 @@
           <ul class="footer-links">
             <li><a href="#">Chat 24/7 — Português</a></li>
             <li><a href="#">WhatsApp VIP</a></li>
-            <li><a href="#">Perguntas Frequentes</a></li>
+            <li><a href="#">FAQ</a></li>
             <li><a href="#">Jogo Responsável</a></li>
             <li><a href="#">Termos de Uso</a></li>
           </ul>
@@ -687,176 +603,183 @@
 
         <div>
           <h4 class="footer-col-title">Pagamentos</h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="payment-icon pix-icon-badge">⚡ PIX</span>
-            <span class="payment-icon">₿ BTC</span>
-            <span class="payment-icon">Ξ ETH</span>
-            <span class="payment-icon">₮ USDT</span>
-            <span class="payment-icon">◎ SOL</span>
-            <span class="payment-icon">💳 VISA</span>
-            <span class="payment-icon">MC</span>
+          <div class="footer-pays">
+            <span class="pay-chip pix-pay">⚡ PIX</span>
+            <span class="pay-chip">₿ BTC</span>
+            <span class="pay-chip">Ξ ETH</span>
+            <span class="pay-chip">₮ USDT</span>
+            <span class="pay-chip">◎ SOL</span>
+            <span class="pay-chip">💳 VISA</span>
+            <span class="pay-chip">MC</span>
           </div>
-          <div class="mt-4 text-xs text-white/40 leading-relaxed">
-            Saque PIX em até 5 minutos.<br>
-            Depósito mínimo: R$ 20
-          </div>
+          <p class="footer-pix-note">⚡ Saque PIX em até 5 minutos.<br>Depósito mínimo: R$ 20</p>
         </div>
       </div>
 
-      <!-- Footer Bottom -->
-      <div class="border-t border-white/8 pt-10 pb-8">
-        <div class="flex flex-wrap justify-between items-center gap-6">
-          <div class="flex flex-wrap gap-3">
-            <div class="footer-seal">🔒 SSL Seguro</div>
-            <div class="footer-seal">🎯 Provably Fair</div>
-            <div class="footer-seal">🌍 Licenciado</div>
-            <div class="footer-seal">🇧🇷 Brasil</div>
-            <div class="footer-seal age-seal">18+</div>
-          </div>
-          <p class="text-white/25 text-xs max-w-sm text-right leading-relaxed">
-            © 2026 LucãoBet. Todos os direitos reservados.<br>
-            Jogue com responsabilidade. Apenas maiores de 18 anos.<br>
-            O jogo pode causar dependência — <a href="#" class="text-white/40 underline">ajuda aqui</a>.
-          </p>
+      <div class="footer-bottom">
+        <div class="footer-seals">
+          <span class="f-seal">🔒 SSL</span>
+          <span class="f-seal">🎯 Provably Fair</span>
+          <span class="f-seal">🌍 Licensed</span>
+          <span class="f-seal">🇧🇷 Brasil</span>
+          <span class="f-seal age">18+</span>
         </div>
+        <p class="footer-legal">
+          © 2026 LucãoBet Global Partners. Todos os direitos reservados.
+          Jogue com responsabilidade. Apenas maiores de 18 anos. O jogo pode causar dependência.
+          <a href="#" class="text-white/35 underline ml-1">Ajuda aqui</a>
+        </p>
       </div>
     </div>
   </footer>
 
-  <!-- ================================================================
+  <!-- ============================================================
+       MOBILE BOTTOM NAV — World-class pattern (LeoVegas, Stake)
+  ============================================================ -->
+  <nav class="bottom-nav lg:hidden" id="bottomNav">
+    <a href="#hero"    class="bn-item active" id="bn-home">
+      <span class="bn-icon">🏠</span><span class="bn-label">Início</span>
+    </a>
+    <a href="#sports"  class="bn-item" id="bn-sports">
+      <span class="bn-icon">⚽</span><span class="bn-label">Esportes</span>
+    </a>
+    <button @click="openRegister=true" class="bn-item bn-cta" id="bn-bonus">
+      <span class="bn-icon-big">🎁</span>
+    </button>
+    <a href="#games"   class="bn-item" id="bn-casino">
+      <span class="bn-icon">🎰</span><span class="bn-label">Cassino</span>
+    </a>
+    <button @click="openWallet=true" class="bn-item" id="bn-deposit">
+      <span class="bn-icon">⚡</span><span class="bn-label">PIX</span>
+    </button>
+  </nav>
+
+  <!-- ============================================================
+       FLOATING PIX BUTTON — Sempre visível no mobile
+  ============================================================ -->
+  <button @click="openWallet=true" class="float-pix lg:hidden" id="floatPix" aria-label="Depósito PIX">
+    <span>⚡</span>
+  </button>
+
+  <!-- ============================================================
        MODAIS
-  ================================================================ -->
+  ============================================================ -->
 
-  <!-- Modal Registro (abre automaticamente em 5s) -->
-  <div x-show="openRegister" x-transition.opacity class="modal-overlay" @click.self="openRegister = false">
-    <div class="modal-box register-modal" x-transition>
-      <button @click="openRegister = false" class="modal-close">✕</button>
-      <div class="modal-gold-glow"></div>
+  <!-- Modal Registro -->
+  <div x-show="openRegister" x-transition.opacity class="modal-overlay" @click.self="openRegister=false">
+    <div class="modal-box" x-transition>
+      <button @click="openRegister=false" class="modal-x">✕</button>
+      <div class="modal-glow"></div>
 
-      <div class="text-center mb-8">
-        <div class="modal-icon">💎</div>
-        <h2 class="font-playfair font-black text-3xl mb-2">
-          Junte-se a<br><span class="gold-gradient-text">2 Milhões de Brasileiros</span>
-        </h2>
-        <p class="text-white/55 text-sm">Bônus 300% + R$ 25.000 + 500 Giros Grátis</p>
+      <div class="modal-logo-wrap">
+        <img src="assets/img/logo.png" alt="LucãoBet" class="modal-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div style="display:none; text-align:center;">
+          <div style="font-size:3rem;">🦅</div>
+          <div class="font-bebas text-2xl">Lucão<span class="text-red">Bet</span></div>
+        </div>
       </div>
 
-      <form @submit.prevent="registerSubmit()" class="space-y-4">
-        <input type="text"     placeholder="Nome de usuário" class="modal-input" x-model="regForm.username" required />
-        <input type="email"    placeholder="E-mail" class="modal-input" x-model="regForm.email" required />
-        <input type="password" placeholder="Senha (mín. 8 caracteres)" class="modal-input" x-model="regForm.password" required />
-        <input type="text"     placeholder="Código de indicação (opcional)" class="modal-input" x-model="regForm.referral" />
+      <h2 class="modal-title font-bebas">Junte-se a <span class="gold-grad">2 Milhões de Brasileiros</span></h2>
+      <p class="modal-sub">Bônus 300% + R$25.000 + 500 Giros Grátis via PIX</p>
 
-        <div class="flex items-start gap-2 text-sm text-white/55">
-          <input type="checkbox" class="mt-1 accent-gold w-4 h-4 shrink-0" required />
-          <span>Tenho mais de 18 anos e aceito os <a href="#" class="text-gold underline">Termos de Uso</a> e a <a href="#" class="text-gold underline">Política de Privacidade</a></span>
-        </div>
-
-        <button type="submit" class="cta-main w-full font-grotesk font-bold text-lg py-4 rounded-xl relative overflow-hidden">
+      <form @submit.prevent="registerSubmit()" class="modal-form">
+        <input type="text"     placeholder="Nome de usuário"       class="m-input" x-model="regForm.username" required />
+        <input type="email"    placeholder="E-mail"                class="m-input" x-model="regForm.email" required />
+        <input type="password" placeholder="Senha (mín. 8 chars)"  class="m-input" x-model="regForm.password" required />
+        <input type="tel"      placeholder="WhatsApp (com DDD)"    class="m-input" />
+        <input type="text"     placeholder="Código de indicação"   class="m-input" x-model="regForm.referral" />
+        <label class="m-check">
+          <input type="checkbox" required class="accent-gold" />
+          <span>Tenho +18 anos e aceito os <a href="#" class="text-gold">Termos</a></span>
+        </label>
+        <button type="submit" class="cta-gold w-full">
           <span class="cta-shine"></span>
-          <span class="relative z-10">💎 Criar Conta Grátis e Resgatar Bônus</span>
+          <span class="relative z-10">🎁 Criar Conta e Resgatar Bônus</span>
         </button>
       </form>
-
-      <div class="text-center mt-5">
-        <span class="text-white/35 text-sm">Já tem conta? </span>
-        <button @click="openRegister=false; openLogin=true" class="text-gold text-sm underline font-semibold">Entrar</button>
+      <p class="modal-switch">Já tem conta? <button @click="openRegister=false; openLogin=true" class="text-gold underline font-semibold">Entrar</button></p>
+      <div class="modal-pays">
+        <span class="pay-chip pix-pay text-xs">⚡ PIX</span>
+        <span class="pay-chip text-xs">₿</span>
+        <span class="pay-chip text-xs">Ξ</span>
+        <span class="pay-chip text-xs">₮</span>
+        <span class="pay-chip text-xs">💳</span>
       </div>
-
-      <!-- Pagamentos -->
-      <div class="flex justify-center gap-3 mt-6">
-        <span class="payment-icon pix-icon-badge text-xs">⚡ PIX</span>
-        <span class="payment-icon text-xs">₿</span>
-        <span class="payment-icon text-xs">Ξ</span>
-        <span class="payment-icon text-xs">₮</span>
-      </div>
-      <p class="text-center text-white/30 text-xs mt-3">Saque via PIX em até 5 minutos — sempre.</p>
     </div>
   </div>
 
   <!-- Modal Login -->
-  <div x-show="openLogin" x-transition.opacity class="modal-overlay" @click.self="openLogin = false">
+  <div x-show="openLogin" x-transition.opacity class="modal-overlay" @click.self="openLogin=false">
     <div class="modal-box" x-transition>
-      <button @click="openLogin = false" class="modal-close">✕</button>
-      <div class="text-center mb-8">
-        <div class="modal-icon">🔑</div>
-        <h2 class="font-playfair font-black text-3xl mb-2">Bem-vindo de <span class="gold-gradient-text">Volta</span></h2>
-        <p class="text-white/45 text-sm">🇧🇷 Sua conta está esperando</p>
+      <button @click="openLogin=false" class="modal-x">✕</button>
+      <div class="modal-logo-wrap">
+        <img src="assets/img/logo.png" alt="LucãoBet" class="modal-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div style="display:none; text-align:center;"><div style="font-size:2rem;">🦅</div></div>
       </div>
-      <form @submit.prevent="loginSubmit()" class="space-y-4">
-        <input type="email"    placeholder="E-mail" class="modal-input" x-model="loginForm.email" required />
-        <input type="password" placeholder="Senha"  class="modal-input" x-model="loginForm.password" required />
-        <button type="submit" class="cta-main w-full font-grotesk font-bold text-lg py-4 rounded-xl relative overflow-hidden">
+      <h2 class="modal-title font-bebas">Bem-vindo de <span class="gold-grad">Volta</span></h2>
+      <form @submit.prevent="loginSubmit()" class="modal-form">
+        <input type="email"    placeholder="E-mail" class="m-input" x-model="loginForm.email" required />
+        <input type="password" placeholder="Senha"  class="m-input" x-model="loginForm.password" required />
+        <a href="#" class="text-white/40 text-xs self-end mb-2">Esqueci minha senha</a>
+        <button type="submit" class="cta-gold w-full">
           <span class="cta-shine"></span>
           <span class="relative z-10">🔑 Entrar na Conta</span>
         </button>
       </form>
-      <div class="text-center mt-4">
-        <a href="#" class="text-white/40 text-xs underline">Esqueci minha senha</a>
-      </div>
     </div>
   </div>
 
-  <!-- Modal Carteira / Depósito -->
-  <div x-show="openWallet" x-transition.opacity class="modal-overlay" @click.self="openWallet = false">
-    <div class="modal-box wallet-modal" x-transition>
-      <button @click="openWallet = false" class="modal-close">✕</button>
-      <div class="text-center mb-8">
-        <div class="modal-icon">⚡</div>
-        <h2 class="font-playfair font-black text-3xl mb-2">Depositar & <span class="gold-gradient-text">Sacar</span></h2>
-        <p class="text-white/45 text-sm">PIX — saque em até 5 minutos. Garantido.</p>
-      </div>
-
-      <!-- PIX em destaque -->
-      <button @click="connectWallet('PIX')" class="wallet-option-pix w-full mb-4">
-        <span class="text-2xl">⚡</span>
-        <div class="text-left">
-          <div class="font-grotesk font-bold text-white">PIX — Método Favorito dos Brasileiros</div>
-          <div class="text-xs text-white/50">Saque em 5 min · Depósito mín. R$ 20</div>
+  <!-- Modal Depósito / Carteira -->
+  <div x-show="openWallet" x-transition.opacity class="modal-overlay" @click.self="openWallet=false">
+    <div class="modal-box" x-transition>
+      <button @click="openWallet=false" class="modal-x">✕</button>
+      <h2 class="modal-title font-bebas text-center mb-1">Depositar & <span class="gold-grad">Sacar</span></h2>
+      <p class="modal-sub text-center mb-6">PIX — saque garantido em até 5 minutos</p>
+      <!-- PIX destaque -->
+      <button @click="connectWallet('PIX')" class="pix-opt">
+        <span class="text-3xl">⚡</span>
+        <div class="pix-opt-text">
+          <div class="font-rajdhani font-bold text-lg text-white">PIX — O favorito do Brasil</div>
+          <div class="text-xs text-white/50">Saque em 5 min · Depósito mín. R$20</div>
         </div>
-        <span class="text-gold font-bold text-sm">RÁPIDO</span>
+        <span class="text-gold font-bold text-sm font-rajdhani">RÁPIDO</span>
       </button>
-
-      <div class="wallet-options grid grid-cols-2 gap-3">
-        <button @click="connectWallet('BTC')"   class="wallet-option">₿ Bitcoin</button>
-        <button @click="connectWallet('ETH')"   class="wallet-option">Ξ Ethereum</button>
-        <button @click="connectWallet('USDT')"  class="wallet-option">₮ Tether</button>
-        <button @click="connectWallet('SOL')"   class="wallet-option">◎ Solana</button>
-        <button @click="connectWallet('CARD')"  class="wallet-option">💳 Cartão de Crédito</button>
-        <button @click="connectWallet('TED')"   class="wallet-option">🏦 TED / DOC</button>
+      <div class="crypto-grid">
+        <button @click="connectWallet('BTC')"  class="cw-btn">₿ Bitcoin</button>
+        <button @click="connectWallet('ETH')"  class="cw-btn">Ξ Ethereum</button>
+        <button @click="connectWallet('USDT')" class="cw-btn">₮ Tether</button>
+        <button @click="connectWallet('SOL')"  class="cw-btn">◎ Solana</button>
+        <button @click="connectWallet('CARD')" class="cw-btn">💳 Cartão</button>
+        <button @click="connectWallet('TED')"  class="cw-btn">🏦 TED/DOC</button>
       </div>
-
-      <div x-show="walletConnected" x-transition class="wallet-success mt-6 text-center">
-        <div class="text-emerald-400 font-bold text-lg">✅ <span x-text="connectedMethod"></span> ativado com sucesso!</div>
-        <div class="text-white/55 text-sm mt-1">Saldo demonstrativo: <span class="text-gold font-bold">R$ 50.000,00</span></div>
+      <div x-show="walletConnected" x-transition class="wallet-ok">
+        ✅ <span x-text="connectedMethod"></span> ativado!
+        <div class="text-white/50 text-sm mt-1">Saldo demo: <span class="text-gold font-bold">R$ 50.000</span></div>
       </div>
     </div>
   </div>
 
   <!-- Modal VIP -->
-  <div x-show="openVip" x-transition.opacity class="modal-overlay" @click.self="openVip = false">
-    <div class="modal-box vip-modal" x-transition>
-      <button @click="openVip = false" class="modal-close">✕</button>
+  <div x-show="openVip" x-transition.opacity class="modal-overlay" @click.self="openVip=false">
+    <div class="modal-box" x-transition>
+      <button @click="openVip=false" class="modal-x">✕</button>
       <div class="vip-modal-glow"></div>
-      <div class="text-center mb-8">
-        <div class="modal-icon">👑</div>
-        <h2 class="font-playfair font-black text-3xl mb-2">
-          Candidatura <span class="gold-gradient-text">VIP Diamond</span>
-        </h2>
-        <p class="text-white/45 text-sm">Resposta em até 2 horas via WhatsApp</p>
-      </div>
-      <form @submit.prevent="vipSubmit()" class="space-y-4">
-        <input type="text"  placeholder="Nome Completo" class="modal-input" required />
-        <input type="email" placeholder="E-mail" class="modal-input" required />
-        <input type="tel"   placeholder="WhatsApp (com DDD)" class="modal-input" />
-        <select class="modal-input bg-black/60 text-white/70">
-          <option>Volume mensal estimado em R$</option>
-          <option>R$ 50.000 – R$ 250.000</option>
-          <option>R$ 250.000 – R$ 1.000.000</option>
-          <option>R$ 1.000.000 – R$ 5.000.000</option>
-          <option>Acima de R$ 5.000.000</option>
+      <h2 class="modal-title font-bebas text-center mb-1">Candidatura <span class="gold-grad">VIP Diamond</span></h2>
+      <p class="modal-sub text-center mb-6">Resposta em até 2h via WhatsApp</p>
+      <form @submit.prevent="vipSubmit()" class="modal-form">
+        <input type="text"  placeholder="Nome Completo"          class="m-input" required />
+        <input type="email" placeholder="E-mail"                 class="m-input" required />
+        <input type="tel"   placeholder="WhatsApp (com DDD)"     class="m-input" />
+        <select class="m-input">
+          <option>Volume mensal em R$</option>
+          <option>R$50.000 – R$250.000</option>
+          <option>R$250.000 – R$1.000.000</option>
+          <option>R$1M – R$5M</option>
+          <option>Acima de R$5M</option>
         </select>
-        <button type="submit" class="cta-main w-full font-grotesk font-bold text-lg py-4 rounded-xl relative overflow-hidden">
+        <button type="submit" class="cta-gold w-full">
           <span class="cta-shine"></span>
           <span class="relative z-10">👑 Enviar Candidatura VIP</span>
         </button>
@@ -865,159 +788,126 @@
   </div>
 
   <!-- Modal Jogo -->
-  <div x-show="openGame" x-transition.opacity class="modal-overlay" @click.self="openGame = false">
-    <div class="modal-box game-modal" x-transition>
-      <button @click="openGame = false" class="modal-close">✕</button>
-      <div class="text-center mb-6">
-        <h2 class="font-playfair font-black text-2xl mb-1" x-text="selectedGame.name"></h2>
-        <div class="text-gold text-sm font-grotesk" x-text="selectedGame.provider"></div>
+  <div x-show="openGame" x-transition.opacity class="modal-overlay" @click.self="openGame=false">
+    <div class="modal-box" x-transition>
+      <button @click="openGame=false" class="modal-x">✕</button>
+      <h2 class="modal-title font-bebas text-center" x-text="selectedGame.name"></h2>
+      <div class="text-gold text-sm text-center mb-4 font-rajdhani" x-text="selectedGame.provider"></div>
+      <div class="game-preview-box">
+        <div class="text-6xl mb-3">🎰</div>
+        <div class="text-white/45 text-sm">Preview disponível após o cadastro</div>
       </div>
-      <div class="game-preview-frame bg-black/50 rounded-2xl h-52 flex items-center justify-center mb-6 border border-white/8">
-        <div class="text-center">
-          <div class="text-7xl mb-4">🎰</div>
-          <div class="text-white/50 text-sm font-grotesk">Preview disponível após o cadastro</div>
-        </div>
-      </div>
-      <div class="flex gap-4">
-        <button @click="openRegister = true; openGame = false"
-          class="cta-main flex-1 font-grotesk font-bold py-3 rounded-xl relative overflow-hidden">
-          <span class="cta-shine"></span>
-          <span class="relative z-10">▶ Jogar com Bônus</span>
+      <div class="flex gap-3 mt-4">
+        <button @click="openRegister=true; openGame=false" class="cta-gold flex-1">
+          <span class="cta-shine"></span><span class="relative z-10">▶ Jogar com Bônus</span>
         </button>
-        <button @click="openGame = false" class="btn-outline-gold flex-1 py-3 rounded-xl font-grotesk">
-          Demonstração
-        </button>
+        <button @click="openGame=false" class="btn-outline-sm flex-1 py-3 rounded-xl">Demo</button>
       </div>
     </div>
   </div>
 
   <!-- Toast -->
-  <div id="toast" class="toast-wrap" x-show="toastVisible" x-transition.opacity>
-    <div class="toast-inner">
-      <span id="toastMsg" x-text="toastMessage"></span>
+  <div x-show="toastVisible" x-transition.opacity class="toast-wrap">
+    <div class="toast-box">
+      <span x-text="toastMessage"></span>
     </div>
   </div>
 
-  <!-- Container de Confetti -->
+  <!-- Confetti -->
   <div id="confettiContainer" class="fixed inset-0 pointer-events-none z-[9999]"></div>
 
-  <!-- ================================================================
-       ALPINE DATA — Funções internas
-  ================================================================ -->
+  <!-- ============================================================
+       ALPINE DATA
+  ============================================================ -->
   <script>
     function lucaobet() {
       return {
-        mobileMenu:      false,
-        openRegister:    false,
-        openLogin:       false,
-        openWallet:      false,
-        openVip:         false,
-        openGame:        false,
-        walletConnected: false,
-        connectedMethod: '',
-        toastVisible:    false,
-        toastMessage:    '',
-        selectedGame:    {},
+        mobileMenu: false, openRegister: false, openLogin: false,
+        openWallet: false, openVip: false, openGame: false,
+        walletConnected: false, connectedMethod: '',
+        toastVisible: false, toastMessage: '',
+        selectedGame: {},
         regForm:   { username:'', email:'', password:'', referral:'' },
         loginForm: { email:'', password:'' },
 
         providers: [
-          {id:1,  name:'Pragmatic Play'},    {id:2,  name:'Evolution Gaming'},
-          {id:3,  name:'Hacksaw Gaming'},    {id:4,  name:'NoLimit City'},
-          {id:5,  name:"Play'n GO"},         {id:6,  name:'NetEnt'},
-          {id:7,  name:'Relax Gaming'},      {id:8,  name:'Push Gaming'},
-          {id:9,  name:'ELK Studios'},       {id:10, name:'Yggdrasil'},
-          {id:11, name:'Red Tiger'},         {id:12, name:'BTG'},
-          {id:13, name:'Spribe'},            {id:14, name:'PG Soft'},
-          {id:15, name:'Wazdan'},            {id:16, name:'Evoplay'},
+          {id:1,'name':'Pragmatic Play'},{id:2,'name':'Evolution Gaming'},
+          {id:3,'name':'Hacksaw Gaming'},{id:4,'name':'NoLimit City'},
+          {id:5,'name':"Play'n GO"},{id:6,'name':'NetEnt'},
+          {id:7,'name':'Relax Gaming'},{id:8,'name':'Push Gaming'},
+          {id:9,'name':'ELK Studios'},{id:10,'name':'Yggdrasil'},
+          {id:11,'name':'Red Tiger'},{id:12,'name':'BTG'},
+          {id:13,'name':'Spribe'},{id:14,'name':'PG Soft'},
+          {id:15,'name':'Wazdan'},{id:16,'name':'Evoplay'},
         ],
 
         init() {
-          /* Abre modal de cadastro após 5 segundos */
           setTimeout(() => { this.openRegister = true; }, 5000);
           if (window.lucide) lucide.createIcons();
         },
 
         openGameModal(game) { this.selectedGame = game; this.openGame = true; },
 
-        connectWallet(method) {
-          this.connectedMethod = method;
+        connectWallet(m) {
+          this.connectedMethod = m;
           this.walletConnected = true;
-          const msgs = {
-            PIX:  '⚡ PIX ativado! Saque disponível em 5 minutos.',
-            BTC:  '₿ Bitcoin conectado com sucesso!',
-            ETH:  'Ξ Ethereum conectado com sucesso!',
-            USDT: '₮ Tether conectado com sucesso!',
-            SOL:  '◎ Solana conectado com sucesso!',
-            CARD: '💳 Cartão de crédito adicionado!',
-            TED:  '🏦 TED/DOC configurado com sucesso!',
-          };
-          this.showToast(msgs[method] || '✅ ' + method + ' conectado!');
+          const msgs = { PIX:'⚡ PIX ativado! Saque em 5 min garantido.',BTC:'₿ Bitcoin conectado.',ETH:'Ξ Ethereum conectado.',USDT:'₮ Tether conectado.',SOL:'◎ Solana conectado.',CARD:'💳 Cartão adicionado.',TED:'🏦 TED configurado.' };
+          this.showToast(msgs[m] || '✅ ' + m + ' conectado!');
         },
-
-        registerSubmit() {
-          this.openRegister = false;
-          window.fireConfetti && window.fireConfetti();
-          this.showToast('🎉 Conta criada! Bônus de 300% até R$ 25.000 ativado automaticamente!');
-        },
-
-        loginSubmit()  { this.openLogin = false; this.showToast('✅ Login realizado. Bem-vindo de volta!'); },
-        vipSubmit()    { this.openVip = false;   this.showToast('👑 Candidatura VIP recebida! WhatsApp em até 2h.'); },
-
-        showToast(msg) {
-          this.toastMessage = msg;
-          this.toastVisible = true;
-          setTimeout(() => { this.toastVisible = false; }, 5000);
-        },
-
-        fireConfetti() { window.fireConfetti && window.fireConfetti(); }
+        registerSubmit() { this.openRegister=false; window.fireConfetti&&window.fireConfetti(); this.showToast('🎉 Conta criada! Bônus 300% até R$25.000 ativado!'); },
+        loginSubmit()    { this.openLogin=false;    this.showToast('✅ Login realizado. Bem-vindo de volta!'); },
+        vipSubmit()      { this.openVip=false;      this.showToast('👑 Candidatura VIP recebida! WhatsApp em até 2h.'); },
+        showToast(msg)   { this.toastMessage=msg; this.toastVisible=true; setTimeout(()=>{ this.toastVisible=false; },5000); },
+        fireConfetti()   { window.fireConfetti&&window.fireConfetti(); }
       }
     }
 
-    /* Filtro de jogos com Alpine */
     function gamesFilter() {
       return {
         activeFilter: 'all',
+        gridCols: 5,
         filters: [
-          { key: 'all',   label: '🎲 Todos'         },
-          { key: 'slots', label: '🎰 Slots'          },
-          { key: 'crash', label: '🚀 Crash'          },
-          { key: 'live',  label: '📺 Ao Vivo'        },
-          { key: 'table', label: '🃏 Mesa'           },
-          { key: 'fair',  label: '🎯 Provably Fair'  },
+          {key:'all',   label:'🎲 Todos'},
+          {key:'hot',   label:'🔥 Populares'},
+          {key:'slots', label:'🎰 Slots'},
+          {key:'crash', label:'🚀 Crash'},
+          {key:'live',  label:'📺 Ao Vivo'},
+          {key:'table', label:'🃏 Mesa'},
+          {key:'fair',  label:'🎯 Provably Fair'},
+          {key:'new',   label:'✨ Novos'},
         ],
         games: [
-          { id:1,  name:'Gates of Olympus 1000', provider:'Pragmatic Play', rtp:96.5, cat:'slots', hot:true,  new:false, img:'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400&q=80' },
-          { id:2,  name:'Sweet Bonanza 1000',    provider:'Pragmatic Play', rtp:96.5, cat:'slots', hot:true,  new:false, img:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80' },
-          { id:3,  name:'Aviator',               provider:'Spribe',         rtp:97.0, cat:'crash', hot:true,  new:false, img:'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=400&q=80' },
-          { id:4,  name:'Crazy Time 2',          provider:'Evolution',      rtp:96.0, cat:'live',  hot:true,  new:true,  img:'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80' },
-          { id:5,  name:'Fortune Tiger',         provider:'PG Soft',        rtp:96.8, cat:'slots', hot:true,  new:false, img:'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=400&q=80' },
-          { id:6,  name:'Wanted Dead or a Wild', provider:'Hacksaw Gaming', rtp:96.4, cat:'slots', hot:true,  new:false, img:'https://images.unsplash.com/photo-1605722625766-a4c989b747c2?w=400&q=80' },
-          { id:7,  name:'Reactoonz 2',           provider:"Play'n GO",      rtp:96.2, cat:'slots', hot:false, new:false, img:'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=400&q=80' },
-          { id:8,  name:'Monopoly Big Baller',   provider:'Evolution',      rtp:96.1, cat:'live',  hot:true,  new:false, img:'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80' },
-          { id:9,  name:'Big Bass Bonanza',      provider:'Pragmatic Play', rtp:96.7, cat:'slots', hot:false, new:false, img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80' },
-          { id:10, name:'Mines',                 provider:'Spribe',         rtp:97.0, cat:'fair',  hot:true,  new:false, img:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80' },
-          { id:11, name:'Plinko X',              provider:'Spribe',         rtp:97.0, cat:'fair',  hot:false, new:true,  img:'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&q=80' },
-          { id:12, name:'Book of Dead',          provider:"Play'n GO",      rtp:96.2, cat:'slots', hot:false, new:false, img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80' },
-          { id:13, name:'Lightning Roulette',    provider:'Evolution',      rtp:97.3, cat:'live',  hot:true,  new:false, img:'https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400&q=80' },
-          { id:14, name:'Bac Bo',                provider:'Evolution',      rtp:98.9, cat:'live',  hot:false, new:true,  img:'https://images.unsplash.com/photo-1529480780256-1ee33c2db3cd?w=400&q=80' },
-          { id:15, name:'Dead or Alive 2',       provider:'NetEnt',         rtp:96.8, cat:'slots', hot:false, new:false, img:'https://images.unsplash.com/photo-1614680376408-16afefa3332b?w=400&q=80' },
-          { id:16, name:'Cash or Crash',         provider:'Evolution',      rtp:97.0, cat:'live',  hot:false, new:false, img:'https://images.unsplash.com/photo-1519671282429-b8491f27c3b2?w=400&q=80' },
-          { id:17, name:'Tombstone RIP',         provider:'NoLimit City',   rtp:96.1, cat:'slots', hot:true,  new:true,  img:'https://images.unsplash.com/photo-1567598508481-65985588e295?w=400&q=80' },
-          { id:18, name:"Gonzo's Quest",         provider:'NetEnt',         rtp:96.0, cat:'slots', hot:false, new:false, img:'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=400&q=80' },
-          { id:19, name:'Wolf Gold',             provider:'Pragmatic Play', rtp:96.0, cat:'slots', hot:false, new:false, img:'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&q=80' },
-          { id:20, name:'Balloon',               provider:'Relax Gaming',   rtp:97.0, cat:'crash', hot:false, new:false, img:'https://images.unsplash.com/photo-1531591374096-71e74c0a5e92?w=400&q=80' },
+          {id:1, name:'Gates of Olympus 1000',provider:'Pragmatic Play',rtp:96.5,cat:'slots',hot:true, new:false,live:false,img:'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400&q=80'},
+          {id:2, name:'Sweet Bonanza 1000',   provider:'Pragmatic Play',rtp:96.5,cat:'slots',hot:true, new:false,live:false,img:'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80'},
+          {id:3, name:'Aviator',              provider:'Spribe',        rtp:97.0,cat:'crash',hot:true, new:false,live:false,img:'https://images.unsplash.com/photo-1540962351504-03099e0a754b?w=400&q=80'},
+          {id:4, name:'Crazy Time 2',         provider:'Evolution',     rtp:96.0,cat:'live', hot:true, new:true, live:true, img:'https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&q=80'},
+          {id:5, name:'Fortune Tiger',        provider:'PG Soft',       rtp:96.8,cat:'slots',hot:true, new:false,live:false,img:'https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=400&q=80'},
+          {id:6, name:'Wanted Dead or a Wild',provider:'Hacksaw',       rtp:96.4,cat:'slots',hot:true, new:false,live:false,img:'https://images.unsplash.com/photo-1605722625766-a4c989b747c2?w=400&q=80'},
+          {id:7, name:'Reactoonz 2',          provider:"Play'n GO",     rtp:96.2,cat:'slots',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=400&q=80'},
+          {id:8, name:'Monopoly Big Baller',  provider:'Evolution',     rtp:96.1,cat:'live', hot:true, new:false,live:true, img:'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&q=80'},
+          {id:9, name:'Big Bass Bonanza',     provider:'Pragmatic Play',rtp:96.7,cat:'slots',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80'},
+          {id:10,name:'Mines',                provider:'Spribe',        rtp:97.0,cat:'fair', hot:true, new:false,live:false,img:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80'},
+          {id:11,name:'Plinko X',             provider:'Spribe',        rtp:97.0,cat:'fair', hot:false,new:true, live:false,img:'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=400&q=80'},
+          {id:12,name:'Book of Dead',         provider:"Play'n GO",     rtp:96.2,cat:'slots',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80'},
+          {id:13,name:'Lightning Roulette',   provider:'Evolution',     rtp:97.3,cat:'live', hot:true, new:false,live:true, img:'https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400&q=80'},
+          {id:14,name:'Bac Bo',               provider:'Evolution',     rtp:98.9,cat:'live', hot:false,new:true, live:true, img:'https://images.unsplash.com/photo-1529480780256-1ee33c2db3cd?w=400&q=80'},
+          {id:15,name:'Dead or Alive 2',      provider:'NetEnt',        rtp:96.8,cat:'slots',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1614680376408-16afefa3332b?w=400&q=80'},
+          {id:16,name:'Cash or Crash',        provider:'Evolution',     rtp:97.0,cat:'live', hot:false,new:false,live:true, img:'https://images.unsplash.com/photo-1519671282429-b8491f27c3b2?w=400&q=80'},
+          {id:17,name:'Tombstone RIP',        provider:'NoLimit City',  rtp:96.1,cat:'slots',hot:true, new:true, live:false,img:'https://images.unsplash.com/photo-1567598508481-65985588e295?w=400&q=80'},
+          {id:18,name:"Gonzo's Quest",        provider:'NetEnt',        rtp:96.0,cat:'slots',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=400&q=80'},
+          {id:19,name:'Wolf Gold',            provider:'Pragmatic Play',rtp:96.0,cat:'slots',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&q=80'},
+          {id:20,name:'Balloon',              provider:'Relax Gaming',  rtp:97.0,cat:'crash',hot:false,new:false,live:false,img:'https://images.unsplash.com/photo-1531591374096-71e74c0a5e92?w=400&q=80'},
         ],
         get filteredGames() {
-          return this.activeFilter === 'all'
-            ? this.games
-            : this.games.filter(g => g.cat === this.activeFilter);
+          if (this.activeFilter==='all')   return this.games;
+          if (this.activeFilter==='hot')   return this.games.filter(g=>g.hot);
+          if (this.activeFilter==='new')   return this.games.filter(g=>g.new);
+          if (this.activeFilter==='live')  return this.games.filter(g=>g.live);
+          return this.games.filter(g=>g.cat===this.activeFilter);
         }
       }
     }
   </script>
-
-  <!-- Script principal -->
   <script src="js/script.js"></script>
 </body>
 </html>
