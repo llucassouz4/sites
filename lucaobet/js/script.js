@@ -187,7 +187,7 @@
 
   const phrases = [
     'LucãoBet — Onde Milionários Nascem.',
-    'Bônus 300% até R$ 25.000 + 500 Giros.',
+    'Bônus 70% até R$ 500 + 20 Giros.',
     'PIX em 5 Minutos. Saque Real. Garantido.',
     '🇧🇷 O Cassino que o Brasil Merecia.',
     'Gates of Olympus. Aviator. Crazy Time.',
