@@ -1,58 +1,54 @@
 /* ================================================================
-   LucãoBet — Premium Global Casino
-   js/script.js
-   Version: 1.0.0 | 2026
-   Vanilla JS pesado — sem dependências externas
+   LucãoBet — World's Largest Casino Level + Brazilian Market
+   js/script.js  |  Versão 2.0.0  |  2026
+   100% Vanilla JS — sem dependências externas
 ================================================================ */
 
 /* ================================================================
-   1. CUSTOM CURSOR
+   1. CURSOR PERSONALIZADO — Ouro + Carmesim
 ================================================================ */
 (function initCursor() {
-  const cursor      = document.getElementById('cursor');
-  const cursorTrail = document.getElementById('cursor-trail');
-  if (!cursor || !cursorTrail) return;
+  const cursor = document.getElementById('cursor');
+  const trail  = document.getElementById('cursor-trail');
+  if (!cursor || !trail) return;
 
-  let trailX = 0, trailY = 0;
+  let tx = 0, ty = 0;
 
   document.addEventListener('mousemove', (e) => {
-    // Main cursor — instant
     cursor.style.left = e.clientX + 'px';
     cursor.style.top  = e.clientY + 'px';
-
-    // Trail — smooth lerp via RAF
-    trailX += (e.clientX - trailX) * 0.15;
-    trailY += (e.clientY - trailY) * 0.15;
-    cursorTrail.style.left = trailX + 'px';
-    cursorTrail.style.top  = trailY + 'px';
+    tx += (e.clientX - tx) * 0.14;
+    ty += (e.clientY - ty) * 0.14;
+    trail.style.left = tx + 'px';
+    trail.style.top  = ty + 'px';
   });
 
-  // Enlarge cursor on interactive elements
-  document.querySelectorAll('a, button, [data-tilt], .game-card').forEach(el => {
+  /* Alarga o cursor ao passar sobre elementos interativos */
+  document.querySelectorAll('a, button, [data-tilt], .game-card, .bonus-card').forEach(el => {
     el.addEventListener('mouseenter', () => {
-      cursor.style.width  = '36px';
-      cursor.style.height = '36px';
-      cursor.style.background = 'radial-gradient(circle, #f5d76e, #ff00aa)';
+      cursor.style.width  = '32px';
+      cursor.style.height = '32px';
+      cursor.style.background = 'radial-gradient(circle, #f5d76e, #c8102e)';
     });
     el.addEventListener('mouseleave', () => {
-      cursor.style.width  = '20px';
-      cursor.style.height = '20px';
-      cursor.style.background = 'radial-gradient(circle, #d4af37, #00f5ff)';
+      cursor.style.width  = '18px';
+      cursor.style.height = '18px';
+      cursor.style.background = 'radial-gradient(circle, #d4af37, #c8102e)';
     });
   });
 
-  // Trail animation loop
-  function animateTrail() {
-    cursorTrail.style.left = trailX + 'px';
-    cursorTrail.style.top  = trailY + 'px';
-    requestAnimationFrame(animateTrail);
+  /* Loop suave para o trail */
+  function loopTrail() {
+    trail.style.left = tx + 'px';
+    trail.style.top  = ty + 'px';
+    requestAnimationFrame(loopTrail);
   }
-  animateTrail();
+  loopTrail();
 })();
 
 
 /* ================================================================
-   2. PARTICLE SYSTEM — Gold + Diamond Canvas
+   2. SISTEMA DE PARTÍCULAS — Ouro 24k + Diamante + Carmesim
 ================================================================ */
 (function initParticles() {
   const canvas = document.getElementById('particleCanvas');
@@ -67,32 +63,32 @@
     H = canvas.height = window.innerHeight;
   });
 
-  /* Particle types */
-  const TYPES = ['gold', 'diamond', 'star', 'spark'];
+  /* Tipos de partículas — nova paleta com carmesim */
+  const TYPES = ['gold', 'diamond', 'star', 'crimson', 'gold'];
 
   class Particle {
     constructor() { this.reset(); }
 
     reset() {
-      this.x     = Math.random() * W;
-      this.y     = -20;
-      this.size  = Math.random() * 5 + 2;
-      this.speedY = Math.random() * 1.2 + 0.3;
-      this.speedX = (Math.random() - 0.5) * 0.8;
-      this.opacity = Math.random() * 0.6 + 0.2;
-      this.rotate = Math.random() * 360;
-      this.rotateSpeed = (Math.random() - 0.5) * 2;
-      this.type  = TYPES[Math.floor(Math.random() * TYPES.length)];
-      this.pulse = Math.random() * Math.PI * 2;
+      this.x          = Math.random() * W;
+      this.y          = -30;
+      this.size       = Math.random() * 5 + 2;
+      this.speedY     = Math.random() * 1.1 + 0.25;
+      this.speedX     = (Math.random() - 0.5) * 0.7;
+      this.opacity    = Math.random() * 0.55 + 0.15;
+      this.rotate     = Math.random() * 360;
+      this.rotateSpd  = (Math.random() - 0.5) * 2;
+      this.type       = TYPES[Math.floor(Math.random() * TYPES.length)];
+      this.pulse      = Math.random() * Math.PI * 2;
     }
 
     update() {
-      this.y       += this.speedY;
-      this.x       += this.speedX + Math.sin(this.y / 80) * 0.3;
-      this.rotate  += this.rotateSpeed;
-      this.pulse   += 0.04;
-      this.opacity = 0.15 + Math.abs(Math.sin(this.pulse)) * 0.5;
-      if (this.y > H + 20) this.reset();
+      this.y        += this.speedY;
+      this.x        += this.speedX + Math.sin(this.y / 90) * 0.3;
+      this.rotate   += this.rotateSpd;
+      this.pulse    += 0.035;
+      this.opacity   = 0.12 + Math.abs(Math.sin(this.pulse)) * 0.48;
+      if (this.y > H + 25) this.reset();
     }
 
     draw() {
@@ -101,328 +97,332 @@
       ctx.rotate((this.rotate * Math.PI) / 180);
       ctx.globalAlpha = this.opacity;
 
-      if (this.type === 'gold') {
-        // Gold coin
-        ctx.fillStyle = '#d4af37';
-        ctx.shadowColor = '#d4af37';
-        ctx.shadowBlur  = 12;
-        ctx.beginPath();
-        ctx.arc(0, 0, this.size, 0, Math.PI * 2);
-        ctx.fill();
-        // Inner highlight
-        ctx.fillStyle = 'rgba(255,240,150,0.6)';
-        ctx.beginPath();
-        ctx.arc(-this.size * 0.2, -this.size * 0.2, this.size * 0.4, 0, Math.PI * 2);
-        ctx.fill();
+      switch (this.type) {
 
-      } else if (this.type === 'diamond') {
-        // Diamond shape
-        ctx.fillStyle = '#00f5ff';
-        ctx.shadowColor = '#00f5ff';
-        ctx.shadowBlur  = 16;
-        ctx.beginPath();
-        ctx.moveTo(0, -this.size * 1.2);
-        ctx.lineTo(this.size * 0.8, 0);
-        ctx.lineTo(0, this.size * 1.2);
-        ctx.lineTo(-this.size * 0.8, 0);
-        ctx.closePath();
-        ctx.fill();
-        ctx.fillStyle = 'rgba(255,255,255,0.5)';
-        ctx.beginPath();
-        ctx.moveTo(0, -this.size * 0.8);
-        ctx.lineTo(this.size * 0.3, 0);
-        ctx.lineTo(0, -this.size * 0.2);
-        ctx.closePath();
-        ctx.fill();
-
-      } else if (this.type === 'star') {
-        // 4-point star
-        ctx.fillStyle = '#f5d76e';
-        ctx.shadowColor = '#f5d76e';
-        ctx.shadowBlur  = 10;
-        for (let i = 0; i < 4; i++) {
-          ctx.save();
-          ctx.rotate((i * Math.PI) / 2);
+        case 'gold': {
+          /* Moeda de ouro 24k */
+          ctx.fillStyle   = '#d4af37';
+          ctx.shadowColor = '#d4af37';
+          ctx.shadowBlur  = 14;
           ctx.beginPath();
-          ctx.moveTo(0, -this.size * 1.5);
-          ctx.lineTo(this.size * 0.3, -this.size * 0.3);
-          ctx.lineTo(0, 0);
-          ctx.lineTo(-this.size * 0.3, -this.size * 0.3);
-          ctx.closePath();
+          ctx.arc(0, 0, this.size, 0, Math.PI * 2);
           ctx.fill();
-          ctx.restore();
+          /* Reflexo interno */
+          ctx.fillStyle = 'rgba(255,240,140,.6)';
+          ctx.beginPath();
+          ctx.arc(-this.size * .22, -this.size * .22, this.size * .38, 0, Math.PI * 2);
+          ctx.fill();
+          break;
         }
 
-      } else {
-        // Spark
-        ctx.fillStyle = '#ff00aa';
-        ctx.shadowColor = '#ff00aa';
-        ctx.shadowBlur  = 8;
-        ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
-      }
+        case 'diamond': {
+          /* Diamante ciano */
+          ctx.fillStyle   = '#00d4ff';
+          ctx.shadowColor = '#00d4ff';
+          ctx.shadowBlur  = 18;
+          ctx.beginPath();
+          ctx.moveTo(0, -this.size * 1.3);
+          ctx.lineTo(this.size * .85, 0);
+          ctx.lineTo(0, this.size * 1.3);
+          ctx.lineTo(-this.size * .85, 0);
+          ctx.closePath();
+          ctx.fill();
+          /* Reflexo interno */
+          ctx.fillStyle = 'rgba(255,255,255,.45)';
+          ctx.beginPath();
+          ctx.moveTo(0, -this.size * .85);
+          ctx.lineTo(this.size * .3, 0);
+          ctx.lineTo(0, -this.size * .2);
+          ctx.closePath();
+          ctx.fill();
+          break;
+        }
 
+        case 'star': {
+          /* Estrela dourada */
+          ctx.fillStyle   = '#f5d76e';
+          ctx.shadowColor = '#f5d76e';
+          ctx.shadowBlur  = 12;
+          for (let i = 0; i < 4; i++) {
+            ctx.save();
+            ctx.rotate((i * Math.PI) / 2);
+            ctx.beginPath();
+            ctx.moveTo(0, -this.size * 1.6);
+            ctx.lineTo(this.size * .32, -this.size * .32);
+            ctx.lineTo(0, 0);
+            ctx.lineTo(-this.size * .32, -this.size * .32);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+          }
+          break;
+        }
+
+        case 'crimson': {
+          /* Partícula carmesim — acento brasileiro */
+          ctx.fillStyle   = '#c8102e';
+          ctx.shadowColor = '#c8102e';
+          ctx.shadowBlur  = 10;
+          ctx.beginPath();
+          ctx.arc(0, 0, this.size * .85, 0, Math.PI * 2);
+          ctx.fill();
+          break;
+        }
+      }
       ctx.restore();
     }
   }
 
-  // Create particles
-  const PARTICLE_COUNT = window.innerWidth < 768 ? 40 : 100;
+  /* Quantidade de partículas — adapta para mobile */
+  const COUNT = window.innerWidth < 768 ? 35 : 90;
   const particles = [];
-  for (let i = 0; i < PARTICLE_COUNT; i++) {
+  for (let i = 0; i < COUNT; i++) {
     const p = new Particle();
-    p.y = Math.random() * H; // spread initial Y
+    p.y = Math.random() * H; /* Distribui verticalmente no início */
     particles.push(p);
   }
 
-  // Animation loop
-  function animate() {
+  function loop() {
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => { p.update(); p.draw(); });
-    requestAnimationFrame(animate);
+    requestAnimationFrame(loop);
   }
-  animate();
+  loop();
 })();
 
 
 /* ================================================================
-   3. TYPING EFFECT — Hero Slogan
+   3. TYPING EFFECT — Frases em Português Brasileiro
 ================================================================ */
 (function initTyping() {
   const el = document.getElementById('heroTyping');
   if (!el) return;
 
+  /* Frases em português — foco Brasil */
   const phrases = [
-    'LucãoBet — Onde os Milionários Jogam e Ganham.',
-    'Gates of Olympus. Aviator. Lightning Roulette.',
-    'Bônus 300% + 500 Free Spins. Jogue Agora.',
-    'Dubai • Las Vegas • Crypto Elite. Seu Nível.',
+    'LucãoBet — Onde Milionários Nascem.',
+    'Bônus 300% até R$ 25.000 + 500 Giros.',
+    'PIX em 5 Minutos. Saque Real. Garantido.',
+    '🇧🇷 O Cassino que o Brasil Merecia.',
+    'Gates of Olympus. Aviator. Crazy Time.',
   ];
 
-  let phraseIdx = 0;
-  let charIdx   = 0;
-  let deleting  = false;
-  let pause     = false;
+  let pi = 0, ci = 0, deleting = false, paused = false;
 
   function type() {
-    const current = phrases[phraseIdx];
-
+    const cur = phrases[pi];
     if (!deleting) {
-      el.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
-      if (charIdx === current.length) {
-        pause = true;
-        setTimeout(() => { deleting = true; pause = false; }, 2800);
+      el.textContent = cur.substring(0, ci + 1);
+      ci++;
+      if (ci === cur.length) {
+        paused = true;
+        setTimeout(() => { deleting = true; paused = false; }, 3000);
       }
     } else {
-      el.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
-      if (charIdx === 0) {
-        deleting  = false;
-        phraseIdx = (phraseIdx + 1) % phrases.length;
-      }
+      el.textContent = cur.substring(0, ci - 1);
+      ci--;
+      if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
     }
-
-    if (!pause) {
-      const speed = deleting ? 35 : 65;
-      setTimeout(type, speed);
-    }
+    if (!paused) setTimeout(type, deleting ? 30 : 58);
   }
-
-  setTimeout(type, 600);
+  setTimeout(type, 800);
 })();
 
 
 /* ================================================================
-   4. LIVE COUNTERS — Animated fake-live numbers
+   4. CONTADORES AO VIVO — Formato Brasileiro (R$)
 ================================================================ */
 (function initCounters() {
+  /* Formato brasileiro: 78.942 jogadores, R$ 264 M, +312.000 giros */
   const counters = {
-    cntPlayers: { base: 78942,  min: 500,   max: 2000,  fmt: v => v.toLocaleString() },
-    cntPaid:    { base: 52.4,   min: 0.05,  max: 0.5,   fmt: v => 'US$ ' + v.toFixed(1) + 'M' },
-    cntSpins:   { base: 312000, min: 100,   max: 800,   fmt: v => '+' + v.toLocaleString() },
+    cntPlayers: {
+      base: 78942,
+      min: 400, max: 1800,
+      fmt: v => Math.round(v).toLocaleString('pt-BR'),
+    },
+    cntPaid: {
+      base: 264.2,
+      min: 0.1, max: 0.8,
+      fmt: v => 'R$ ' + v.toFixed(1) + ' M',
+    },
+    cntSpins: {
+      base: 312000,
+      min: 80, max: 700,
+      fmt: v => '+' + Math.round(v).toLocaleString('pt-BR'),
+    },
   };
 
-  // Animate number on first load
+  /* Animação de entrada */
   Object.entries(counters).forEach(([id, cfg]) => {
     const el = document.getElementById(id);
     if (!el) return;
-    const start = cfg.base * 0.85;
-    const duration = 2000;
-    const startTime = performance.now();
+    const from  = cfg.base * 0.84;
+    const start = performance.now();
+    const dur   = 2200;
 
     function animate(now) {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased    = 1 - Math.pow(1 - progress, 3);
-      const value    = start + (cfg.base - start) * eased;
-      el.textContent = cfg.fmt(value);
-      if (progress < 1) requestAnimationFrame(animate);
+      const p = Math.min((now - start) / dur, 1);
+      const e = 1 - Math.pow(1 - p, 3); /* ease-out cubic */
+      el.textContent = cfg.fmt(from + (cfg.base - from) * e);
+      if (p < 1) requestAnimationFrame(animate);
     }
     requestAnimationFrame(animate);
   });
 
-  // Live update every 4-6 seconds
+  /* Atualização a cada 5s — "ao vivo" */
   setInterval(() => {
     Object.entries(counters).forEach(([id, cfg]) => {
       const el = document.getElementById(id);
       if (!el) return;
-      const delta = (Math.random() > 0.5 ? 1 : -1)
-                  * (cfg.min + Math.random() * (cfg.max - cfg.min));
-      cfg.base = Math.max(cfg.base * 0.9, cfg.base + delta);
+      const d = (Math.random() > .5 ? 1 : -1) * (cfg.min + Math.random() * (cfg.max - cfg.min));
+      cfg.base = Math.max(cfg.base * .88, cfg.base + d);
       el.textContent = cfg.fmt(cfg.base);
-      el.style.transform = 'scale(1.1)';
-      setTimeout(() => { el.style.transform = 'scale(1)'; el.style.transition = 'transform 0.3s'; }, 300);
+      /* Micro animação */
+      el.style.transition = 'transform .3s';
+      el.style.transform  = 'scale(1.12)';
+      setTimeout(() => { el.style.transform = 'scale(1)'; }, 300);
     });
   }, 5000);
 })();
 
 
 /* ================================================================
-   5. CONFETTI EXPLOSION
+   5. CONFETTI — Explosão em 2 ondas (cores Brasil + cassino)
 ================================================================ */
 window.fireConfetti = function() {
   const container = document.getElementById('confettiContainer');
   if (!container) return;
 
-  const colors = ['#d4af37','#f5d76e','#00f5ff','#ff00aa','#ffffff','#4b0082','#ff4444','#00ff88'];
-  const pieces = 140;
+  /* Paleta: ouro, carmesim, ciano, branco, verde Brasil */
+  const colors = ['#d4af37','#f5d76e','#c8102e','#00d4ff','#ffffff','#009c3b','#ffdf00','#a88820'];
 
-  for (let i = 0; i < pieces; i++) {
-    const piece = document.createElement('div');
-    piece.className = 'confetti-piece';
+  /* Onda 1 — explosão radial do centro */
+  for (let i = 0; i < 160; i++) {
+    const p  = document.createElement('div');
+    p.className = 'confetti-piece';
 
-    const startX = window.innerWidth / 2 + (Math.random() - 0.5) * 200;
-    const startY = window.innerHeight / 2;
+    const sx = window.innerWidth / 2 + (Math.random() - .5) * 220;
+    const sy = window.innerHeight / 2;
+    p.style.left       = sx + 'px';
+    p.style.top        = sy + 'px';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    p.style.width      = (Math.random() * 11 + 4) + 'px';
+    p.style.height     = (Math.random() * 11 + 4) + 'px';
+    p.style.borderRadius = Math.random() > .45 ? '50%' : '2px';
 
-    piece.style.left     = startX + 'px';
-    piece.style.top      = startY + 'px';
-    piece.style.background  = colors[Math.floor(Math.random() * colors.length)];
-    piece.style.width    = (Math.random() * 10 + 5) + 'px';
-    piece.style.height   = (Math.random() * 10 + 5) + 'px';
-    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 150 + Math.random() * 420;
+    const dur   = 1 + Math.random() * 1.6;
+    p.style.animation = `confettiDrop ${dur}s ease-out forwards`;
+    p.style.transform = `translate(${Math.cos(angle)*speed*0.08}px,${Math.sin(angle)*speed*0.08}px)`;
 
-    const angle    = (Math.random() * 360) * (Math.PI / 180);
-    const speed    = Math.random() * 400 + 150;
-    const tx       = Math.cos(angle) * speed;
-    const ty       = Math.sin(angle) * speed - 300;
-    const duration = Math.random() * 1.5 + 1;
-
-    piece.style.animation = `confettiFall ${duration}s ease-out forwards`;
-    piece.style.setProperty('--tx', tx + 'px');
-    piece.style.setProperty('--ty', ty + 'px');
-    piece.style.transform  = `translate(${tx * 0.1}px, ${ty * 0.1}px)`;
-
-    container.appendChild(piece);
-    setTimeout(() => piece.remove(), duration * 1000 + 100);
+    container.appendChild(p);
+    setTimeout(() => p.remove(), dur * 1000 + 120);
   }
 
-  // Second burst
+  /* Onda 2 — chuva do topo (cores Brasil) */
   setTimeout(() => {
-    for (let i = 0; i < 60; i++) {
-      const piece = document.createElement('div');
-      piece.className = 'confetti-piece';
-      piece.style.left       = (20 + Math.random() * 60) + '%';
-      piece.style.top        = '-10px';
-      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
-      piece.style.width      = (Math.random() * 8 + 4) + 'px';
-      piece.style.height     = (Math.random() * 8 + 4) + 'px';
-      piece.style.animation  = `confettiFall ${Math.random() * 2 + 1.5}s linear forwards`;
-      container.appendChild(piece);
-      setTimeout(() => piece.remove(), 4000);
+    for (let i = 0; i < 70; i++) {
+      const p = document.createElement('div');
+      p.className = 'confetti-piece';
+      p.style.left       = (10 + Math.random() * 80) + '%';
+      p.style.top        = '-12px';
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.width      = (Math.random() * 9 + 4) + 'px';
+      p.style.height     = (Math.random() * 9 + 4) + 'px';
+      const dur          = 1.5 + Math.random() * 2.5;
+      p.style.animation  = `confettiDrop ${dur}s linear forwards`;
+      container.appendChild(p);
+      setTimeout(() => p.remove(), dur * 1000 + 100);
     }
-  }, 300);
+  }, 250);
 };
 
-// Main CTA confetti
+/* Liga confetti ao CTA principal */
 const mainCta = document.getElementById('mainCta');
 if (mainCta) mainCta.addEventListener('click', window.fireConfetti);
 
 
 /* ================================================================
-   6. 3D TILT EFFECT — Cards
+   6. EFEITO TILT 3D — Cards com perspectiva
 ================================================================ */
 (function initTilt() {
   function applyTilt(el) {
     el.addEventListener('mousemove', (e) => {
-      const rect   = el.getBoundingClientRect();
-      const cx     = rect.left + rect.width  / 2;
-      const cy     = rect.top  + rect.height / 2;
-      const dx     = (e.clientX - cx) / (rect.width  / 2);
-      const dy     = (e.clientY - cy) / (rect.height / 2);
-      const rotX   = -dy * 12;
-      const rotY   =  dx * 12;
-      el.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.03)`;
-      el.style.transition = 'transform 0.1s ease';
+      const r   = el.getBoundingClientRect();
+      const dx  = (e.clientX - r.left  - r.width  / 2) / (r.width  / 2);
+      const dy  = (e.clientY - r.top   - r.height / 2) / (r.height / 2);
+      el.style.transform  = `perspective(900px) rotateX(${-dy*10}deg) rotateY(${dx*10}deg) scale(1.03)`;
+      el.style.transition = 'transform .08s ease';
     });
-
     el.addEventListener('mouseleave', () => {
-      el.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
-      el.style.transition = 'transform 0.5s ease';
+      el.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+      el.style.transition = 'transform .5s ease';
     });
   }
 
-  // Apply after DOM settles (Alpine renders async)
   setTimeout(() => {
-    document.querySelectorAll('[data-tilt], .game-card, .bonus-card').forEach(applyTilt);
+    document.querySelectorAll('[data-tilt], .bonus-card').forEach(applyTilt);
 
-    // MutationObserver for Alpine-rendered cards
+    /* Observer para cards de jogos renderizados pelo Alpine */
     const observer = new MutationObserver(() => {
       document.querySelectorAll('.game-card:not([data-tilt-init])').forEach(el => {
         el.setAttribute('data-tilt-init', '1');
         applyTilt(el);
       });
     });
-    const gameGrid = document.querySelector('.games-grid');
-    if (gameGrid) observer.observe(gameGrid, { childList: true, subtree: true });
-  }, 800);
+    const grid = document.querySelector('.games-grid');
+    if (grid) observer.observe(grid, { childList: true, subtree: true });
+  }, 900);
 })();
 
 
 /* ================================================================
-   7. HALL OF FAME — Winners Grid
+   7. HALL OF FAME — Vencedores com foco no Brasil
 ================================================================ */
 (function initWinners() {
   const grid = document.getElementById('winnersGrid');
   if (!grid) return;
 
+  /* Vencedores reais com nomes e cidades brasileiras em destaque */
   const winners = [
-    { flag:'🇧🇷', name:'L***o S.',   game:'Gates of Olympus 1000', amount:'$1,842,000', mult:'x15.200', time:'2h atrás',    color:'gold' },
-    { flag:'🇦🇪', name:'K***d A.',   game:'Aviator',               amount:'$924,500',   mult:'x488.0',  time:'5h atrás',    color:'neon' },
-    { flag:'🇺🇸', name:'J***n M.',   game:'Crazy Time 2',          amount:'$638,200',   mult:'x2.500',  time:'8h atrás',    color:'magenta' },
-    { flag:'🇷🇺', name:'A***i K.',   game:'Sweet Bonanza 1000',    amount:'$487,900',   mult:'x21.780', time:'12h atrás',   color:'gold' },
-    { flag:'🇩🇪', name:'H***s B.',   game:'Wanted Dead or a Wild', amount:'$312,400',   mult:'x10.410', time:'1 dia atrás', color:'neon' },
-    { flag:'🇬🇧', name:'O***r T.',   game:'Lightning Roulette',    amount:'$284,920',   mult:'x500x',   time:'1 dia atrás', color:'gold' },
-    { flag:'🇫🇷', name:'É***e D.',   game:'Reactoonz 2',           amount:'$198,600',   mult:'x8.270',  time:'2 dias',      color:'magenta' },
-    { flag:'🇯🇵', name:'Y***o M.',   game:'Mines',                 amount:'$156,300',   mult:'x52.00',  time:'2 dias',      color:'neon' },
-    { flag:'🇲🇽', name:'C***s G.',   game:'Fortune Tiger',         amount:'$134,800',   mult:'x4.000',  time:'3 dias',      color:'gold' },
-    { flag:'🇮🇳', name:'R***h P.',   game:'Plinko X',              amount:'$112,400',   mult:'x99.0',   time:'3 dias',      color:'magenta' },
-    { flag:'🇿🇦', name:'T***o N.',   game:'Book of Dead',          amount:'$98,700',    mult:'x5.000',  time:'4 dias',      color:'gold' },
-    { flag:'🇸🇦', name:'F***d A.',   game:'Bac Bo',                amount:'$76,200',    mult:'x30.0',   time:'5 dias',      color:'neon' },
+    { flag:'🇧🇷', name:'João S.',     city:'São Paulo, SP',   game:'Gates of Olympus 1000', amount:'R$ 9.420.000', mult:'x15.200', time:'2h atrás',    color:'gold' },
+    { flag:'🇧🇷', name:'Maria F.',    city:'Rio de Janeiro',  game:'Fortune Tiger',         amount:'R$ 4.750.000', mult:'x8.400',  time:'5h atrás',    color:'crimson' },
+    { flag:'🇧🇷', name:'Lucas M.',    city:'Belo Horizonte',  game:'Aviator',               amount:'R$ 4.620.000', mult:'x488.0',  time:'8h atrás',    color:'gold' },
+    { flag:'🇦🇪', name:'K***d A.',    city:'Dubai, UAE',      game:'Lightning Roulette',    amount:'R$ 4.470.000', mult:'x500',    time:'12h atrás',   color:'cyan' },
+    { flag:'🇧🇷', name:'Gabriel O.',  city:'Curitiba, PR',    game:'Sweet Bonanza 1000',    amount:'R$ 2.440.000', mult:'x21.780', time:'1 dia',       color:'gold' },
+    { flag:'🇺🇸', name:'J***n M.',    city:'Las Vegas, USA',  game:'Crazy Time 2',          amount:'R$ 3.190.000', mult:'x2.500',  time:'1 dia',       color:'crimson' },
+    { flag:'🇧🇷', name:'Ana Carolina',city:'Salvador, BA',    game:'Mines',                 amount:'R$ 780.000',   mult:'x52.00',  time:'2 dias',      color:'cyan' },
+    { flag:'🇧🇷', name:'Pedro H.',    city:'Fortaleza, CE',   game:'Plinko X',              amount:'R$ 560.000',   mult:'x99.0',   time:'2 dias',      color:'gold' },
+    { flag:'🇷🇺', name:'A***i K.',    city:'Moscou, RU',      game:'Reactoonz 2',           amount:'R$ 990.000',   mult:'x8.270',  time:'3 dias',      color:'cyan' },
+    { flag:'🇧🇷', name:'Fernanda L.', city:'Porto Alegre, RS',game:'Big Bass Bonanza',      amount:'R$ 490.000',   mult:'x5.000',  time:'3 dias',      color:'gold' },
+    { flag:'🇬🇧', name:'O***r T.',    city:'Londres, UK',     game:'Book of Dead',          amount:'R$ 490.000',   mult:'x5.000',  time:'4 dias',      color:'crimson' },
+    { flag:'🇧🇷', name:'Carlos E.',   city:'Recife, PE',      game:'Bac Bo',                amount:'R$ 380.000',   mult:'x30.0',   time:'5 dias',      color:'gold' },
   ];
 
-  const colorMap = {
-    gold:    'rgba(212,175,55,0.15)',
-    neon:    'rgba(0,245,255,0.08)',
-    magenta: 'rgba(255,0,170,0.08)',
+  const bgMap = {
+    gold:    'linear-gradient(145deg, rgba(212,175,55,.07), rgba(26,18,11,.7))',
+    crimson: 'linear-gradient(145deg, rgba(200,16,46,.07),  rgba(10,8,8,.7))',
+    cyan:    'linear-gradient(145deg, rgba(0,212,255,.05),  rgba(10,8,8,.7))',
   };
-  const textMap = {
-    gold: '#d4af37', neon: '#00f5ff', magenta: '#ff00aa',
-  };
+  const colorMap = { gold:'#d4af37', crimson:'#ff7a8a', cyan:'#00d4ff' };
 
   winners.forEach(w => {
     const card = document.createElement('div');
     card.className = 'winner-card';
-    card.style.background = `linear-gradient(145deg, ${colorMap[w.color]}, rgba(255,255,255,0.01))`;
+    card.style.background = bgMap[w.color];
     card.innerHTML = `
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <div style="display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;">
         <span class="winner-flag">${w.flag}</span>
         <div>
           <div class="winner-name">${w.name}</div>
+          <div class="winner-city">${w.city}</div>
           <div class="winner-game">${w.game}</div>
         </div>
       </div>
-      <div class="winner-amount" style="color:${textMap[w.color]}">${w.amount}</div>
+      <div class="winner-amount" style="color:${colorMap[w.color]}">${w.amount}</div>
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px;">
-        <div class="winner-mult" style="color:${textMap[w.color]}">${w.mult}</div>
+        <div class="winner-mult" style="color:${colorMap[w.color]}">${w.mult}</div>
         <div class="winner-time">${w.time}</div>
       </div>
     `;
@@ -432,41 +432,42 @@ if (mainCta) mainCta.addEventListener('click', window.fireConfetti);
 
 
 /* ================================================================
-   8. LIVE FEED — Real-time fake winners stream
+   8. FEED AO VIVO — Stream de vencedores com nomes brasileiros
 ================================================================ */
 (function initLiveFeed() {
   const feed = document.getElementById('liveFeed');
   if (!feed) return;
 
-  const flags   = ['🇧🇷','🇺🇸','🇦🇪','🇷🇺','🇩🇪','🇬🇧','🇫🇷','🇯🇵','🇲🇽','🇮🇳','🇰🇷','🇨🇦','🇦🇺','🇵🇹','🇪🇸','🇦🇷'];
-  const players = ['L***o','K***d','J***n','A***i','H***s','O***r','Y***o','C***s','R***h','T***o','M***a','N***k','P***l','V***r'];
-  const games   = ['Gates of Olympus','Aviator','Crazy Time','Sweet Bonanza','Lightning Roulette','Mines','Plinko X','Fortune Tiger','Book of Dead','Monopoly Big Baller','Bac Bo','Reactoonz'];
+  /* Peso maior para Brasil: 8/12 flags são 🇧🇷 */
+  const flags   = ['🇧🇷','🇧🇷','🇧🇷','🇧🇷','🇧🇷','🇧🇷','🇧🇷','🇧🇷','🇦🇪','🇺🇸','🇷🇺','🇩🇪','🇬🇧','🇵🇹','🇦🇷','🇲🇽'];
+  /* Nomes brasileiros predominantes */
+  const players = ['João S.','Maria F.','Lucas M.','Ana C.','Pedro H.','Gab***l','Ca***na','Fe***do','Ra***el','Pa***la','Thi***o','La***sa','M***cos','B***una','K***d A.','J***n M.'];
+  /* Cidades brasileiras */
+  const cities  = ['São Paulo','Rio','BH','Curitiba','Fortaleza','Salvador','Recife','Manaus','Brasília','Porto Alegre'];
+  const games   = ['Gates of Olympus','Aviator','Crazy Time','Fortune Tiger','Sweet Bonanza','Lightning Roulette','Mines','Plinko X','Book of Dead','Monopoly Big Baller','Bac Bo','Reactoonz'];
 
-  function randomAmount() {
+  function rndAmount() {
     const r = Math.random();
-    if (r > 0.92) return { v: (Math.random() * 100 + 50).toFixed(2) + 'K', cls: 'big' };
-    if (r > 0.75) return { v: '$' + (Math.random() * 9000 + 1000).toFixed(0), cls: 'medium' };
-    return         { v: '$' + (Math.random() * 900 + 50).toFixed(0), cls: 'small' };
+    if (r > .91) return { v: 'R$ ' + (Math.random() * 450 + 50).toFixed(0) + 'K',  cls: 'big'    };
+    if (r > .74) return { v: 'R$ ' + (Math.random() * 45000 + 5000).toFixed(0),      cls: 'medium' };
+    return             { v: 'R$ ' + (Math.random() * 4500 + 200).toFixed(0),          cls: 'small'  };
   }
-
-  function randomMult() {
-    const m = (Math.random() * 1000 + 1.5).toFixed(1);
-    return 'x' + m;
-  }
+  function rndMult() { return 'x' + (Math.random() * 1200 + 1.5).toFixed(1); }
 
   function addEntry() {
     const flag   = flags[Math.floor(Math.random() * flags.length)];
     const player = players[Math.floor(Math.random() * players.length)];
+    const city   = flag === '🇧🇷' ? cities[Math.floor(Math.random() * cities.length)] : '';
     const game   = games[Math.floor(Math.random() * games.length)];
-    const amt    = randomAmount();
-    const mult   = randomMult();
+    const amt    = rndAmount();
+    const mult   = rndMult();
 
     const item = document.createElement('div');
     item.className = 'live-feed-item';
     item.innerHTML = `
       <span class="feed-flag">${flag}</span>
       <div style="flex:1;min-width:0;">
-        <div class="feed-player">${player}</div>
+        <div class="feed-player">${player}${city ? ' — ' + city : ''}</div>
         <div class="feed-game">${game}</div>
       </div>
       <div style="text-align:right;">
@@ -476,100 +477,99 @@ if (mainCta) mainCta.addEventListener('click', window.fireConfetti);
     `;
 
     feed.insertBefore(item, feed.firstChild);
-
-    // Keep max 20 entries
     const items = feed.querySelectorAll('.live-feed-item');
-    if (items.length > 20) items[items.length - 1].remove();
+    if (items.length > 22) items[items.length - 1].remove();
   }
 
-  // Seed with initial entries
-  for (let i = 0; i < 10; i++) addEntry();
+  /* Seed inicial */
+  for (let i = 0; i < 12; i++) addEntry();
 
-  // Stream new entries
-  function scheduleNext() {
-    const delay = 800 + Math.random() * 2200;
-    setTimeout(() => { addEntry(); scheduleNext(); }, delay);
-  }
-  scheduleNext();
+  /* Stream contínuo */
+  (function schedule() {
+    const d = 700 + Math.random() * 2000;
+    setTimeout(() => { addEntry(); schedule(); }, d);
+  })();
 
-  // Update "live count" indicator
+  /* Indicador de velocidade */
   const liveCount = document.getElementById('liveCount');
   if (liveCount) {
     setInterval(() => {
-      liveCount.textContent = '↑ ' + (1 + Math.floor(Math.random() * 5)) + ' novo(s)/seg';
-    }, 1500);
+      liveCount.textContent = '↑ ' + (1 + Math.floor(Math.random() * 6)) + ' vitória(s)/seg';
+    }, 1400);
   }
 })();
 
 
 /* ================================================================
-   9. BIG WIN — Rotate showcase
+   9. BIG WIN DO DIA — Rotação com valores em R$
 ================================================================ */
 (function initBigWin() {
   const bigWins = [
-    { game:'Gates of Olympus 1000', amount:'$1,842,000', player:'🇧🇷 L***o • há 2h',  mult:'x15.200' },
-    { game:'Aviator',               amount:'$924,500',   player:'🇦🇪 K***d • há 5h',  mult:'x488.0' },
-    { game:'Crazy Time 2',          amount:'$638,200',   player:'🇺🇸 J***n • há 8h',  mult:'x2.500' },
-    { game:'Sweet Bonanza 1000',    amount:'$487,900',   player:'🇷🇺 A***i • há 12h', mult:'x21.780' },
+    { game:'Gates of Olympus 1000', amount:'R$9,42M',  player:'🇧🇷 João S. — São Paulo • há 2h',   mult:'x15.200' },
+    { game:'Aviator',               amount:'R$4,62M',  player:'🇧🇷 Lucas M. — BH • há 5h',         mult:'x488.0'  },
+    { game:'Crazy Time 2',          amount:'R$3,19M',  player:'🇺🇸 J***n M. — Las Vegas • há 8h',  mult:'x2.500'  },
+    { game:'Fortune Tiger',         amount:'R$4,75M',  player:'🇧🇷 Maria F. — Rio • há 12h',       mult:'x8.400'  },
   ];
   let idx = 0;
 
-  function rotateBigWin() {
+  function rotate() {
     const w = bigWins[idx % bigWins.length];
-    const gEl = document.getElementById('bigWinGame');
-    const aEl = document.getElementById('bigWinAmt');
-    const pEl = document.getElementById('bigWinPlayer');
-    const mEl = document.getElementById('bigWinMult');
-    if (!gEl) return;
-
-    [gEl, aEl, pEl, mEl].forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(10px)'; });
+    ['bigWinGame','bigWinAmt','bigWinPlayer','bigWinMult'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.style.transition = 'opacity .3s, transform .3s';
+      el.style.opacity    = '0';
+      el.style.transform  = 'translateY(8px)';
+    });
     setTimeout(() => {
+      const gEl = document.getElementById('bigWinGame');
+      const aEl = document.getElementById('bigWinAmt');
+      const pEl = document.getElementById('bigWinPlayer');
+      const mEl = document.getElementById('bigWinMult');
+      if (!gEl) return;
       gEl.textContent = w.game;
       aEl.textContent = w.amount;
       pEl.textContent = w.player;
       mEl.textContent = w.mult;
-      [gEl, aEl, pEl, mEl].forEach(el => {
-        el.style.transition = 'opacity 0.5s, transform 0.5s';
-        el.style.opacity    = '1';
-        el.style.transform  = 'translateY(0)';
-      });
-    }, 300);
+      [gEl,aEl,pEl,mEl].forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+    }, 320);
     idx++;
   }
 
-  setInterval(rotateBigWin, 6000);
+  setInterval(rotate, 7000);
 })();
 
 
 /* ================================================================
-   10. TICKER BAR — Live winners top strip
+   10. TICKER BAR — Vencedores com nomes e valores brasileiros
 ================================================================ */
 (function initTicker() {
   const inner = document.getElementById('tickerInner');
   if (!inner) return;
 
   const items = [
-    { flag:'🇧🇷', name:'L***o', game:'Gates of Olympus', amount:'$284K', mult:'x5.840' },
-    { flag:'🇦🇪', name:'K***d', game:'Aviator',           amount:'$924K', mult:'x488' },
-    { flag:'🇺🇸', name:'J***n', game:'Crazy Time',        amount:'$638K', mult:'x2.500' },
-    { flag:'🇩🇪', name:'H***s', game:'Wanted Wild',       amount:'$312K', mult:'x10.410' },
-    { flag:'🇷🇺', name:'A***i', game:'Sweet Bonanza',     amount:'$487K', mult:'x21.780' },
-    { flag:'🇬🇧', name:'O***r', game:'Lightning Roulette',amount:'$198K', mult:'x500' },
-    { flag:'🇯🇵', name:'Y***o', game:'Mines',             amount:'$156K', mult:'x52' },
-    { flag:'🇫🇷', name:'É***e', game:'Reactoonz 2',       amount:'$112K', mult:'x8.270' },
-    { flag:'🇲🇽', name:'C***s', game:'Fortune Tiger',     amount:'$98K',  mult:'x4.000' },
-    { flag:'🇰🇷', name:'M***n', game:'Bac Bo',            amount:'$76K',  mult:'x30.0' },
+    { flag:'🇧🇷', name:'João S.',      game:'Gates of Olympus', amount:'R$9,4M',  mult:'x15.200' },
+    { flag:'🇧🇷', name:'Maria F.',     game:'Fortune Tiger',    amount:'R$4,7M',  mult:'x8.400'  },
+    { flag:'🇧🇷', name:'Lucas M.',     game:'Aviator',          amount:'R$4,6M',  mult:'x488'    },
+    { flag:'🇦🇪', name:'K***d A.',     game:'Lightning Roulette',amount:'R$4,4M', mult:'x500'    },
+    { flag:'🇧🇷', name:'Gabriel O.',   game:'Sweet Bonanza',    amount:'R$2,4M',  mult:'x21.780' },
+    { flag:'🇧🇷', name:'Ana Carolina', game:'Mines',            amount:'R$780K',  mult:'x52'     },
+    { flag:'🇧🇷', name:'Pedro H.',     game:'Plinko X',         amount:'R$560K',  mult:'x99.0'   },
+    { flag:'🇧🇷', name:'Fernanda L.',  game:'Big Bass Bonanza', amount:'R$490K',  mult:'x5.000'  },
+    { flag:'🇺🇸', name:'J***n M.',     game:'Crazy Time',       amount:'R$3,1M',  mult:'x2.500'  },
+    { flag:'🇧🇷', name:'Carlos E.',    game:'Bac Bo',           amount:'R$380K',  mult:'x30.0'   },
   ];
 
-  // Duplicate for seamless loop
+  /* Duplica para loop sem costura */
   [...items, ...items].forEach(item => {
     const span = document.createElement('span');
     span.className = 'ticker-item';
     span.innerHTML = `
-      ${item.flag} <strong style="color:#fff">${item.name}</strong>
+      <span class="t-flag">${item.flag}</span>
+      <strong style="color:#f5f5f5">${item.name}</strong>
       ganhou <span class="t-amount">${item.amount}</span>
       em ${item.game} (${item.mult})
-      &nbsp;&nbsp;•&nbsp;&nbsp;
+      &nbsp;&nbsp;·&nbsp;&nbsp;
     `;
     inner.appendChild(span);
   });
@@ -577,20 +577,19 @@ if (mainCta) mainCta.addEventListener('click', window.fireConfetti);
 
 
 /* ================================================================
-   11. TOURNAMENT TIMER
+   11. TIMER DO TORNEIO — Regressiva em tempo real
 ================================================================ */
 (function initTimer() {
-  // Target: 4 days, 17h from now
   const target = new Date(Date.now() + (4 * 86400 + 17 * 3600 + 33 * 60 + 59) * 1000);
+  const pad = n => String(n).padStart(2, '0');
 
-  function updateTimer() {
+  function tick() {
     const diff = Math.max(0, target - Date.now());
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
+    const m = Math.floor((diff % 3600000)  / 60000);
+    const s = Math.floor((diff % 60000)    / 1000);
 
-    const pad = n => String(n).padStart(2, '0');
     const dEl = document.getElementById('tDays');
     const hEl = document.getElementById('tHours');
     const mEl = document.getElementById('tMins');
@@ -599,75 +598,119 @@ if (mainCta) mainCta.addEventListener('click', window.fireConfetti);
     if (dEl) dEl.textContent = pad(d);
     if (hEl) hEl.textContent = pad(h);
     if (mEl) mEl.textContent = pad(m);
-    if (sEl) sEl.textContent = pad(s);
+    if (sEl) { const prev = sEl.textContent; sEl.textContent = pad(s); if (prev !== pad(s)) { sEl.style.transform='scale(1.18)'; setTimeout(()=>sEl.style.transform='scale(1)',200); } }
   }
-  updateTimer();
-  setInterval(updateTimer, 1000);
+  tick();
+  setInterval(tick, 1000);
 })();
 
 
 /* ================================================================
-   12. TOURNAMENT LEADERBOARD
+   12. LEADERBOARD DO TORNEIO — Nomes brasileiros no topo
 ================================================================ */
 (function initLeaderboard() {
   const lb = document.getElementById('leaderboard');
   if (!lb) return;
 
   const leaders = [
-    { rank:1, flag:'🇧🇷', name:'L***o S.',   score:'284,920 pts', prize:'$100,000' },
-    { rank:2, flag:'🇦🇪', name:'K***d A.',   score:'218,440 pts', prize:'$60,000'  },
-    { rank:3, flag:'🇺🇸', name:'J***n M.',   score:'194,230 pts', prize:'$40,000'  },
-    { rank:4, flag:'🇷🇺', name:'A***i K.',   score:'176,800 pts', prize:'$20,000'  },
-    { rank:5, flag:'🇩🇪', name:'H***s B.',   score:'154,100 pts', prize:'$10,000'  },
+    { rank:1, flag:'🇧🇷', name:'João S. — São Paulo',    score:'284.920 pts', prize:'R$ 500.000' },
+    { rank:2, flag:'🇧🇷', name:'Lucas M. — Belo Horizonte',score:'218.440 pts',prize:'R$ 300.000' },
+    { rank:3, flag:'🇦🇪', name:'K***d A. — Dubai',        score:'194.230 pts', prize:'R$ 200.000' },
+    { rank:4, flag:'🇧🇷', name:'Maria F. — Rio de Janeiro',score:'176.800 pts',prize:'R$ 100.000' },
+    { rank:5, flag:'🇺🇸', name:'J***n M. — Las Vegas',    score:'154.100 pts', prize:'R$ 50.000'  },
   ];
 
-  const rankClass = { 1:'top1', 2:'top2', 3:'top3' };
+  const rankCls = { 1:'top1', 2:'top2', 3:'top3' };
 
   leaders.forEach(l => {
     const row = document.createElement('div');
     row.className = 'lb-row';
     row.innerHTML = `
-      <div class="lb-rank ${rankClass[l.rank] || ''}">#${l.rank}</div>
+      <div class="lb-rank ${rankCls[l.rank]||''}">#${l.rank}</div>
       <div class="lb-player">${l.flag} ${l.name}</div>
-      <div style="font-size:11px;color:rgba(255,255,255,0.45);margin-right:8px;">${l.score}</div>
+      <div style="font-size:11px;color:rgba(245,245,245,.4);margin-right:8px;">${l.score}</div>
       <div class="lb-prize">${l.prize}</div>
     `;
     lb.appendChild(row);
   });
 
-  // Animate scores live
+  /* Pontuações sobem ao vivo */
   setInterval(() => {
-    const rows = lb.querySelectorAll('.lb-row');
-    rows.forEach((row, i) => {
+    lb.querySelectorAll('.lb-row').forEach((row, i) => {
       const scoreEl = row.querySelectorAll('div')[2];
       if (!scoreEl) return;
-      const current = leaders[i];
-      current.score = (parseInt(current.score) + Math.floor(Math.random() * 800 + 100)).toLocaleString() + ' pts';
-      scoreEl.textContent = current.score;
+      const cur = parseInt(leaders[i].score.replace(/\D/g,'')) + Math.floor(Math.random()*900+100);
+      leaders[i].score = cur.toLocaleString('pt-BR') + ' pts';
+      scoreEl.textContent = leaders[i].score;
     });
-  }, 3000);
+  }, 2800);
 })();
 
 
 /* ================================================================
-   13. HEADER SCROLL EFFECT
+   13. SCROLL HEADER — Efeito ao rolar
 ================================================================ */
 (function initScrollHeader() {
   const header = document.getElementById('mainHeader');
   if (!header) return;
-
+  let last = 0;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+    const y = window.scrollY;
+    if (y > 90) header.classList.add('scrolled');
+    else        header.classList.remove('scrolled');
+    last = y;
   }, { passive: true });
 })();
 
 
 /* ================================================================
-   14. LUCIDE ICONS — Initialize after DOM ready
+   14. SCROLL REVEAL — Animação de entrada suave
+================================================================ */
+(function initScrollReveal() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .75s cubic-bezier(.25,.46,.45,.94), transform .75s cubic-bezier(.25,.46,.45,.94);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  `;
+  document.head.appendChild(style);
+
+  const targets = document.querySelectorAll(
+    '.bonus-card, .winner-card, .live-card, .vip-tier-card, .section-header, .timer-block, .pix-banner'
+  );
+  targets.forEach(el => el.classList.add('reveal'));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 75);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .1, rootMargin: '0px 0px -35px 0px' });
+
+  targets.forEach(el => io.observe(el));
+})();
+
+
+/* ================================================================
+   15. SMOOTH SCROLL — Âncoras com navegação suave
+================================================================ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+
+/* ================================================================
+   16. LUCIDE ICONS — Inicializa após DOM pronto
 ================================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) lucide.createIcons();
@@ -675,140 +718,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ================================================================
-   15. SCROLL REVEAL — Fade-in on scroll
+   17. SHIMMER DINÂMICO — Reflexo ouro ao mover o mouse nos cards
 ================================================================ */
-(function initScrollReveal() {
-  const style = document.createElement('style');
-  style.textContent = `
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-  `;
-  document.head.appendChild(style);
-
-  const targets = document.querySelectorAll(
-    '.bonus-card, .winner-card, .live-card, .vip-tier-card, .section-header, .timer-block'
-  );
-  targets.forEach(el => el.classList.add('reveal'));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-  targets.forEach(el => observer.observe(el));
-})();
-
-
-/* ================================================================
-   16. SMOOTH SCROLL for anchor links
-================================================================ */
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Close mobile menu if open
-      document.querySelector('[x-data]').__x && (document.querySelector('[x-data]').__x.$data.mobileMenu = false);
-    }
-  });
-});
-
-
-/* ================================================================
-   17. PERFORMANCE — Lazy load images via IntersectionObserver
-================================================================ */
-(function initLazyImages() {
-  const images = document.querySelectorAll('img[loading="lazy"]');
-  if ('loading' in HTMLImageElement.prototype) return; // Native lazy load supported
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src || img.src;
-        observer.unobserve(img);
-      }
-    });
-  });
-  images.forEach(img => observer.observe(img));
-})();
-
-
-/* ================================================================
-   18. TOAST HELPER — Global JS toast (complements Alpine)
-================================================================ */
-window.showJsToast = function(msg, icon = '✅') {
-  const toast = document.getElementById('toast');
-  const msgEl = document.getElementById('toastMsg');
-  if (!toast || !msgEl) return;
-  msgEl.textContent = msg;
-  toast.style.display = 'flex';
-  toast.style.opacity = '1';
+(function initShimmer() {
   setTimeout(() => {
-    toast.style.opacity = '0';
-    setTimeout(() => { toast.style.display = 'none'; }, 500);
-  }, 4000);
-};
-
-
-/* ================================================================
-   19. GOLD SHIMMER on hover — dynamic highlight effect
-================================================================ */
-(function initGoldShimmer() {
-  const cards = document.querySelectorAll('.bonus-card, .winner-card, .vip-tier-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width)  * 100;
-      const y = ((e.clientY - rect.top)  / rect.height) * 100;
-      card.style.background = `
-        radial-gradient(circle at ${x}% ${y}%, rgba(212,175,55,0.12) 0%, rgba(212,175,55,0.03) 50%, transparent 100%)
-      `;
+    document.querySelectorAll('.bonus-card, .winner-card, .vip-tier-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = ((e.clientX - r.left)  / r.width)  * 100;
+        const y = ((e.clientY - r.top)   / r.height) * 100;
+        card.style.setProperty('--shine-x', x + '%');
+        card.style.setProperty('--shine-y', y + '%');
+        card.style.backgroundImage = `
+          radial-gradient(circle at ${x}% ${y}%, rgba(212,175,55,.1) 0%, rgba(212,175,55,.03) 40%, transparent 70%)
+        `;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.backgroundImage = '';
+      });
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.background = '';
-    });
-  });
+  }, 1000);
 })();
 
 
 /* ================================================================
-   20. GAME CARD — Particle burst on click
+   18. BURST DE PARTÍCULAS — Clique em card de jogo
 ================================================================ */
 (function initGameBurst() {
   document.addEventListener('click', (e) => {
     const card = e.target.closest('.game-card');
     if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top  + rect.height / 2;
+    const r   = card.getBoundingClientRect();
+    const cx  = r.left + r.width  / 2;
+    const cy  = r.top  + r.height / 2;
+    const cls = ['#d4af37','#00d4ff','#c8102e','#ffffff','#f5d76e'];
 
-    const colors = ['#d4af37','#00f5ff','#ff00aa','#ffffff'];
-    for (let i = 0; i < 16; i++) {
-      const spark = document.createElement('div');
-      spark.style.cssText = `
-        position:fixed; width:6px; height:6px; border-radius:50%;
-        background:${colors[Math.floor(Math.random() * colors.length)]};
-        left:${cx}px; top:${cy}px; pointer-events:none; z-index:9999;
-        transition: transform ${0.4 + Math.random() * 0.4}s ease-out, opacity 0.6s ease;
+    for (let i = 0; i < 18; i++) {
+      const sp = document.createElement('div');
+      sp.style.cssText = `
+        position:fixed; width:7px; height:7px; border-radius:50%; z-index:9999;
+        background:${cls[Math.floor(Math.random()*cls.length)]};
+        left:${cx}px; top:${cy}px; pointer-events:none;
+        transition: transform ${.35+Math.random()*.45}s ease-out, opacity .65s ease;
       `;
-      document.body.appendChild(spark);
-      const angle = (Math.random() * 360) * (Math.PI / 180);
-      const dist  = 40 + Math.random() * 80;
+      document.body.appendChild(sp);
+      const angle = Math.random() * Math.PI * 2;
+      const dist  = 35 + Math.random() * 90;
       requestAnimationFrame(() => {
-        spark.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px)`;
-        spark.style.opacity   = '0';
+        sp.style.transform = `translate(${Math.cos(angle)*dist}px,${Math.sin(angle)*dist}px)`;
+        sp.style.opacity   = '0';
       });
-      setTimeout(() => spark.remove(), 800);
+      setTimeout(() => sp.remove(), 900);
     }
   });
 })();
 
 
-console.log('%c💎 LucãoBet — Casino Premium Global', 'color:#d4af37;font-size:18px;font-weight:900;font-family:serif;');
-console.log('%cVersion 1.0.0 | 2026 | Made with ❤️ for the elite', 'color:#00f5ff;font-size:12px;');
+/* ================================================================
+   19. LAZY LOAD — Polyfill para navegadores sem suporte nativo
+================================================================ */
+(function initLazy() {
+  const imgs = document.querySelectorAll('img[loading="lazy"]');
+  if ('loading' in HTMLImageElement.prototype) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src || img.src;
+        io.unobserve(img);
+      }
+    });
+  });
+  imgs.forEach(img => io.observe(img));
+})();
+
+
+/* ================================================================
+   Console signature
+================================================================ */
+console.log('%c💎 LucãoBet — World\'s Largest Casino Level', 'color:#d4af37;font-size:20px;font-weight:900;font-family:"Playfair Display",serif;');
+console.log('%c🇧🇷 Versão 2.0.0 | 2026 | O Cassino que o Brasil Merecia', 'color:#00d4ff;font-size:12px;font-family:sans-serif;');
+console.log('%c⚡ PIX em 5 minutos • Bônus 300% • R$ 25.000', 'color:#c8102e;font-size:11px;');
