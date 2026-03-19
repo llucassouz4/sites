@@ -69,6 +69,7 @@ s { color: #999; }
   position: relative;
   display: inline-block;
   margin: 0 auto 20px;
+  width: 70vw;
 }
 .product-box img {
   width: 100%;
