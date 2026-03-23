@@ -12,7 +12,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <title>LucãoBet 🦅 — Apostas Esportivas & Jogos Online | Bônus R$25.000</title>
+  <title>LucãoBet 🦅 — Apostas Esportivas & Jogos Online | Bônus R$500</title>
   <meta name="description" content="LucãoBet: Apostas esportivas, cassino ao vivo, slots e crash. Bônus 70% até R$500 + 10 Giros. PIX em 5 minutos. O cassino mundial com sede no Brasil." />
   <meta name="keywords" content="lucaobet, apostas esportivas, cassino online brasil, pix casino, slots, aviator, fortune tiger, crash, bônus cassino 2026" />
 
@@ -681,7 +681,7 @@
       </div>
 
       <h2 class="modal-title font-bebas">Junte-se a <span class="gold-grad">2 Milhões de Brasileiros</span></h2>
-      <p class="modal-sub">Bônus 300% + R$25.000 + 500 Giros Grátis via PIX</p>
+      <p class="modal-sub">Bônus 300% + R$500 + 20 Giros Grátis via PIX</p>
 
       <form @submit.prevent="registerSubmit()" class="modal-form">
         <input type="text"     placeholder="Nome de usuário"       class="m-input" x-model="regForm.username" required />
@@ -854,7 +854,7 @@
           const msgs = { PIX:'⚡ PIX ativado! Saque em 5 min garantido.',BTC:'₿ Bitcoin conectado.',ETH:'Ξ Ethereum conectado.',USDT:'₮ Tether conectado.',SOL:'◎ Solana conectado.',CARD:'💳 Cartão adicionado.',TED:'🏦 TED configurado.' };
           this.showToast(msgs[m] || '✅ ' + m + ' conectado!');
         },
-        registerSubmit() { this.openRegister=false; window.fireConfetti&&window.fireConfetti(); this.showToast('🎉 Conta criada! Bônus 300% até R$25.000 ativado!'); },
+        registerSubmit() { this.openRegister=false; window.fireConfetti&&window.fireConfetti(); this.showToast('🎉 Conta criada! Bônus 300% até R$5.000 ativado!'); },
         loginSubmit()    { this.openLogin=false;    this.showToast('✅ Login realizado. Bem-vindo de volta!'); },
         vipSubmit()      { this.openVip=false;      this.showToast('👑 Candidatura VIP recebida! WhatsApp em até 2h.'); },
         showToast(msg)   { this.toastMessage=msg; this.toastVisible=true; setTimeout(()=>{ this.toastVisible=false; },5000); },
