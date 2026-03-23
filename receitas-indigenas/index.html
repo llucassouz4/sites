@@ -6,6 +6,18 @@
   <meta name="description" content="+880 receitas medicinais ancestrais indígenas. Sabedoria transmitida por gerações para apoiar o equilíbrio natural do corpo. Por apenas R$ 9,90.">
   <title>+880 Receitas Ancestrais Indígenas — Sabedoria Natural por Apenas R$ 9,90</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+</style>
 </head>
 <body>
 
@@ -341,5 +353,28 @@
   </div>
 
   <script src="js/script.js"></script>
+  <script>
+document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('dragstart', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('selectstart', function(e) {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (
+    e.key === 'F12' ||
+    (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+    (e.ctrlKey && e.key.toLowerCase() === 'u')
+  ) {
+    e.preventDefault();
+  }
+});
+</script>
 </body>
 </html>
